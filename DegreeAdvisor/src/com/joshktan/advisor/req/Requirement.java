@@ -1,4 +1,4 @@
-package com.joshktan.advisor.model.req;
+package com.joshktan.advisor.req;
 
 /**
  *

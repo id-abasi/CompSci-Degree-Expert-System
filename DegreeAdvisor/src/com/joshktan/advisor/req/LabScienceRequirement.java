@@ -1,10 +1,10 @@
-package com.joshktan.advisor.model.req;
+package com.joshktan.advisor.req;
 
 /**
  *
  * @author Josh Tan
  */
-public class DeptRequirement implements Requirement {
+public class LabScienceRequirement implements Requirement {
 
     @Override
     public RequirementStatus getStatus() {

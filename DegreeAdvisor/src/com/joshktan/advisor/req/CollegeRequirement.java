@@ -1,10 +1,10 @@
-package com.joshktan.advisor.model.req;
+package com.joshktan.advisor.req;
 
 /**
  *
  * @author Josh Tan
  */
-public class ElectiveRequirement implements Requirement {
+public class CollegeRequirement implements Requirement {
 
     @Override
     public RequirementStatus getStatus() {

@@ -1,4 +1,4 @@
-package com.joshktan.advisor.data;
+package com.joshktan.advisor.model;
 
 /**
  *
