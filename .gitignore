@@ -3,3 +3,6 @@
 /PricingEngine/build/
 /DegreeAdvisor/nbproject/private/
 /DegreeAdvisor/build/
+
+# emacs
+*~

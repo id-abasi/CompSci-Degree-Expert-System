@@ -1,4 +1,4 @@
-package com.joshktan.advisor.model.record;
+package com.joshktan.advisor;
 
 /**
  *
@@ -6,8 +6,8 @@ package com.joshktan.advisor.model.record;
  */
 public class Course {
     
-    private String dept;
-    private int num;
+    private String courseId;
+    
     private String title;
     private int credits;
     private Grade grade;
@@ -28,6 +28,7 @@ public class Course {
         NR,
         WF,
         WP,
-        W
+        W,
+        NONE
     }
 }

@@ -1,4 +1,4 @@
-package com.joshktan.advisor.model.record;
+package com.joshktan.advisor;
 
 import java.util.List;
 
