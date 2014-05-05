@@ -1,10 +1,10 @@
-package com.joshktan.advisor.model.req;
+package com.joshktan.advisor.req;
 
 /**
  *
  * @author Josh Tan
  */
-public class GenEdRequirement implements Requirement {
+public class RelatedRequirement implements Requirement {
 
     @Override
     public RequirementStatus getStatus() {
