@@ -16,11 +16,19 @@
 ;; there will be just one Order, its OrderItems, and its Customer in 
 ;; working memory, along with all the CatalogItems.
 
-(defrule total-credit-req
-    "Advise to take more credits if total credit amount is less 10."
-    ?r <- (Record {totalCredits < 10})
+(defrule test-match-all
+    "Just match everything."
+    (Record (totalCredits ?t))
     =>
-    (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " r.totalCredits ", but need 10.") "ISSUE")))
+    (add (new Advice "TotalCreditsRequirement" "Test summary" "Test details." "WARNING")))
+
+(defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
+
+(defrule total-credit-req
+    "Advise to take more credits if total credit amount is less than the required amount."
+    ?r <- (Record {totalCredits < ?*total-credit-req*})
+    =>
+    (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
 
 ;; (defrule 10%-volume-discount
 ;;     "Give a 10% discount to everybody who spends more than $100."

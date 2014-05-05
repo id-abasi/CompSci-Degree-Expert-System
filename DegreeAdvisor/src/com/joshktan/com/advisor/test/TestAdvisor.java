@@ -31,15 +31,15 @@ public class TestAdvisor {
                 System.out.println(course);
             }
             System.out.println("");
-            for (Record record : db.getStudentRecords()) {
-                System.out.println("Student ID: " + record.getStudentId());
-                System.out.println("Total Credits: " + record.getTotalCredits());
-                Iterator<Course> courseIter = record.getStudentCoursesIter();
-                while (courseIter.hasNext()) {
-                    System.out.println(courseIter.next());
-                }
-
-            }
+//            for (Record record : db.getStudentRecords()) {
+//                System.out.println("Student ID: " + record.getStudentId());
+//                System.out.println("Total Credits: " + record.getTotalCredits());
+//                Iterator<Course> courseIter = record.getStudentCoursesIter();
+//                while (courseIter.hasNext()) {
+//                    System.out.println(courseIter.next());
+//                }
+//
+//            }
             // </test>            
 
             System.out.println("------------------");
@@ -61,16 +61,17 @@ public class TestAdvisor {
     private static void processStudentCourses(UniversityDatabase db, DegreeAdvisor advisor, int studentId) throws JessException {
         Iterator<Course> courseIter;
         Iterator<Advice> advice;
-        System.out.println("Courses for student ID " + studentId + ":");
+        System.out.println("Courses for student ID " + studentId + ":\n");
         courseIter = db.getStudentRecord(studentId).getStudentCoursesIter();
         while (courseIter.hasNext()) {
-            System.out.println("   " + courseIter.next());
+            System.out.println(courseIter.next());
         }
 
         advice = advisor.run(studentId);
-        System.out.println("Advice for student ID " + studentId + ":");
+        System.out.println("");
+        System.out.println("Advice for student ID " + studentId + ":\n");
         while (advice.hasNext()) {
-            System.out.println("   " + advice.next());
+            System.out.println(advice.next());
         }
         System.out.println();
     }

@@ -5,22 +5,20 @@ package com.joshktan.advisor.req;
  * @author Josh Tan
  */
 public class TotalCreditsRequirement extends UniversityRequirement {
-        
-    // description of requirement here
     
-//        public String getSummary() {
-//            String summary;
-//            
-//            if (isSatisfied()) {
-//                summary = "Your total credits exceed the minimum of 10.";
-//            } else {
-//                summary = "Your total credits are less than the minimum of 10.";
-//            }
-//            
-//            return summary;
-//        }
-//        
-//        public String getDetails() {
-//            return ""; // TODO
-//        }
+    public static final int TOTAL_CREDITS_REQUIRED = 10; // TODO: revert to 122
+    
+    private static final String NAME = "Total Credits Requirement";
+    private static final String DESCRIPTION = "You must complete a total of " + TOTAL_CREDITS_REQUIRED;
+
+    @Override
+    public String getName() {
+        return NAME;
+    }
+    
+    @Override
+    public String getDescription() {
+        return DESCRIPTION;
+        
+    }        
 }

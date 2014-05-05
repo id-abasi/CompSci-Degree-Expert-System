@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.joshktan.advisor.model;
 
 import com.joshktan.advisor.req.Requirement;
@@ -13,14 +8,16 @@ import com.joshktan.advisor.req.TotalCreditsRequirement;
  * @author Josh Tan
  */
 public class Advice {
+    
+    private static final String REQ_PACKAGE_STRING = "com.joshktan.advisor.req.";
 
     private Requirement requirement;
-    private String summary;
-    private String details;
-    private AdviceType type;
+    private final String summary;
+    private final String details;
+    private final AdviceType type;
 
     public Advice(String requirementClassName, String summary, String details, String typeStr) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        Requirement requirement = (Requirement) Class.forName(requirementClassName + ".class").newInstance();
+        requirement = (Requirement) Class.forName(REQ_PACKAGE_STRING + requirementClassName).newInstance();
 
         if (requirement instanceof TotalCreditsRequirement) {
             requirement = (TotalCreditsRequirement) requirement;
@@ -40,8 +37,21 @@ public class Advice {
 
     public enum AdviceType {
 
-        NONISSUE,
         WARNING,
         ISSUE
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        
+        builder.append("Requirement: " + requirement.getName() + "(" + type + ")\n");
+        builder.append("Summary:\n\t" + summary + "\n");
+        builder.append("Details:\n\t" + details + "\n\n");
+        
+        return builder.toString();
+        
+    }
+    
+    
 }

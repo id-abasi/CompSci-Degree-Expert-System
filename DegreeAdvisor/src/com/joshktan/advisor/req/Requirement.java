@@ -16,5 +16,9 @@ public abstract class Requirement {
         this.satisfied = satisfied;
     }
     
+    public abstract String getName();
+    
+    public abstract String getDescription();
+    
     
 }
