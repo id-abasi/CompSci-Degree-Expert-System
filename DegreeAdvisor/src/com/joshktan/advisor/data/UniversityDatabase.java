@@ -102,7 +102,7 @@ public class UniversityDatabase implements IUniversityDatabase {
     public Collection<Record> getStudentRecords() {
 
         Statement retrieveStudentsStmt;
-        String query = "SELECT * FROM STUDENTS";
+        String query = "SELECT * FROM Students";
 
         Collection<Record> records = new ArrayList<Record>();
 

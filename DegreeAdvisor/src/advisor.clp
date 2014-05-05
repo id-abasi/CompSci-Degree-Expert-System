@@ -10,25 +10,51 @@
 (deftemplate Record (declare (from-class Record)))
 (deftemplate Advice (declare (from-class Advice)))
 
-;; Now define the pricing rules themselves. Each rule matches a set
-;; of conditions and then creates an Offer object to represent a
-;; bonus of some kind given to a customer. The rules assume that
-;; there will be just one Order, its OrderItems, and its Customer in 
-;; working memory, along with all the CatalogItems.
 
-(defrule test-match-all
-    "Just match everything."
-    (Record (totalCredits ?t))
-    =>
-    (add (new Advice "TotalCreditsRequirement" "Test summary" "Test details." "WARNING")))
-
+;; Global variables
 (defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
+
+;; University Graduation Requirements
 
 (defrule total-credit-req
     "Advise to take more credits if total credit amount is less than the required amount."
     ?r <- (Record {totalCredits < ?*total-credit-req*})
     =>
     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
+
+
+;; (# semesters left * 20 ) < (needed - already have) => advise warning: fill out form thing for +20 credits / semester (or summer school or postpone grad)
+
+;; Graduating Honors (figure out how to chain rules: (if all courses have grades) && (all requirements fulfilled) => (add congrats)
+
+;; COULD BE USEFUL:
+;; The not CE can be used in arbitrary combination with the and and or CEs. You can define complex logical structures this way. For example, suppose you want a rule to fire once if for every fact (a ?x), there is a fact (b ?x). You could express that as
+;; Jess> (defrule forall-example
+;;   (not (and (a ?x) (not (b ?x))))
+;;   =>)
+;; i.e., "It is not true that for some ?x, there is an (a ?x) and no (b ?x)". This is actually how the the forall CE is implemented.
+
+;; note: (instanceof <external-address> <class-name>)
+
+;; COULD ALSO BE USEFUL
+;; The logical conditional element lets you specify logical dependencies among facts. All the facts asserted on the RHS of a rule become dependent on the matches to the logical patterns on that rule's LHS. If any of the matches later become invalid, the dependent facts are retracted automatically.
+;; (defrule rule-1
+;;   (logical (faucet-open))
+;;   =>
+;;   (assert (water-flowing)))
+;;   =>
+;;   (assert (all-cour)))
+
+;; (defrule graduate-with-honors
+;;   (forall (Course (CourseId ?i))
+;; 	  (instanceof ?i "GradedCourse"))
+;;   ;; add another rule to check GPA
+  
+;;   ;; add other requirements here
+;;   =>
+;;   ((System.out) println "Congrats, dude."))
+
+
 
 ;; (defrule 10%-volume-discount
 ;;     "Give a 10% discount to everybody who spends more than $100."
