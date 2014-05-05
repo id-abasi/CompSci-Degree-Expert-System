@@ -1,6 +1,6 @@
 package com.joshktan.advisor.model;
 
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -8,6 +8,15 @@ import java.util.List;
  */
 public class Record {
     
-    private List<CourseGrade> grades;
+    private Collection<CourseGrade> grades;
+
+    /**
+     * @return the grades
+     */
+    public Collection<CourseGrade> getGrades() {
+        return grades;
+    }
+    
+    
     
 }

@@ -2,7 +2,7 @@ package com.joshktan.advisor.model;
 
 /**
  *
- * @author jdot
+ * @author Josh Tan
  */
 public class LabScienceSequence extends Course {
     

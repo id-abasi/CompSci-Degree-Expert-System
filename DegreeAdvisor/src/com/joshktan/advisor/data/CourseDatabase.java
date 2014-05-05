@@ -56,6 +56,11 @@ public class CourseDatabase implements ICourseDatabase {
     public Collection<Course> getValidAdditionlGenEdScienceCourses(Record record) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Collection<Course> getCourses() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
 

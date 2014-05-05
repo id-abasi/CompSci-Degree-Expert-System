@@ -13,6 +13,8 @@ public interface ICourseDatabase {
     
     Course getCourse(String courseID);
     
+    Collection<Course> getCourses();
+    
     Collection<Course> getCourses(String dept);
     
     Course getGenEdCourses(String area);
