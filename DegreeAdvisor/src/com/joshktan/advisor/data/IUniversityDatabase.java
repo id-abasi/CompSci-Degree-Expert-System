@@ -9,7 +9,11 @@ import java.util.Collection;
  *
  * @author Josh Tan
  */
-public interface ICourseDatabase {
+public interface IUniversityDatabase {
+    
+    Record getStudentRecord(int studentID);
+    
+    Collection<Record> getStudentRecords();
     
     Course getCourse(String courseID);
     
@@ -19,7 +23,7 @@ public interface ICourseDatabase {
     
     Course getGenEdCourses(String area);
     
-    Collection<Course> getValidAdditionalHumanitiesSocialSciences(Record record);
+    Collection<Course> getValidAdditionalHumanitiesSocialSciences(Record studentRecord);
     
     Collection<Course> getElectives(String area);
     
@@ -27,6 +31,6 @@ public interface ICourseDatabase {
     
     Collection<LabScienceSequence> getLabScienceCourses();
     
-    Collection<Course> getValidAdditionlGenEdScienceCourses(Record record);
+    Collection<Course> getValidAdditionlGenEdScienceCourses(Record studentRecord);
     
 }

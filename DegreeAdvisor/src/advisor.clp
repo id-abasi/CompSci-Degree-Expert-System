@@ -5,14 +5,22 @@
 
 (import com.joshktan.advisor.model.*)
 (deftemplate Course       (declare (from-class Course)))
-(deftemplate CourseGrade   (declare (from-class CourseGrade)))
+(deftemplate GradedCourse   (declare (from-class GradedCourse)))
+(deftemplate LabScienceSequence (declare (from-class LabScienceSequence)))
 (deftemplate Record (declare (from-class Record)))
+(deftemplate Advice (declare (from-class Advice)))
 
 ;; Now define the pricing rules themselves. Each rule matches a set
 ;; of conditions and then creates an Offer object to represent a
 ;; bonus of some kind given to a customer. The rules assume that
 ;; there will be just one Order, its OrderItems, and its Customer in 
 ;; working memory, along with all the CatalogItems.
+
+(defrule total-credit-req
+    "Advise to take more credits if total credit amount is less 10."
+    ?r <- (Record {totalCredits < 10})
+    =>
+    (add (new Advice "TotalCreditsRequirement" "Too little credits" "Details on too little credits" "ISSUE")))
 
 ;; (defrule 10%-volume-discount
 ;;     "Give a 10% discount to everybody who spends more than $100."

@@ -4,8 +4,17 @@ package com.joshktan.advisor.req;
  *
  * @author Josh Tan
  */
-public interface Requirement {
+public abstract class Requirement {
     
-    RequirementStatus getStatus();
+    protected boolean satisfied;
+    
+    public boolean isSatisfied() {
+        return satisfied;
+    }
+    
+    public void setSatisfied(boolean satisfied) {
+        this.satisfied = satisfied;
+    }
+    
     
 }
