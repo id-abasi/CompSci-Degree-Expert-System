@@ -8,6 +8,6 @@ import java.util.List;
  */
 public class Record {
     
-    private List<Course> courses;
+    private List<CourseGrade> grades;
     
 }

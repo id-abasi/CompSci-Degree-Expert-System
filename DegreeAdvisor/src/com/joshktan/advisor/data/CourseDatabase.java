@@ -6,11 +6,56 @@
 
 package com.joshktan.advisor.data;
 
+import com.joshktan.advisor.model.Course;
+import com.joshktan.advisor.model.LabScienceSequence;
+import com.joshktan.advisor.model.Record;
+import java.util.Collection;
+
 /**
  *
- * @author jdot
+ * @author Josh Tan
  */
-public class CourseDatabase {
+public class CourseDatabase implements ICourseDatabase {
+
+    @Override
+    public Course getCourse(String courseID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Course> getCourses(String dept) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Course getGenEdCourses(String area) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Course> getValidAdditionalHumanitiesSocialSciences(Record record) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Course> getElectives(String area) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Course> getRelatedRequiredCourses() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<LabScienceSequence> getLabScienceCourses() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Course> getValidAdditionlGenEdScienceCourses(Record record) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
 
