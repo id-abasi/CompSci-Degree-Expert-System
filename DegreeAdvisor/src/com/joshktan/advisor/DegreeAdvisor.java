@@ -29,6 +29,7 @@ public class DegreeAdvisor {
         brain.batch("advisor.clp");
 
         // Load the catalog data into working memory
+        this.database = database;
         brain.addAll(database.getCourses());
 
         // Mark end of catalog data for later

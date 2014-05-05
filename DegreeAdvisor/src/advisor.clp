@@ -20,7 +20,7 @@
     "Advise to take more credits if total credit amount is less 10."
     ?r <- (Record {totalCredits < 10})
     =>
-    (add (new Advice "TotalCreditsRequirement" "Too little credits" "Details on too little credits" "ISSUE")))
+    (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " r.totalCredits ", but need 10.") "ISSUE")))
 
 ;; (defrule 10%-volume-discount
 ;;     "Give a 10% discount to everybody who spends more than $100."
