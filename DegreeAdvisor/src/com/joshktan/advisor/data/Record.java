@@ -1,4 +1,4 @@
-package com.joshktan.advisor;
+package com.joshktan.advisor.data;
 
 import java.util.List;
 

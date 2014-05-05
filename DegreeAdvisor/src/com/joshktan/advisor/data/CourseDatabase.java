@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.joshktan.advisor;
+package com.joshktan.advisor.data;
 
 /**
  *
