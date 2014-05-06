@@ -48,7 +48,7 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String title = rset.getString("Title");
                 int credits = rset.getInt("Credits");
 
-                Course retrievedCourse = new Course(courseId, title, credits);
+                Course retrievedCourse = new Course(courseId, title, credits);                
                 courses.add(retrievedCourse);
 
             }

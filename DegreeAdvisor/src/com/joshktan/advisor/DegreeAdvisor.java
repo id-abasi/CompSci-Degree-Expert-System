@@ -30,7 +30,7 @@ public class DegreeAdvisor {
 
         // Load the catalog data into working memory
         this.database = database;
-        brain.addAll(database.getCourses());
+        //brain.addAll(database.getCourses());
 
         // Mark end of catalog data for later
         marker = brain.mark();

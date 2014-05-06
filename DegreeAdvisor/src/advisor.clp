@@ -16,9 +16,28 @@
 
 ;; University Graduation Requirements
 
-(defrule total-credit-req
+;; Old rule
+;; (defrule total-credit-req
+;;     "Advise to take more credits if total credit amount is less than the required amount."
+;;     ?r <- (Record {totalCredits < ?*total-credit-req*})
+;;     =>
+;;    (assert (enough-credits))
+;;     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
+
+(defrule credit-advice
     "Advise to take more credits if total credit amount is less than the required amount."
-    ?r <- (Record {totalCredits < ?*total-credit-req*})
+    ?r <- (Record)
+    =>
+    (if (< ?r.totalCredits ?*total-credit-req*) then
+    (assert (not-enough-credits))
+    else
+    (assert (enough-credits))))
+
+
+(defrule not-enough-credits
+    "Advise to take more credits if total credit amount is less than the required amount."
+    (not-enough-credits)
+    ?r <- (Record)
     =>
     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
 
@@ -26,6 +45,7 @@
 ;; (# semesters left * 20 ) < (needed - already have) => advise warning: fill out form thing for +20 credits / semester (or summer school or postpone grad)
 
 ;; Graduating Honors (figure out how to chain rules: (if all courses have grades) && (all requirements fulfilled) => (add congrats)
+
 
 ;; COULD BE USEFUL:
 ;; The not CE can be used in arbitrary combination with the and and or CEs. You can define complex logical structures this way. For example, suppose you want a rule to fire once if for every fact (a ?x), there is a fact (b ?x). You could express that as
@@ -45,37 +65,46 @@
 ;;   =>
 ;;   (assert (all-cour)))
 
-;; (defrule graduate-with-honors
-;;   (forall (Course (CourseId ?i))
-;; 	  (instanceof ?i "GradedCourse"))
-;;   ;; add another rule to check GPA
-  
-;;   ;; add other requirements here
+
+
+;; Graduation with honor eligibility is determined in two steps:
+;; Step One: Earn a minimum NDSU (institutional) GPA of 3.50
+;; NDSU GPA's below 3.50 are not considered (and step two is not necessary)
+;; Step Two: Earn an overall (cumulative) GPA of 3.50 or greater, which includes:
+;; all credits and grades earned at NDSU
+;; the inclusion of all transfer work and all attempts of repeated coursework
+;;
+;; Candidates who achieve an overall GPA of 3.50 or higher according to the criteria listed above will graduate: 
+;; Cum Laude — greater than or equal to 3.50 and less than 3.70 
+;; Magna Cum Laude — greater than or equal to 3.70 and less than 3.90 
+;; Summa Cum Laude — greater than or equal to 3.90 and up to 4.00 
+;; The complete Graduation with Honor policy may be reviewed in the online Undergraduate Bulletin
+;; PLEASE BE AWARE grade-point averages are NOT rounded (for example, a GPA of 3.497 is not rounded to 3.5) 
+;; PLEASE BE AWARE graduation with honor levels are subject to change once final grades are determined and posted to the official academic record
+
+;; ;; matches any
+;; (defrule any
+;;   (Record (studentId ?sId))
 ;;   =>
-;;   ((System.out) println "Congrats, dude."))
+;;   ((System.out) println "Testing 1,2,3" ))
 
+(defrule graduate-with-honors
+  ?record <- (Record {gpa >= 3.5})
+  (forall ?course <- (Course)
+	  (instanceof ?course "GradedCourse"))
+  ;; add other requirements here
+  =>
+   (assert (honors))
+   ((System.out) println (str-cat "Congrats, dude (" ?record.studentId ")"))
+    (if (>= ?record.gpa 3.90) then
+      ((System.out) println "Summa Cum Laude")
+     elif (>= ?record.gpa 3.70) then
+      ((System.out) println "Magna Cum Laude")
+     else
+      ((System.out) println "Cum Laude")))
 
-
-;; (defrule 10%-volume-discount
-;;     "Give a 10% discount to everybody who spends more than $100."
-;;     ?o <- (Order {total > 100})
-;;     =>
-;;     (add (new Offer "10% volume discount" (/ ?o.total 10))))
-
-;; (defrule 25%-multi-item-discount
-;;     "Give a 25% discount on items the customer buys three or more of."
-;;     (OrderItem {quantity >= 3} (price ?price))
-;;     =>
-;;     (add (new Offer "25% multi-item discount" (/ ?price 4))))
-
-;; (defrule free-cd-rw-disks
-;;     "If somebody buys a CD writer, send them a free sample of CD-RW
-;;     disks, catalog number 782321; but only if they're a repeat customer.
-;;     We use a regular expression to match the CD writer's description."
-;;     (CatalogItem (partNumber ?partNumber) (description /CD Writer/))
-;;     (CatalogItem (partNumber 782321) (price ?price))
-;;     (OrderItem (partNumber ?partNumber))
-;;     (Customer {orderCount > 1})
-;;     =>	
-;;     (add (new Offer "Free CD-RW disks" ?price)))
-
+(defrule enough-credits-and-honors
+  "enough credits and honors also"
+  (and (honors) (enough-credits))
+  =>
+  ((System.out) println "Both enough credits and also honorable!"))

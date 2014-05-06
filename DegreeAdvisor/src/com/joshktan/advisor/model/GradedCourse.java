@@ -22,6 +22,10 @@ public class GradedCourse extends Course {
         this(grade, course.getCourseId(), course.getTitle(), course.getCredits());
     }
 
+    public Grade getGrade() {
+        return grade;
+    }
+
     public enum Grade {
 
         A,

@@ -18,10 +18,37 @@ public class Record {
     private List<Course> studentCourses;
     private int studentId;
     private int totalCredits;
+    private float gpa;
 
     public Record(int studentId) {
         this.studentId = studentId;
         studentCourses = new ArrayList<Course>();
+    }
+
+    public float getGpa() {
+        float totalGradePoints = 0;
+        for (Course course : studentCourses) {
+            if (course instanceof GradedCourse) {
+                GradedCourse gradedCourse = (GradedCourse) course;
+                float courseCredits = course.getCredits();
+                switch (gradedCourse.getGrade()) {
+                    case A:
+                        totalGradePoints += 4 * courseCredits;
+                        break;
+                    case B:
+                        totalGradePoints += 3 * courseCredits;
+                        break;
+                    case C:
+                        totalGradePoints += 2 * courseCredits;
+                        break;
+                    case D:
+                        totalGradePoints += 1 * courseCredits;
+                        break;
+                }
+
+            }
+        }
+        return totalGradePoints / totalCredits;
     }
 
     public int getTotalCredits() {
@@ -39,6 +66,7 @@ public class Record {
     public void addCourse(Course course) {
         studentCourses.add(course);
         totalCredits += course.getCredits();
+        gpa = getGpa();
 
     }
 

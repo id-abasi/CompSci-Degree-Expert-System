@@ -66,6 +66,8 @@ public class TestAdvisor {
         while (courseIter.hasNext()) {
             System.out.println(courseIter.next());
         }
+        
+        System.out.println("GPA: " + db.getStudentRecord(studentId).getGpa());
 
         advice = advisor.run(studentId);
         System.out.println("");
