@@ -3,9 +3,11 @@ package com.joshktan.com.advisor.test;
 import com.joshktan.advisor.DegreeAdvisor;
 import com.joshktan.advisor.data.UniversityDatabase;
 import com.joshktan.advisor.model.Advice;
+import com.joshktan.advisor.model.Congrats;
 import com.joshktan.advisor.model.Course;
 import com.joshktan.advisor.model.Record;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +29,7 @@ public class TestAdvisor {
             DegreeAdvisor advisor = new DegreeAdvisor(db); // TODO
 
             // <test>
+            System.out.println("-- All courses --\n");
             for (Course course : db.getCourses()) {
                 System.out.println(course);
             }
@@ -42,7 +45,7 @@ public class TestAdvisor {
 //            }
             // </test>            
 
-            System.out.println("------------------");
+            
             for (Record record : db.getStudentRecords()) {
                 processStudentCourses(db, advisor, record.getStudentId());
 
@@ -61,19 +64,34 @@ public class TestAdvisor {
     private static void processStudentCourses(UniversityDatabase db, DegreeAdvisor advisor, int studentId) throws JessException {
         Iterator<Course> courseIter;
         Iterator<Advice> advice;
-        System.out.println("Courses for student ID " + studentId + ":\n");
+        Iterator<Congrats> congrats;
+        System.out.println("-- Student ID "+ studentId + " --\n");
+        System.out.println("Courses:");
         courseIter = db.getStudentRecord(studentId).getStudentCoursesIter();
         while (courseIter.hasNext()) {
             System.out.println(courseIter.next());
         }
         
-        System.out.println("GPA: " + db.getStudentRecord(studentId).getGpa());
+        System.out.println("\nGPA: " + db.getStudentRecord(studentId).getGpa());
 
-        advice = advisor.run(studentId);
-        System.out.println("");
-        System.out.println("Advice for student ID " + studentId + ":\n");
+        HashMap<String, Iterator> feedback = advisor.run(studentId);
+        advice = feedback.get("Advice");
+        if (advice.hasNext()) {
+            System.out.println("\nAdvice:");
+        }
+//        System.out.println("Advice for student ID " + studentId + ":");
         while (advice.hasNext()) {
             System.out.println(advice.next());
+        }
+        
+        congrats = feedback.get("Congrats");
+        if (congrats.hasNext()) {
+            System.out.println("");
+        }
+//        System.out.println("Congrats for student ID " + studentId + ":");
+        
+        while (congrats.hasNext()) {
+            System.out.println(congrats.next());
         }
         System.out.println();
     }

@@ -95,16 +95,23 @@
   ;; add other requirements here
   =>
    (assert (honors))
-   ((System.out) println (str-cat "Congrats, dude (" ?record.studentId ")"))
+;;   ((System.out) println (str-cat "Congrats, dude (" ?record.studentId ")"))
     (if (>= ?record.gpa 3.90) then
-      ((System.out) println "Summa Cum Laude")
+      (add (new Congrats "You will graduate summa cum laude."))
+;;      ((System.out) println "Summa Cum Laude")
      elif (>= ?record.gpa 3.70) then
-      ((System.out) println "Magna Cum Laude")
+;;      ((System.out) println "Magna Cum Laude")
+      (add (new Congrats "You will graduate magna cum laude."))
+;;      (bind ?msg "Congratulations! You will graduate magna cum laude.")
      else
-      ((System.out) println "Cum Laude")))
+;;      ((System.out) println "Cum Laude"))
+      (add (new Congrats "You will graduate cum laude."))))
+;;      (bind ?msg "Congratulations! You will graduate cum laude.")
+;;    (add (new Congrats ?msg)))
 
-(defrule enough-credits-and-honors
-  "enough credits and honors also"
-  (and (honors) (enough-credits))
-  =>
-  ((System.out) println "Both enough credits and also honorable!"))
+;; Just so you know how to do it
+;; (defrule enough-credits-and-honors
+;;   "enough credits and honors also"
+;;   (and (honors) (enough-credits))
+;;   =>
+;;   ((System.out) println "Both enough credits and also honorable!"))

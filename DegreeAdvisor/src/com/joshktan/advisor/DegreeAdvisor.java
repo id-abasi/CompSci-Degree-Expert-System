@@ -2,7 +2,9 @@ package com.joshktan.advisor;
 
 import com.joshktan.advisor.data.UniversityDatabase;
 import com.joshktan.advisor.model.Advice;
+import com.joshktan.advisor.model.Congrats;
 import com.joshktan.advisor.model.Record;
+import java.util.HashMap;
 import java.util.Iterator;
 import jess.Filter;
 import jess.JessException;
@@ -50,7 +52,7 @@ public class DegreeAdvisor {
     	}
     }
     
-    public Iterator run(int studentId) throws JessException {
+    public HashMap<String, Iterator> run(int studentId) throws JessException {
         // Remove any previous order data, leaving only catalog data
     	brain.resetToMark(marker);
     	
@@ -61,7 +63,10 @@ public class DegreeAdvisor {
         brain.run();
         
         // Return the list of offers created by the rules
-        return brain.getObjects(new Filter.ByClass(Advice.class));
+        HashMap<String, Iterator> feedback = new HashMap<String, Iterator>();
+        feedback.put("Advice", brain.getObjects(new Filter.ByClass(Advice.class)));
+        feedback.put("Congrats", brain.getObjects(new Filter.ByClass(Congrats.class)));
+        return feedback;
     }
 
 }

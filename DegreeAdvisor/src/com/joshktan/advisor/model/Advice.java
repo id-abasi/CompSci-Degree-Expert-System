@@ -47,7 +47,7 @@ public class Advice {
         
         builder.append("Requirement: " + requirement.getName() + "(" + type + ")\n");
         builder.append("Summary:\n\t" + summary + "\n");
-        builder.append("Details:\n\t" + details + "\n\n");
+        builder.append("Details:\n\t" + details);
         
         return builder.toString();
         
