@@ -2,7 +2,6 @@ package com.joshktan.advisor.data;
 
 import com.joshktan.advisor.model.Course;
 import com.joshktan.advisor.model.GradedCourse;
-import com.joshktan.advisor.model.LabScienceSequence;
 import com.joshktan.advisor.model.Record;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -186,11 +185,6 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     @Override
     public Collection<Course> getRelatedRequiredCourses() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Collection<LabScienceSequence> getLabScienceCourses() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

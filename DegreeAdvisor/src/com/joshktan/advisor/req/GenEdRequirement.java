@@ -8,13 +8,12 @@ public class GenEdRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "General Education Requirement";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "General education requirements that apply to all students in pursuit of a baccalaureate degree.";
     }
-
     
 }

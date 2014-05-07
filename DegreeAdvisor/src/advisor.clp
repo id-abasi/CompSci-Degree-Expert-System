@@ -1,30 +1,28 @@
-;; First define templates for the model classes so we can use them
-;; in our pricing rules. This doesn't create any model objects --
-;; it just tells Jess to examine the classes and set up templates
-;; using their properties
-
+;; Define templates for model classes
 (import com.joshktan.advisor.model.*)
-(deftemplate Course       (declare (from-class Course)))
-(deftemplate GradedCourse   (declare (from-class GradedCourse)))
-(deftemplate LabScienceSequence (declare (from-class LabScienceSequence)))
-(deftemplate Record (declare (from-class Record)))
-(deftemplate Advice (declare (from-class Advice)))
+(deftemplate Course
+  (declare (from-class Course)))
+(deftemplate GradedCourse
+  (declare (from-class GradedCourse)))
+(deftemplate Record
+  (declare (from-class Record)))
+(deftemplate Advice
+  (declare (from-class Advice)))
 
-
-;; Global variables
+;; GLOBAL VARIABLES
 (defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
+
+;; GEN ED REQUIREMENTS
+
+(defrule gen-ed-comm
+  "Advise student if Gen Ed First Year Experience requirements not satisfied."
+  (not (Course {title == "UNIV 189"}))
+  =>
+  (add (new Advice "GenEdRequirement" "UNIV 189 not taken" "UNIV 189 is required, but is not listed among courses." "ISSUE")))
 
 ;; University Graduation Requirements
 
-;; Old rule
-;; (defrule total-credit-req
-;;     "Advise to take more credits if total credit amount is less than the required amount."
-;;     ?r <- (Record {totalCredits < ?*total-credit-req*})
-;;     =>
-;;    (assert (enough-credits))
-;;     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
-
-(defrule credit-advice
+(defrule total-credits
     "Advise to take more credits if total credit amount is less than the required amount."
     ?r <- (Record)
     =>
@@ -33,7 +31,6 @@
     else
     (assert (enough-credits))))
 
-
 (defrule not-enough-credits
     "Advise to take more credits if total credit amount is less than the required amount."
     (not-enough-credits)
@@ -41,11 +38,32 @@
     =>
     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
 
+(defrule graduate-with-honors
+  ?record <- (Record {gpa >= 3.5})
+  (forall ?course <- (Course)
+	  (instanceof ?course "GradedCourse"))
+  ;; add other requirements here
+  =>
+   (assert (honors))
+    (if (>= ?record.gpa 3.90) then
+      (add (new Congrats "You will graduate summa cum laude."))
+     elif (>= ?record.gpa 3.70) then
+      (add (new Congrats "You will graduate magna cum laude."))
+     else
+      (add (new Congrats "You will graduate cum laude."))))
+
+;; ---------------------------------------------------------------------- ;;
+
+;; Just so you know how to do it
+;; (defrule enough-credits-and-honors
+;;   "enough credits and honors also"
+;;   (and (honors) (enough-credits))
+;;   =>
+;;   ((System.out) println "Both enough credits and also honorable!"))
 
 ;; (# semesters left * 20 ) < (needed - already have) => advise warning: fill out form thing for +20 credits / semester (or summer school or postpone grad)
 
 ;; Graduating Honors (figure out how to chain rules: (if all courses have grades) && (all requirements fulfilled) => (add congrats)
-
 
 ;; COULD BE USEFUL:
 ;; The not CE can be used in arbitrary combination with the and and or CEs. You can define complex logical structures this way. For example, suppose you want a rule to fire once if for every fact (a ?x), there is a fact (b ?x). You could express that as
@@ -64,8 +82,6 @@
 ;;   (assert (water-flowing)))
 ;;   =>
 ;;   (assert (all-cour)))
-
-
 
 ;; Graduation with honor eligibility is determined in two steps:
 ;; Step One: Earn a minimum NDSU (institutional) GPA of 3.50
@@ -88,30 +104,10 @@
 ;;   =>
 ;;   ((System.out) println "Testing 1,2,3" ))
 
-(defrule graduate-with-honors
-  ?record <- (Record {gpa >= 3.5})
-  (forall ?course <- (Course)
-	  (instanceof ?course "GradedCourse"))
-  ;; add other requirements here
-  =>
-   (assert (honors))
-;;   ((System.out) println (str-cat "Congrats, dude (" ?record.studentId ")"))
-    (if (>= ?record.gpa 3.90) then
-      (add (new Congrats "You will graduate summa cum laude."))
-;;      ((System.out) println "Summa Cum Laude")
-     elif (>= ?record.gpa 3.70) then
-;;      ((System.out) println "Magna Cum Laude")
-      (add (new Congrats "You will graduate magna cum laude."))
-;;      (bind ?msg "Congratulations! You will graduate magna cum laude.")
-     else
-;;      ((System.out) println "Cum Laude"))
-      (add (new Congrats "You will graduate cum laude."))))
-;;      (bind ?msg "Congratulations! You will graduate cum laude.")
-;;    (add (new Congrats ?msg)))
-
-;; Just so you know how to do it
-;; (defrule enough-credits-and-honors
-;;   "enough credits and honors also"
-;;   (and (honors) (enough-credits))
-;;   =>
-;;   ((System.out) println "Both enough credits and also honorable!"))
+;; Old rule - University Graduation Requirements
+;; (defrule total-credit-req
+;;     "Advise to take more credits if total credit amount is less than the required amount."
+;;     ?r <- (Record {totalCredits < ?*total-credit-req*})
+;;     =>
+;;    (assert (enough-credits))
+;;     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))

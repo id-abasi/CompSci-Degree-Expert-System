@@ -23,17 +23,15 @@ public class TestAdvisor {
     public static void main(String[] args) {
         try {
 
-            // create record (TODO)
             UniversityDatabase db = new UniversityDatabase();
-//            Record testRecord1 = db.getStudentRecord(1);
-            DegreeAdvisor advisor = new DegreeAdvisor(db); // TODO
+            DegreeAdvisor advisor = new DegreeAdvisor(db);
 
             // <test>
-            System.out.println("-- All courses --\n");
-            for (Course course : db.getCourses()) {
-                System.out.println(course);
-            }
-            System.out.println("");
+//            System.out.println("-- All courses --\n");
+//            for (Course course : db.getCourses()) {
+//                System.out.println(course);
+//            }
+//            System.out.println("");
 //            for (Record record : db.getStudentRecords()) {
 //                System.out.println("Student ID: " + record.getStudentId());
 //                System.out.println("Total Credits: " + record.getTotalCredits());
@@ -41,14 +39,12 @@ public class TestAdvisor {
 //                while (courseIter.hasNext()) {
 //                    System.out.println(courseIter.next());
 //                }
-//
 //            }
             // </test>            
 
             
             for (Record record : db.getStudentRecords()) {
                 processStudentCourses(db, advisor, record.getStudentId());
-
             }
 
         } catch (ClassNotFoundException ex) {
@@ -79,7 +75,7 @@ public class TestAdvisor {
         if (advice.hasNext()) {
             System.out.println("\nAdvice:");
         }
-//        System.out.println("Advice for student ID " + studentId + ":");
+        
         while (advice.hasNext()) {
             System.out.println(advice.next());
         }
@@ -88,7 +84,6 @@ public class TestAdvisor {
         if (congrats.hasNext()) {
             System.out.println("");
         }
-//        System.out.println("Congrats for student ID " + studentId + ":");
         
         while (congrats.hasNext()) {
             System.out.println(congrats.next());

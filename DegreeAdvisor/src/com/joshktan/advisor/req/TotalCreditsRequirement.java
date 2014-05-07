@@ -6,7 +6,7 @@ package com.joshktan.advisor.req;
  */
 public class TotalCreditsRequirement extends UniversityRequirement {
     
-    public static final int TOTAL_CREDITS_REQUIRED = 10; // TODO: revert to 122
+    public static final int TOTAL_CREDITS_REQUIRED = 122;
     
     private static final String NAME = "Total Credits Requirement";
     private static final String DESCRIPTION = "You must complete a total of " + TOTAL_CREDITS_REQUIRED;
