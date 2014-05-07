@@ -5,6 +5,7 @@
  */
 package com.joshktan.advisor.model;
 
+import com.joshktan.advisor.model.Course.Grade;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,10 +29,10 @@ public class Record {
     public float getGpa() {
         float totalGradePoints = 0;
         for (Course course : studentCourses) {
-            if (course instanceof GradedCourse) {
-                GradedCourse gradedCourse = (GradedCourse) course;
+            if (course.getGrade() != Grade.NA) {
+                
                 float courseCredits = course.getCredits();
-                switch (gradedCourse.getGrade()) {
+                switch (course.getGrade()) {
                     case A:
                         totalGradePoints += 4 * courseCredits;
                         break;

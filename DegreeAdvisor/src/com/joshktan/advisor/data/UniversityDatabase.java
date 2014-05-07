@@ -1,7 +1,7 @@
 package com.joshktan.advisor.data;
 
 import com.joshktan.advisor.model.Course;
-import com.joshktan.advisor.model.GradedCourse;
+import com.joshktan.advisor.model.Course.Grade;
 import com.joshktan.advisor.model.Record;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,11 +25,32 @@ public class UniversityDatabase implements IUniversityDatabase {
     private static final String DRIVER_CLASS = "org.sqlite.JDBC";
     private static final String DB_FILE = "jdbc:sqlite:data//university.db3";
 
-    private Connection dbConnection;
+    private static UniversityDatabase db; // singleton
 
-    public UniversityDatabase() throws ClassNotFoundException, SQLException {
-        Class.forName(DRIVER_CLASS);
-        dbConnection = DriverManager.getConnection(DB_FILE);
+    private Connection dbConnection;
+    private Map<String, Collection<Course>> genEdCourseMap;
+
+    private UniversityDatabase() {
+
+        try {
+            Class.forName(DRIVER_CLASS);
+            dbConnection = DriverManager.getConnection(DB_FILE);
+
+            initializeGenEdCourseMap();
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static UniversityDatabase getDatabase() {
+        if (db == null) {
+            return new UniversityDatabase();
+        } else {
+            return db;
+        }
     }
 
     @Override
@@ -47,7 +72,7 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String title = rset.getString("Title");
                 int credits = rset.getInt("Credits");
 
-                Course retrievedCourse = new Course(courseId, title, credits);                
+                Course retrievedCourse = new Course(courseId, title, credits, "NA");
                 courses.add(retrievedCourse);
 
             }
@@ -82,7 +107,7 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String title = rset.getString("Title");
                 int credits = rset.getInt("Credits");
 
-                retrievedCourse = new Course(courseId, title, credits);
+                retrievedCourse = new Course(courseId, title, credits, "NA");
 
             }
 
@@ -150,10 +175,7 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String grade = rset.getString("Grade");
 
                 Course retrievedCourse = getCourse(courseId);
-
-                if (!grade.equals("NA")) { // if this course has been graded
-                    retrievedCourse = new GradedCourse(grade, retrievedCourse);
-                }
+                retrievedCourse.setGrade(Grade.valueOf(grade));
 
                 record.addCourse(retrievedCourse);
             }
@@ -170,12 +192,59 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     @Override
     public Collection<Course> getCourses(String dept) {
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
-    @Override
-    public Course getGenEdCourses(String area) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void initializeGenEdCourseMap() {
+
+        Map<String, Collection<Course>> genEdMap = new HashMap<String, Collection<Course>>();
+
+        Collection<Course> firstYearExp = new ArrayList<Course>();
+        genEdMap.put("F", firstYearExp);
+        Collection<Course> comm = new ArrayList<Course>();
+        genEdMap.put("C", comm);
+        Collection<Course> quant = new ArrayList<Course>();
+        genEdMap.put("R", quant);
+        Collection<Course> science = new ArrayList<Course>();
+        genEdMap.put("S", science);
+        Collection<Course> human = new ArrayList<Course>();
+        genEdMap.put("A", human);
+        Collection<Course> social = new ArrayList<Course>();
+        genEdMap.put("B", social);
+        Collection<Course> wellness = new ArrayList<Course>();
+        genEdMap.put("W", wellness);
+        Collection<Course> diversity = new ArrayList<Course>();
+        genEdMap.put("D", diversity);
+        Collection<Course> global = new ArrayList<Course>();
+        genEdMap.put("G", global);
+
+        Statement retrieveGenEdStmt;
+        String query = "SELECT * FROM GenEdCourses";
+
+        try {
+
+            retrieveGenEdStmt = dbConnection.createStatement();
+            ResultSet rset = retrieveGenEdStmt.executeQuery(query);
+
+            while (rset.next()) {
+
+                String courseId = rset.getString("Id");
+                String area = rset.getString("Area");
+                Course retrievedCourse = getCourse(courseId);
+
+                genEdMap.get(area).add(retrievedCourse);
+            }
+
+            retrieveGenEdStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        genEdCourseMap = genEdMap;
     }
 
     @Override
@@ -196,6 +265,39 @@ public class UniversityDatabase implements IUniversityDatabase {
     @Override
     public Collection<Course> getValidAdditionlGenEdScienceCourses(Record studentRecord) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Map<String, Collection<Course>> getGenEdCourseMap() {
+        return genEdCourseMap;
+    }
+    
+    public boolean isGenEd(String courseId, String genEdArea) {
+        
+        PreparedStatement retrieveRecordStmt;
+        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
+
+        boolean found = false;
+
+        try {
+
+            retrieveRecordStmt = dbConnection.prepareStatement(query);
+            retrieveRecordStmt.setString(1, courseId);
+            retrieveRecordStmt.setString(2, genEdArea);
+
+            ResultSet rset = retrieveRecordStmt.executeQuery();
+
+            if (rset.next()) {
+                found = true;
+            }
+
+            retrieveRecordStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return found;
     }
 
 }

@@ -20,11 +20,13 @@ import jess.JessException;
  */
 public class TestAdvisor {
 
+    private static UniversityDatabase db;
+    
     public static void main(String[] args) {
         try {
 
-            UniversityDatabase db = new UniversityDatabase();
-            DegreeAdvisor advisor = new DegreeAdvisor(db);
+            DegreeAdvisor advisor = new DegreeAdvisor();
+            db = UniversityDatabase.getDatabase();
 
             // <test>
 //            System.out.println("-- All courses --\n");
@@ -47,10 +49,6 @@ public class TestAdvisor {
                 processStudentCourses(db, advisor, record.getStudentId());
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TestAdvisor.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(TestAdvisor.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JessException ex) {
             Logger.getLogger(TestAdvisor.class.getName()).log(Level.SEVERE, null, ex);
         }

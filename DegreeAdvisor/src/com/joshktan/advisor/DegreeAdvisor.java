@@ -1,6 +1,7 @@
 package com.joshktan.advisor;
 
 import com.joshktan.advisor.data.UniversityDatabase;
+import com.joshktan.advisor.jess.GenEdFunction;
 import com.joshktan.advisor.model.Advice;
 import com.joshktan.advisor.model.Congrats;
 import com.joshktan.advisor.model.Record;
@@ -21,7 +22,7 @@ public class DegreeAdvisor {
     private WorkingMemoryMarker marker;
     private final UniversityDatabase database;
 
-    public DegreeAdvisor(UniversityDatabase database) throws JessException {
+    public DegreeAdvisor() throws JessException {
 
         // Create a Jess rule engine
         brain = new Rete();
@@ -29,9 +30,12 @@ public class DegreeAdvisor {
 
         // Load the pricing rules
         brain.batch("advisor.clp");
+        loadUserFunctions(brain);
 
         // Load the catalog data into working memory
-        this.database = database;
+        this.database = UniversityDatabase.getDatabase();
+        
+//        boolean result = UniversityDatabase.getDatabase().isGenEd("ENGL 324", "S");
         //brain.addAll(database.getCourses());
 
         // Mark end of catalog data for later
@@ -43,11 +47,16 @@ public class DegreeAdvisor {
         brain = new Rete();
         brain.reset();
 
-        // Load the pricing rules
+        // Load the pricing rules and functions
         brain.batch("advisor.clp");
+        loadUserFunctions(brain);
 
         // Mark end of catalog data for later
         marker = brain.mark();
+    }
+    
+    private void loadUserFunctions(Rete brain) {
+        brain.addUserfunction(new GenEdFunction());
     }
     
     private void loadStudentData(int studentId) throws JessException {
