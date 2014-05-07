@@ -10,9 +10,7 @@ def get_credits(pdftxt, course):
               credits = line.rstrip().split()[-1]
     return credits
 
-out_file = open('sql.txt', 'w')
-pdftxt = open('201314.txt', "r")
-with open("hss.txt") as in_file:
+with open("hss.txt") as in_file, open('sql.txt', 'w') as out_file, open('201314.txt', "r") as pdftxt:
     num_processed = False
     for line in in_file:
         if line.startswith("--"):
