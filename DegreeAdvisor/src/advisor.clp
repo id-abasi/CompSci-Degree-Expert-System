@@ -11,29 +11,33 @@
 (defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
 
 ;; GEN ED REQUIREMENTS
+
 ;; First Year Experience (F) Requirements
 (defrule gen-ed-f
   "Advise student if Gen Ed First Year Experience requirements not satisfied."
   (not (Course {title == "UNIV 189"}))
   =>
+  (assert (gen-ed-f-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed First Year Experience requirements not satisfied" "Skills for Academic Success (UNIV 189) is required, but is not listed among courses." "ISSUE")))
+
 ;; Communication (C) Requirements
 (defrule gen-ed-c
   "Advise student if Gen Ed Communication requirements not satisfied."
-  ;; (and (not (exists (Course {title == "COMM 110"}))) (not (exists (GradedCourse {title == "COMM 110"}))))
-  ;; (and (not (exists (Course {title == "ENGL 110"}))) (not (exists (GradedCourse {title == "ENGL 110"}))))
-  ;; (and (not (exists (Course {title == "ENGL 120"}))) (not (exists (GradedCourse {title == "ENGL 120"}))))
   (not (exists (Course {title == "COMM 110"})))
   (not (exists (Course {title == "ENGL 110"})))
   (not (exists (Course {title == "ENGL 120"})))
   =>
+  (assert (gen-ed-c-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Communication requirements not satisfied" "College Composition I (ENGL 110), College Composition II (ENGL 120), and Fundamentals of Public Speaking (COMM 110) are required." "ISSUE")))
+
 ;; Quantitative Reasoning (R) Requirements
 (defrule gen-ed-r
   "Advise student if Gen Ed Quantitative Reasoning requirements not satisfied."
   (not (Course {title == "MATH 165"}))
   =>
+  (assert (gen-ed-r-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Quantitative Reasoning requirements not satisfied" "Calculus I (MATH 165) is required, but is not listed among courses." "ISSUE")))
+
 ;; Science & Technology (S) Requirements
 ;; TODO - make sure all different
 (defrule gen-ed-s
@@ -45,7 +49,78 @@
   (test (< ?totalCredits 10))
   =>
 ;;  ((System.out) println (?totalCredits toString))
+  (assert (gen-ed-s-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Science & Technology requirements not satisfied" "At least 10 credits in the General Education Science and Technology area are required." "ISSUE")))
+
+;; Humanities & Fine Arts (A) Requirements
+;; TODO - make sure all different
+(defrule gen-ed-a
+  "Advise student if Gen Ed Humanities & Fine Arts requirements not satisfied."
+  ?totalCredits <- (accumulate (bind ?count 0)                                                ;; initializer
+			       (bind ?count (+ ?count ?credits))                              ;; action
+			       ?count                                                         ;; result
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "A")))) ;; CE
+  (test (< ?totalCredits 6))
+  =>
+  (assert (gen-ed-a-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed Humanities & Fine Arts requirements not satisfied" "At least 6 credits in the General Education Humanities & Fine Arts area are required." "ISSUE")))
+
+;; Social & Behavioral Sciences (B) Requirements
+;; TODO - make sure all different
+(defrule gen-ed-b
+  "Advise student if Gen Ed Social & Behavioral Sciences requirements not satisfied."
+  ?totalCredits <- (accumulate (bind ?count 0)                                                ;; initializer
+			       (bind ?count (+ ?count ?credits))                              ;; action
+			       ?count                                                         ;; result
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "B")))) ;; CE
+  (test (< ?totalCredits 6))
+  =>
+  (assert (gen-ed-b-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed Social & Behavioral Sciences requirements not satisfied" "At least 6 credits in the General Education Social & Behavioral Sciences area are required." "ISSUE")))
+
+;; Wellness (W) Requirements
+;; TODO - make sure all different
+(defrule gen-ed-w
+  "Advise student if Gen Ed Wellness requirements not satisfied."
+  ?totalCredits <- (accumulate (bind ?count 0)                                                ;; initializer
+			       (bind ?count (+ ?count ?credits))                              ;; action
+			       ?count                                                         ;; result
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "W")))) ;; CE
+  (test (< ?totalCredits 2))
+  =>
+  (assert (gen-ed-w-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed Wellness requirements not satisfied" "At least 6 credits in the General Education Wellness area are required." "ISSUE")))
+
+;; Cultural Diversity (D) Requirements
+(defrule gen-ed-d
+  "Advise student if Gen Ed Cultural Diversity requirements not satisfied."
+  (not (exists (Course (courseId ?t&:(is-gen-ed ?t "D")))))
+  =>
+  (assert (gen-ed-w-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed Cultural Diversity requirements not satisfied" "At least 1 course in the General Education Cultural Diversity area is required." "ISSUE")))
+
+;; Global Perspectives (G) Requirements
+(defrule gen-ed-g
+  "Advise student if Gen Ed Global Perspectives requirements not satisfied."
+  (not (exists (Course (courseId ?t&:(is-gen-ed ?t "G")))))
+  =>
+  (assert (gen-ed-g-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed Global Perspectives requirements not satisfied" "At least 1 course in the General Education Global Perspectives area is required." "ISSUE")))
+
+;; Gen Ed Lower Division Requirements
+(defrule gen-ed-ld
+  "Adivce student if Gen Ed lower division requirements are not satisfied."
+  (or (gen-ed-f-not-satisfied)
+      (gen-ed-c-not-satisfied)
+      (gen-ed-r-not-satisfied)
+      (gen-ed-s-not-satisfied)
+      (gen-ed-a-not-satisfied)
+      (gen-ed-b-not-satisfied)
+      (gen-ed-w-not-satisfied)
+      (gen-ed-d-not-satisfied)
+      (gen-ed-g-not-satisfied))
+  =>
+  (add (new Advice "GenEdRequirement" "Gen Ed lower division requirements not satisfied" "See curriculum guide for details." "ISSUE")))
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
@@ -67,9 +142,7 @@
 ;; CRITERA FOR GRADUATING WITH HONOR
 (defrule graduate-with-honors
   ?record <- (Record {gpa >= 3.5})
-;;  (not (exists ((Course {grade != "NA"}))))
   (not (exists (Course {grade == "NA"})))
-;;	  ( ?course "GradedCourse"))
   ;; TODO add other requirements here
   =>
    (assert (honors))
