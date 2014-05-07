@@ -15,27 +15,27 @@
 ;; First Year Experience (F) Requirements
 (defrule gen-ed-f
   "Advise student if Gen Ed First Year Experience requirements not satisfied."
-  (not (Course {title == "UNIV 189"}))
+  (not (Course {courseId == "UNIV 189"}))
   =>
-  (assert (gen-ed-f-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed First Year Experience requirements not satisfied" "Skills for Academic Success (UNIV 189) is required, but is not listed among courses." "ISSUE")))
 
 ;; Communication (C) Requirements
 (defrule gen-ed-c
   "Advise student if Gen Ed Communication requirements not satisfied."
-  (not (exists (Course {title == "COMM 110"})))
-  (not (exists (Course {title == "ENGL 110"})))
-  (not (exists (Course {title == "ENGL 120"})))
+  (not (exists (Course {courseId == "COMM 110"})))
+  (not (exists (Course {courseId == "ENGL 110"})))
+  (not (exists (Course {courseId == "ENGL 120"})))
   =>
-  (assert (gen-ed-c-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Communication requirements not satisfied" "College Composition I (ENGL 110), College Composition II (ENGL 120), and Fundamentals of Public Speaking (COMM 110) are required." "ISSUE")))
 
 ;; Quantitative Reasoning (R) Requirements
 (defrule gen-ed-r
   "Advise student if Gen Ed Quantitative Reasoning requirements not satisfied."
-  (not (Course {title == "MATH 165"}))
+  (not (Course {courseId == "MATH 165"}))
   =>
-  (assert (gen-ed-r-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Quantitative Reasoning requirements not satisfied" "Calculus I (MATH 165) is required, but is not listed among courses." "ISSUE")))
 
 ;; Science & Technology (S) Requirements
@@ -49,7 +49,7 @@
   (test (< ?totalCredits 10))
   =>
 ;;  ((System.out) println (?totalCredits toString))
-  (assert (gen-ed-s-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Science & Technology requirements not satisfied" "At least 10 credits in the General Education Science and Technology area are required." "ISSUE")))
 
 ;; Humanities & Fine Arts (A) Requirements
@@ -62,7 +62,7 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "A")))) ;; CE
   (test (< ?totalCredits 6))
   =>
-  (assert (gen-ed-a-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Humanities & Fine Arts requirements not satisfied" "At least 6 credits in the General Education Humanities & Fine Arts area are required." "ISSUE")))
 
 ;; Social & Behavioral Sciences (B) Requirements
@@ -75,7 +75,7 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "B")))) ;; CE
   (test (< ?totalCredits 6))
   =>
-  (assert (gen-ed-b-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Social & Behavioral Sciences requirements not satisfied" "At least 6 credits in the General Education Social & Behavioral Sciences area are required." "ISSUE")))
 
 ;; Wellness (W) Requirements
@@ -88,7 +88,7 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "W")))) ;; CE
   (test (< ?totalCredits 2))
   =>
-  (assert (gen-ed-w-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Wellness requirements not satisfied" "At least 6 credits in the General Education Wellness area are required." "ISSUE")))
 
 ;; Cultural Diversity (D) Requirements
@@ -96,7 +96,7 @@
   "Advise student if Gen Ed Cultural Diversity requirements not satisfied."
   (not (exists (Course (courseId ?t&:(is-gen-ed ?t "D")))))
   =>
-  (assert (gen-ed-w-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Cultural Diversity requirements not satisfied" "At least 1 course in the General Education Cultural Diversity area is required." "ISSUE")))
 
 ;; Global Perspectives (G) Requirements
@@ -104,23 +104,32 @@
   "Advise student if Gen Ed Global Perspectives requirements not satisfied."
   (not (exists (Course (courseId ?t&:(is-gen-ed ?t "G")))))
   =>
-  (assert (gen-ed-g-not-satisfied))
+  (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Global Perspectives requirements not satisfied" "At least 1 course in the General Education Global Perspectives area is required." "ISSUE")))
 
 ;; Gen Ed Lower Division Requirements
 (defrule gen-ed-ld
   "Adivce student if Gen Ed lower division requirements are not satisfied."
-  (or (gen-ed-f-not-satisfied)
-      (gen-ed-c-not-satisfied)
-      (gen-ed-r-not-satisfied)
-      (gen-ed-s-not-satisfied)
-      (gen-ed-a-not-satisfied)
-      (gen-ed-b-not-satisfied)
-      (gen-ed-w-not-satisfied)
-      (gen-ed-d-not-satisfied)
-      (gen-ed-g-not-satisfied))
+  (exists (gen-ed-ld-not-satisfied))
   =>
+  (assert (gen-ed-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed lower division requirements not satisfied" "See curriculum guide for details." "ISSUE")))
+
+;; Gen Ed Upper Division Requirements
+(defrule gen-ed-ud
+  "Advise student if Gen Ed upper division requirements not satisfied."
+  (not (exists (Course {courseId == "ENGL 321" || courseId == "ENGL 324"})))
+  =>
+  (assert (gen-ed-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed upper division requirements not satisfied" "Either Writing in the Technical Professions (ENGL 321) or Writing in the Sciences (ENGL 324) is required, but neither is listed among courses." "ISSUE")))
+
+;; Gen Ed Requirements
+(defrule gen-ed
+  "Advise student if Gen Ed requirements not satisfied."
+  (or (exists (gen-ed-ld-not-satisfied)) (exists (gen-ed-ud-not-satisfied)))
+  =>
+  (assert (deg-req-not-satisfied))
+  (add (new Advice "GenEdRequirement" "Gen Ed requirements not satisfied" "See curriculm guide for details." "ISSUE")))
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
