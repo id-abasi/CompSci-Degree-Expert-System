@@ -22,7 +22,6 @@ with open("hss.txt") as in_file, open('sql.txt', 'w') as out_file, open('201314.
                 num_processed = True
             else:
                 name = line.rstrip()
-                
                 search_term = "%s %s -" % (prefix, num)
                 credits = get_credits(pdftxt, search_term)
                 if credits != 0:
