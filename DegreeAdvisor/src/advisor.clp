@@ -14,11 +14,19 @@
 
 ;; GEN ED REQUIREMENTS
 
-(defrule gen-ed-comm
+(defrule gen-ed-fye
   "Advise student if Gen Ed First Year Experience requirements not satisfied."
   (not (Course {title == "UNIV 189"}))
   =>
   (add (new Advice "GenEdRequirement" "UNIV 189 not taken" "UNIV 189 is required, but is not listed among courses." "ISSUE")))
+
+(defrule gen-ed-comm
+  "Advise student if Gen Ed Communication requirements not satisfied."
+  (and (not (exists (Course {title == "COMM 110"}))) (not (exists (GradedCourse {title == "COMM 110"}))))
+  (and (not (exists (Course {title == "ENGL 110"}))) (not (exists (GradedCourse {title == "ENGL 110"}))))
+  (and (not (exists (Course {title == "ENGL 120"}))) (not (exists (GradedCourse {title == "ENGL 120"}))))
+  =>
+  (add (new Advice "GenEdRequirement" "Gen Ed Communication requirements not satisfied" "COMM 110, ENGL 110, and ENGL 120 are required." "ISSUE")))
 
 ;; University Graduation Requirements
 
