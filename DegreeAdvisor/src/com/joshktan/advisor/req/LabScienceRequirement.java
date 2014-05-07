@@ -8,12 +8,12 @@ public class LabScienceRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "One Year Lab Science Sequence Requirement";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "A one year sequence of lab science courses (with corresponding labs) is required.";
     }
 
     

@@ -270,9 +270,9 @@ public class UniversityDatabase implements IUniversityDatabase {
     public Map<String, Collection<Course>> getGenEdCourseMap() {
         return genEdCourseMap;
     }
-    
+
     public boolean isGenEd(String courseId, String genEdArea) {
-        
+
         PreparedStatement retrieveRecordStmt;
         String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
 
@@ -283,6 +283,39 @@ public class UniversityDatabase implements IUniversityDatabase {
             retrieveRecordStmt = dbConnection.prepareStatement(query);
             retrieveRecordStmt.setString(1, courseId);
             retrieveRecordStmt.setString(2, genEdArea);
+
+            ResultSet rset = retrieveRecordStmt.executeQuery();
+
+            if (rset.next()) {
+                found = true;
+            }
+
+            retrieveRecordStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return found;
+    }
+
+    public boolean isLabScienceSequence(String courseOneId, String courseOneLabId,
+            String courseTwoId, String courseTwoLabId) {
+
+        PreparedStatement retrieveRecordStmt;
+        String query = "SELECT * FROM LabScienceSequence WHERE CourseOneId = ?"
+                + " AND CourseOneLabId = ? AND CourseTwoId = ? AND CourseTwoLabId = ?";
+
+        boolean found = false;
+
+        try {
+
+            retrieveRecordStmt = dbConnection.prepareStatement(query);
+            retrieveRecordStmt.setString(1, courseOneId);
+            retrieveRecordStmt.setString(2, courseOneLabId);
+            retrieveRecordStmt.setString(3, courseTwoId);
+            retrieveRecordStmt.setString(4, courseTwoLabId);
 
             ResultSet rset = retrieveRecordStmt.executeQuery();
 

@@ -131,6 +131,68 @@
   (assert (deg-req-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed requirements not satisfied" "See curriculm guide for details." "ISSUE")))
 
+
+
+;; One Year Lab Science Sequence Requirement
+(defrule lab-sci-biol-126
+  (not (exists (Course {courseId == "BIOL 126"})))
+  (not (exists (Course {courseId == "BIOL 126L"})))
+  (not (exists (Course {courseId == "BIOL 220"})))
+  (not (exists (Course {courseId == "BIOL 220L"})))
+  =>
+  (assert (no-biol-126-seq)))
+
+(defrule lab-sci-chem-121
+  (not (exists (Course {courseId == "CHEM 121"})))
+  (not (exists (Course {courseId == "CHEM 121L"})))
+  (not (exists (Course {courseId == "CHEM 122"})))
+  (not (exists (Course {courseId == "CHEM 122L"})))
+  =>
+  (assert (no-chem-121-seq)))
+
+(defrule lab-sci-chem-150
+  (not (exists (Course {courseId == "CHEM 150"})))
+  (not (exists (Course {courseId == "CHEM 160"})))
+  (not (exists (Course {courseId == "CHEM 151"})))
+  (not (exists (Course {courseId == "CHEM 161"})))
+  =>
+  (assert (no-chem-150-seq)))
+
+(defrule lab-sci-geol-105
+  (not (exists (Course {courseId == "GEOL 105"})))
+  (not (exists (Course {courseId == "GEOL 105L"})))
+  (not (exists (Course {courseId == "GEOL 106"})))
+  (not (exists (Course {courseId == "GEOL 106L"})))
+  =>
+  (assert (no-geol-105-seq)))
+
+(defrule lab-sci-phys-211
+  (not (exists (Course {courseId == "PHYS 211"})))
+  (not (exists (Course {courseId == "PHYS 211L"})))
+  (not (exists (Course {courseId == "PHYS 212"})))
+  (not (exists (Course {courseId == "PHYS 212L"})))
+  =>
+  (assert (no-phys-211-seq)))
+
+(defrule lab-sci-phys-251
+  (not (exists (Course {courseId == "PHYS 251"})))
+  (not (exists (Course {courseId == "PHYS 251L"})))
+  (not (exists (Course {courseId == "PHYS 252"})))
+  (not (exists (Course {courseId == "PHYS 252L"})))
+  =>
+  (assert (no-phys-251-seq)))
+
+(defrule lab-sci-seq-req
+  (no-biol-126-seq)
+  (no-chem-121-seq)
+  (no-chem-150-seq)
+  (no-geol-105-seq)
+  (no-phys-211-seq)
+  (no-phys-251-seq)
+  =>
+  (add (new Advice "LabScienceRequirement" "Lab Science Sequence requirements not satisfied" "A one year sequence of lab science courses (with corresponding labs) is required." "ISSUE")))
+
+
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
 (defrule total-credits
