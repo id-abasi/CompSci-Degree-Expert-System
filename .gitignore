@@ -4,6 +4,9 @@
 /DegreeAdvisor/nbproject/private/
 /DegreeAdvisor/build/
 
+# database
+DegreeAdvisor/data/university.db3
+
 # emacs
 *~
 /DegreeAdvisor/dist/
