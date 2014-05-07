@@ -1,0 +1,3463 @@
+--ADHM
+101
+Beginning Apparel Construction
+140
+Introduction to the Hospitality Industry
+141
+Tourism and Travel Management
+150
+Design Fundamentals-Lecture
+151
+Design Fundamentals-Studio
+153
+Sketching for Creativity
+155
+Apparel Construction and Fit
+160
+Interior Design Careers
+161
+Introduction to Manual Drafting
+162
+Intermediate Manual Drafting
+171
+Fashion Dynamics
+181
+Aesthetics and Visual Analysis of Apparel Products
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+241
+Hospitality Accounting
+245
+Contemporary Issues of Controlled Beverages
+250
+Interior Environmental Analysis
+251
+Interior Design Studio I-Residential
+253
+Interior Design Studio II-Office Design
+254
+Interior Design Studio III
+261
+Visual Communications
+264
+Residential Systems
+271
+Visual Merchandising and Promotion
+272
+Product Development
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+300
+Design Resource Management
+310
+History of Fashion
+315
+History of Interiors I
+316
+History of Interiors II
+351
+Interior Design Studio IV-Advanced Residential
+353
+Interior Design Studio V-Large Scale Contract Design
+355
+Flat Pattern Design & Draping
+356
+Pattern Drafting and Grading
+357
+Product Development: Designing Pants
+360
+Lodging Operations Management
+362
+Codes for Interiors
+363
+Commercial Lighting Design and Building Systems
+365
+CADD for Interiors
+366
+Textiles
+367
+Textiles Laboratory
+368
+Interior Materials and Maintenance
+370
+Sewn-Product Manufacturing and Analysis
+372
+Global Retailing
+375
+Professional Development
+379
+Study Tour Abroad
+381
+Hospitality Marketing and Sales
+384
+Beverage Operations
+385
+Global Fashion Economics
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+397
+Fe/Coop Ed/Internship
+399
+Special Topics
+401
+Convention and Meeting Planning
+402
+Professional Catering Management
+403
+Resort and Spa Operations
+404
+Restaurant Operations Management
+404L
+Restaurant Operations Management Laboratory
+405
+Casino Operations
+406
+Professional Club Management
+410
+Dress in World Cultures
+411
+Food and World Cultures
+425
+Experiential Retailing
+435
+Cost Controls in Hospitality and Food Service Systems
+450
+Research and Project Development in Interior Design
+452
+Comprehensive Interior Design Project
+455
+Advanced Apparel Assembly
+460
+Career Development and Professional Practice
+461
+Building Information Modeling
+465
+Aging and the Environment
+467
+Hospitality Law
+470
+Retail Financial Management and Control
+479
+Hospitality Industry Management Strategies
+481
+Apparel and Textiles Capstone Experience
+485
+Global Consumer Analysis
+486
+Dress and Human Behavior
+489
+Study Tour
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+625
+Experiential Retailing
+635
+Cost Controls in Hospitality and Food Service Systems
+665
+Aging and the Environment
+685
+Global Consumer Analysis
+690
+Graduate Seminar
+695
+Field Experience
+710
+Consumer Behavior in Merchandising
+720
+Professional Advancement
+730
+Product Design, Develeopment and Evaluation
+736
+Entrepreneurship in Dietetics
+740
+Promotional Strategies in Merchandising
+750
+Retail Theory and Current Practice
+760
+Historical and Contemporary Issues in Trade
+770
+International Retail Expansion
+775
+Research Methods in Merchandising
+780
+Financial Merchandising Implications
+785
+Strategic Merchandise Planning
+790
+Graduate Seminar
+793
+Individual Study/Tutorial
+794
+Practicum/Internship
+797S
+Comprehensive Project
+--ANTH
+111
+Introduction to Anthropology
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+204
+Archaeology and Prehistory
+205
+Human Origins
+206
+Introduction to Cultural Anthropology: Peoples of the World
+209
+Introduction to Linguistics
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+332
+Medical Anthropology
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+432
+Human Osteology
+433
+Apes and Human Evolution
+441
+Death and Dying
+443
+Peoples and Cultures of the Middle East & North Africa
+444
+Peoples of the Pacific Islands
+446
+Latin America & Carribean: Afro-Latino/as, Gender, Indigeneity
+453
+Magic and Religion
+455
+Language and Expressive Culture
+459
+Global Cultural Heritage
+462
+Anthropology and the Environment
+464
+Disaster and Culture
+470
+Analysis & Interpretation in Archaeology
+471
+Archaeological Research Methods
+480
+Development of Anthropological Theory
+481
+Qualitative Methods in Cultural Anthropology
+489
+Senior Capstone In Anthropology
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+632
+Human Osteology
+633
+Apes and Human Evolution
+641
+Death and Dying
+643
+Peoples and Cultures of the Middle East & North Africa
+644
+Peoples of the Pacific Islands
+646
+Latin America & Carribean: Afro-Latino/as, Gender, Indigeneity
+653
+Magic and Religion
+655
+Language and Expressive Culture
+659
+Global Cultural Heritage
+662
+Anthropology and the Environment
+664
+Disaster and Culture
+670
+Analysis & Interpretation in Archaeology
+671
+Archaeological Research Methods
+680
+Development of Anthropological Theory
+681
+Qualitative Methods in Cultural Anthropology
+690
+Graduate Seminar
+695
+Field Experience
+696
+Special Topics
+790
+Graduate Seminar
+793
+Individual Study/Tutorial
+794
+Practicum/Internship
+795
+Field Experience
+797
+Master's Paper
+798
+Master's Thesis
+--ARCH
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+231
+Architectural Drawing
+232
+Design Technology
+271
+Architectural Design I
+272
+Architectural Design II
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+296
+Field Experience
+299
+Special Topics
+321
+History of Architecture I
+322
+History of Architecture II
+326
+Design Theory
+341
+Site Design for Architects
+344
+Architectural Structures I
+351
+Materials & Construction
+371
+Architectural Design III
+372
+Architectural Design IV
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+397
+Fe/Coop Ed/Internship
+399
+Special Topics
+443
+Architectural Structures II
+450
+Architectural Detailing
+453
+Environmental Control Systems: Passive Principles
+454
+Environmental Control System: Active System
+461
+Urban Design
+471
+Architectural Design V
+472
+Architectural Design VI
+474
+International Design Studio
+475
+Design Build Studio
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+675
+Design Build Studio
+721
+Non-Western Architectural Traditions
+722
+Urbanism
+723
+Historic Preservation
+724
+Architectural Technology
+725
+Architecture or the Recent Past
+726
+Current Architectural Theory
+727
+Vernacular Architectural Traditions
+728
+Sociocultural Issues
+763
+Programming/Thesis Prep
+771
+Advanced Architectural Design
+772
+Design Thesis
+781
+Professional Practice
+789
+Professional Topics in Architecture
+790
+Graduate Seminar
+793
+Individual Study
+795
+Field Experience
+--ART
+110
+Introduction to the Visual Arts
+111
+Introduction to Art History
+120
+Painting I
+122
+Two-Dimensional Design
+124
+Three-Dimensional Design
+130
+Drawing I
+131
+Foundations Drawing
+150
+Ceramics I
+160
+Sculpture I
+170
+Printmaking I
+180
+Photography I
+185
+Digital Media
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+210
+Art History I
+211
+Art History II
+220
+Painting II
+230
+Drawing II
+250
+Ceramics II
+260
+Sculpture II
+270
+Printmaking II
+280
+Photography II
+285
+Digital Media II
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+320
+Painting III
+330
+Drawing III
+335
+Figure Drawing
+350
+Ceramics III
+360
+Sculpture III
+370
+Printmaking III
+379
+Study Tour Abroad
+380
+Photography III
+385
+Digital Media III
+389
+Art Theory and Criticism
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+420
+Painting IV
+430
+Drawing IV
+435
+Advanced Figure Drawing
+450
+Ceramics IV
+451
+History of American Art
+452
+Contemporary Art
+453
+Topics in Art History
+460
+Sculpture IV
+470
+Printmaking IV
+480
+Photography IV
+485
+Digital Media IV
+489
+Baccalaureate Project
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+690
+Graduate Seminar
+793
+Individual Study/Tutorial
+--CJ
+201
+Introduction to Criminal Justice
+210
+Introduction to Policing
+225
+Punishment and the Death Penalty
+226
+Criminal Investigation
+230
+Criminology and Criminal Law
+291
+Seminar
+299
+Special Topics
+310
+Women and Policing
+325
+Applied Research Methods
+327
+Drugs and the Criminal Justice System
+330
+Criminal Law and Procedure
+354
+Media, Crime and Justice in America
+379
+Study Tour Abroad
+391
+Seminar
+399
+Special Topics
+406
+Crime and Delinquency
+407
+Deviant Behavior
+460
+Criminal Court System
+461
+Corrections
+465
+Women and Minorities in Criminal Justice
+489
+Senior Capstone in Criminal Justice
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+606
+Crime and Delinquency
+607
+Deviant Behavior
+660
+Criminal Court System
+661
+Corrections
+696
+Special Topics
+702
+Program Evaluation
+703
+Advanced Criminology
+707
+Juvenile Corrections
+709
+Criminal Justice Policy
+721
+Individual Theories of Crime
+722
+Structural Theories of Crime
+733
+Issues in Institutional Corrections
+734
+Advanced Criminal Justice Methods
+750
+Violence
+752
+Criminogenic Commodities
+754
+Police and Society
+755
+Administrative Policing
+759
+Advanced Research Design in Criminal Justice
+760
+Police and Race Issues
+761
+Police Effectiveness
+762
+Community Corrections
+763
+Correctional Rehabilitation
+764
+Punishment and Society
+765
+Classics in Policing
+765
+Crime Prevention
+768
+Gender and Justice
+793
+Individual Study
+794
+Practicum/Internship
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--CLAS
+101
+First-Year Latin I
+102
+First-Year Latin II
+151
+First-Year Greek I
+152
+First-Year Greek II
+180
+Scientific Term: Greek & Latin
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+Second-Year Latin I
+202
+Second-Year Latin II
+251
+Second-Year Greek I
+252
+Second-Year Greek II
+289
+Biblical Hebrew I
+290
+Biblical Hebrew II
+291
+Seminar
+294
+Individual Study
+299
+Special Topics
+350
+Glory of Greece
+360
+Grandeur Of Rome
+361
+Cicero
+362
+Virgil
+363
+Advanced Latin Prose
+364
+Advanced Latin Poetry
+370
+Classical Mythology
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+451
+Advanced Greek Prose
+452
+Greek Tragedy
+491
+Seminar
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+--COMM
+109
+Communicating with Confidence
+110
+Fundamentals of Public Speaking
+111
+Honors Public Speaking
+112
+Understanding Media and Social Change
+114
+Human Communication
+133
+Introduction to Agricultural Communication
+150
+Forensic Practice
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+200
+Introduction to Media Writing
+212
+Interpersonal Communication
+214
+Persuasive Speaking
+216
+Intercultural Communication
+230
+Basic Photography for the Mass Media
+260
+Principles of Internet Web-Based Design
+261
+Introduction to Web Development
+271
+Listening and Nonverbal Communication
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+296
+Field Experience
+299
+Special Topics
+301
+Rhetorical Traditions
+308
+Business and Professional Speaking
+310
+Advanced Media Writing
+312
+Oral Performance Studies
+313
+Editorial Processes
+315
+Small Group Communication
+316
+Conflict Communication
+318
+Argumentation and Advocacy
+320
+Communication Analysis
+321
+Introduction to Communication Theory
+325
+Applied Research Methods
+330
+Advanced News Photography
+340
+Social Research Methods
+341
+Social Research Methods Laboratory
+345
+Principles of Broadcast Production
+346
+Sports Broadcasting
+347
+Television On-Air Performance
+348
+Documentary & Commercial Production
+349
+Television Studio Production
+362
+Principles of Design For Print
+363
+Advanced Web Design
+375
+Principles and Practices of Advertising and Public Relations
+376
+Advertising Creative Strategies
+377
+Advertising Media Planning
+379
+Study Tour Abroad
+380
+Health Communication I
+381
+Patient-Provider Communication
+383
+Organizational Communication I
+386
+Organizational Interviewing
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+397
+Fe/Coop Ed/Internship
+399
+Special Topics
+402
+Contemporary Rhetoric
+412
+Gender and Communication
+421
+History of Journalism
+425
+Specialty Writing
+431
+Communication Ethics
+433
+Legal Communication
+434
+Communication Law
+435
+Critical Approaches to Popular Culture
+436
+Issues in Mass Communications
+442
+Digital Media and Society
+443
+Mass Media and Public Opinion
+445
+Advanced Broadcast Production
+446
+Television Studio Production
+450
+Issues in Communication
+451
+Directing Forensics
+462
+Web Database Programming
+465
+Convergence Media
+472
+Public Relations Campaigns
+473
+Case Study in Public Relations
+474
+Communication Campaigns
+476
+Advertising Campaign Practicum
+477
+Research for Strategic Communication
+480
+Health Communication II
+482
+Organizational Communication II
+484
+Organizational Advocacy and Issue Management
+485
+Crisis Communications in Public Relations
+486
+Principles of Risk Communication
+487
+Organizational Power and Leadership
+488
+Social Influence and Organizational Change
+489
+Communication Capstone
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+602
+Contemporary Rhetoric
+612
+Gender and Communication
+621
+History of Journalism
+633
+Legal Communication
+634
+Communication Law
+636
+Issues in Mass Communication
+643
+Mass Media and Public Opinion
+650
+Issues in Communication
+651
+Directing Forensics
+672
+Public Relations Campaigns
+690
+Graduate Seminar
+693
+Individual Study/Tutorial
+695
+Field Experience
+696
+Special Topics
+700
+Research Methods in Communication
+701
+Advanced Research Methods in Communication I
+702
+Introduction to College Teaching in the Humanities and Social Sciences
+703
+Advanced Research Methods in Communication II
+704
+Qualitative Research Methods in Communication
+705
+Advanced Communication Theory
+706
+Advanced Interpersonal Communication
+707
+Quantitative Research Methods in Communication
+708
+Advanced Qualitative Methods in Communication Research
+710
+Advanced Quantitative Methods in Communication Research
+711
+Communication Theory
+714
+Marriage & Family Communication
+715
+Theories of Small Group Communication
+721
+Intercultural Communication
+725
+Communication and Change
+731
+Communication Ethics Seminar
+750
+Advanced Issues in Communication
+752
+Theory of Argument
+755
+Rhetoric of Environmental Science
+761
+Survey of Rhetorical Theory
+767
+Rhetorical Criticism
+780
+Health Communication
+782
+Theories of Persuasion
+783
+Advanced Organizational Communication I
+784
+Advanced Organizational Communication II
+785
+Advanced Crisis Communication in Public Relations
+786
+Risk Communication
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Individual Study/Tutorial
+794
+Practicum
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--ECON
+105
+Elements of Economics
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+Principles of Microeconomics
+202
+Principles of Macroeconomics
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+324
+Money and Banking
+341
+Intermediate Microeconomics
+343
+Intermediate Macroeconomics
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+410
+Econometrics
+440
+Game Theory and Strategy
+456
+History of Economic Thought
+461
+Economic Development
+465
+Labor Economics
+470
+Public Finance
+472
+International Trade
+476
+Monetary Theory and Policy
+480
+Industrial Organization
+481
+Natural Resource Economics
+482
+Environmental Economics
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+610
+Econometrics
+640
+Game Theory and Strategy
+656
+History of Economic Thought
+661
+Economic Development
+665
+Labor Economics
+670
+Public Finance
+672
+International Trade
+676
+Monetary Theory and Policy
+680
+Industrial Organization
+681
+Natural Resource Economics
+682
+Environmental Economics
+710
+Advanced Econometrics
+793
+Individual Study/Tutorial
+--ENGL
+100
+Writing Lab
+110
+College Composition I
+111
+Honors Composition I
+112
+ESL College Composition I
+120
+College Composition II
+121
+Honors Composition II
+122
+ESL College Composition II
+167
+Introduction to English Studies
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+209
+Introduction to Linguistics
+213
+Literary Publications
+220
+Introduction to Literature
+222
+Introduction to Poetry
+225
+Introduction to Film
+226
+Poetry of Rock
+231
+The Bible as Literature
+240
+World Literature Masterpieces
+271
+Literary Analysis
+275
+Introduction to Writing Studies
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+301
+Peer Tutoring and Writing in the Disciplines
+313
+Literary Publications II
+315
+British Literature I
+316
+British Literature II
+317
+American Literature I
+318
+American Literature II
+320
+Business and Professional Writing
+321
+Writing in the Technical Professions
+322
+Creative Writing I
+323
+Creative Writing II
+324
+Writing in the Sciences
+325
+Writing in the Health Professions
+326
+Writing in the Design Professions
+330
+British and American Women Writers
+331
+Contemporary Women Writers
+333
+Fantasy and Science Fiction
+335
+Multicultural Writers
+336
+Literature and The Environment
+340
+19th Century American Fiction
+341
+20th Century American Fiction
+345
+Themes in American Culture
+357
+Visual Culture and Language
+358
+Writing in the Humanities and Social Sciences
+360
+Grammatical Structure/English
+377
+Modern Poetry
+379
+Study Tour Abroad
+380
+Shakespeare
+381
+American Road Book
+382
+Film Genres and Styles
+385
+British Fiction
+389
+Non-fiction Prose
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+399
+Special Topics
+413
+Literary Publications III
+423
+Creative Writing Studio
+435
+Young Adult Literature in a Multicultural World
+452
+History of the English Language
+453
+Social and Regional Varieties of English
+454
+Language Bias
+455
+International Technical Writing
+456
+Literacy, Culture and Identity
+457
+Electronic Communication
+458
+Advanced Writing Workshop
+459
+Researching and Writing Grants and Proposal
+467
+English Studies Capstone Experience
+471
+American Realistic Literature
+472
+20th Century American Writers
+474
+Native American Literature
+476
+Topics in American Literature
+480
+Medieval Literature
+482
+Renaissance Literature
+483
+Topics in British Literature
+485
+18th Century Literature
+486
+Romantic Literature
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+635
+Young Adult Literature in a Multicultural World
+651
+Advanced English Grammar
+652
+History of the English Language
+653
+Social and Regional Varieties of English
+654
+Language Bias
+655
+International Technical Writing
+656
+Literacy, Culture and Identity
+659
+Researching and Writing Grants and Proposal
+671
+American Realistic Literature
+672
+20th Century American Writers
+674
+Native American Literature
+676
+Topics in American Literature
+680
+Medieval Literature
+682
+Renaissance Literature
+683
+Topics in British Literature
+685
+18th Century Literature
+686
+Romantic Literature
+690
+Graduate Seminar
+692
+Study Abroad
+695
+Field Experience
+696
+Special Topics
+751
+Multi-Disciplinary Academic Writing
+752
+Writing: Invention to Innovation
+753
+Rhetorics, Poetics Of New Media
+754
+Rhetorics of Science and Technology
+755
+Composition Theory
+756
+Composition Research
+758
+Topics in Rhetoric, Writing, and Culture
+759
+History of Writing Instruction
+760
+Graduate Scholarship
+762
+Critical Theory
+764
+Classroom Strategies For TA'S
+765
+Upper Division Writing: Pedagogy, Practice, and Technology
+766
+Teaching Literature
+770
+Studies in American Literature
+780
+Studies in British Literature
+782
+Studies in Irish Literature
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Indiv Study/Tutorial
+794
+Practicum
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--FREN
+101
+First-Year French I
+102
+First-Year French II
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+Second-Year French I
+202
+Second-Year French II
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+311
+French Conversation and Composition I
+312
+French Conversation and Composition II
+315
+Contemporary France
+340
+The French-Speaking World
+345
+Women in French Literature
+350
+Introduction to French Linguistics and Pronunciation
+360
+Studies in Language and Style
+365
+Advanced Conversation Through Contemporary Culture
+370
+Translation: Practice and Theory
+379
+Study Tour Abroad
+381
+Masterpieces of French Literature in Translation
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+401
+Approaches to Literature
+410
+French Literature & Culture before 1800
+412
+French Literature & Culture since 1800
+420
+Themes & Topics in French Literature & Culture
+422
+Genres in French Literature
+489
+Senior Thesis
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+--GEOG
+151
+Human Geography
+161
+World Regional Geography
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+262
+Geography of North America
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+412
+Geomorphology
+455
+Introduction to Geographic Information Systems
+456
+Advanced Geographic Information Systems
+470
+Remote Sensing
+480
+Geographic Information Systems Pattern Analysis and Modeling
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+612
+Geomorphology
+655
+Introduction to Geographic Information Systems
+656
+Advanced Geographic Information Systems
+670
+Remote Sensing
+680
+Geographic Information Systems Pattern Analysis and Modeling
+696
+Special Topics
+--GERM
+101
+First-Year German I
+102
+First-Year German II
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+Second-Year German I
+202
+Second-Year German II
+220
+German Culture & Society
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+311
+German Conversation and Composition I
+312
+German Conversation and Composition II
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+--HDFS
+110
+Introduction to Human Development and Family Science
+135
+Family Science
+182
+Wellness and Aging
+185
+Financial Survival for College Students
+186
+Consumer and Society
+194
+Individual Study
+196
+Field Experience
+230
+Life Span Development
+242
+Couples, Marriages and Families
+250
+Introduction to Research Methods in Human Development and Family Sciences
+291
+Seminar
+310
+Citizenship & Social Activism
+320
+Prenatal, Infant and Toddler Development
+330
+Child Development
+340
+Adolescent Development
+341
+Parent-Child Relations
+350
+Fundamentals of Hospital Child Life
+353
+Children, Families and Public Policy
+357
+Personal and Family Finance
+360
+Adult Development and Aging
+394
+Individual Study
+424
+Observation and Assessment of Children
+430
+Topics in Cognitive Development
+435
+Topics in Socioemotional Development
+448
+Issues In Sexuality
+462
+Methods of Family Life Education
+468
+Families and Work
+473
+Teens at Risk
+475
+Children and Families Across Cultures
+477
+Financial Counseling
+478
+Financial and Consumer Issues of Aging
+481
+Gender and Aging
+482
+Family Dynamics of Aging
+483
+Developmentally Appropriate Practices from Birth Through Adolescence
+484
+Developmentally Appropriate Practices Across the Adult Lifespan
+485
+Capstone Experience in Human Development and Family Science
+487
+Practicum in Child Development Programs
+491
+Seminar
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+630
+Topics in Cognitive Development
+635
+Topics in Socioemotional Development
+648
+Issues In Sexuality
+675
+Children and Families Across Cultures
+677
+Financial Counseling
+678
+Financial and Consumer Issues of Aging
+681
+Gender and Aging
+682
+Family Dynamics of Aging
+696
+Special Topics
+701
+Graduate Orientation Seminar
+702
+Teaching Developmental Science
+703
+Research Methods in Human Development and Family Science
+705
+Quantitative Methods in Developmental Science
+710
+Foundations of Youth Development
+711
+Youth Development
+712
+Community Youth Development
+713
+Adolescents and Their Families
+714
+Contemporary Youth Issues
+715
+Youth in Cultural Contexts
+716
+Youth Professionals as Consumers of Research
+717
+Program Design, Implementation and Evaluation
+718
+Administration and Program Management
+719
+Youth Policy
+720
+Basic Grant Development and Management
+721
+Adult Development and Aging
+722
+Methods and Theories in Gerontology
+723
+Perspectives in Gerontology
+724
+Advanced Topics in Socioemotional Development
+725
+Advanced Topics in Cognitive Development
+729
+Professional Seminar in Gerontology
+740
+Theories & Research in Family Financial Planning I
+741
+Theories & Research in Family Financial Planning II
+750
+Culture and Aging: Global and Multicultural Perspectives
+755
+Advanced Lifespan Development
+756
+Advanced Quantitative Methods in Developmental Science
+758
+Longitudinal Research Methods and Analysis
+760
+Aging Policy
+761
+Applications in Gerontology
+762
+Retirement Planning, Employee Benefits and the Family
+763
+Personal Income Taxation
+764
+Family Economics
+765
+Insurance Planning for Families
+766
+Estate Planning for Families
+767
+Professional Practices in Family Financial Planning
+768
+Housing/Real Estate
+769
+Financial Planning Case Studies
+770
+Fundamentals of Financial Planning
+771
+Investing for the Family's Future
+772
+Military Personal Financial Readiness
+773
+Foundations of Couple and Family Therapy I
+774
+Foundations of Couple and Family Therapy II
+775
+Clinical Applications of Couple and Family Therapy I
+776
+Clinical Applications of Couple & Family Therapy II
+777
+Diagnosis and Assessment in Couple and Family Therapy
+780
+Ethics and Professional Issues in Couple and Family Therepy
+781
+Issues and Theories in Family Science
+782
+Advanced Human Development: Birth Through Childhood
+783
+Dynamics of Parent-Child Relations
+784
+Advanced Human Development: Adolescence Through Early Adulthood
+786
+Advanced Human Development III: Middle through Late Adulthood
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+792
+Specialized Studies for K-12 Teachers
+793
+Individual Study/Tutorial
+794
+Practicum/Internship
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+797S
+Comprehensive Project
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--HIST
+101
+Western Civilization I
+102
+Western Civilization II
+103
+U.S. to 1877
+104
+U.S. Since 1877
+135
+Race in U.S. History
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+220
+North Dakota History
+251
+Introduction To Public History
+252
+Introduction to Museum Work
+254
+The United States in the Long 1960s
+259
+Women in European History 1400-1800
+261
+American Indian History
+270
+American Religious History
+271
+Introduction to Latin American History
+280
+History of East Asia to 1600
+281
+History of East Asia from 1600
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+320
+History of Christianity
+352
+Museum Collections Management
+379
+Study Tour Abroad
+381
+Australia & New Zealand
+382
+Canada
+390
+Historical Research and Writing
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+399
+Special Topics
+401
+Archival Theory and Practice
+403
+Archival Photography
+404
+Digital History
+420
+Colonial American History
+421
+U.S. History 1763-1829
+422
+U.S. History 1829-1917 I
+423
+U.S. History 1829-1917 II
+424
+U.S. History 1917-Present I
+425
+U.S. History 1917-Present II
+429
+History of the American South to 1850
+430
+Prairie Earth, Prairie Homes: A Field School
+431
+The North American Plains
+434
+Environmental History
+435
+World Environmental History
+436
+American Frontier to 1850
+437
+American West Since 1850
+440
+The Ottoman Empire
+450
+Ancient History
+451
+Medieval History
+454
+Renaissance And Reformation
+455
+The Eighteenth Century
+456
+Europe 1815-1914
+457
+Europe Since 1914
+464
+Imperial Spain
+465
+Germany since 1750
+467
+History Of Russia II
+470
+Modern Latin America I
+471
+Modern Latin America II
+473
+Colonial Mexico
+474
+Modern Mexico
+476
+Southwestern Borderlands To 1848
+477
+Slavery in the Atlantic World
+480
+History of Modern China from 1600
+481
+History of Japan
+482
+Vietnam: 125 Years of Conflict
+484
+Cultures and Civilizations of the Pre-modern World
+485
+Cultural Exchange and the Making of the Modern World
+489
+Senior Seminar
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+601
+Archival Theory and Practice
+603
+Archival Photography
+604
+Digital History
+620
+Colonial American History
+621
+U.S. History 1763-1829
+622
+U.S. History 1829-1917 I
+623
+U.S. History 1829-1917 II
+624
+U.S. History 1917-Present I
+625
+U.S. History 1917-Present II
+629
+History of the American South to 1850
+630
+Prairie Earth, Prairie Homes: A Field School
+631
+The North American Plains
+634
+Environmental History
+635
+World Environmental History
+636
+American Frontier to 1850
+637
+American West Since 1850
+640
+The Ottoman Empire
+650
+Ancient History
+651
+Medieval History
+654
+Renaissance and Reformation
+655
+The Eighteenth Century
+656
+Europe 1815-1914
+657
+Europe Since 1914
+665
+Germany since 1750
+667
+History of Russia II
+670
+Modern Latin America I
+671
+Modern Latin America II
+673
+Colonial Mexico
+674
+Modern Mexico
+676
+Southwestern Borderlands To 1848
+677
+Slavery in the Atlantic World
+690
+Graduate Seminar
+695
+Field Experience
+696
+Special Topics
+701
+Methods of Historical Research
+702
+Historiography
+705
+Directed Research
+706
+Seminar in the Teaching Of History
+710
+Research Seminar in North American History
+712
+Research Seminar in European History
+714
+Research Seminar in World History
+730
+Readings in North American History
+760
+Readings in European History
+780
+Readings in World History
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Individual Study/Tutorial
+794
+Practicum
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--LA
+171
+Environmental Design I
+172
+Environmental Design II
+191
+Seminar
+192
+Study Abroad
+194
+Individual Study
+199
+Special Topics
+231
+Landscape Architecture Graphics
+232
+Design Technology
+271
+Introduction to Landscape Architecture Studio
+272
+Parks & Open Spaces Studio
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+322
+History of Landscape Architecture
+341
+Site Development and Detailing I
+342
+Site Development and Detailing II
+371
+Site Planning & Design Studio
+372
+Community Planning & Design Studio
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+399
+Special Topics
+441
+Site Development and Detailing III
+471
+Urban Design Studio
+472
+Remediation & Planting Design Studio
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+552
+Advanced Landscape Planning
+563
+Programming and Thesis Preparation
+571
+Environmental Planning Studio
+572
+Design Thesis
+581
+Professional Practice
+590
+Seminar
+593
+Individual Study/Tutorial
+596
+Special Topics
+--LANG
+101
+Basic ESL: Integrated Skills
+102
+English Structure for Non-Native Speakers
+103
+English for Non-Native Speakers:Intermediate Grammar & Writing I
+104
+English for Non-Native Speakers: Vocabulary/Reading
+105
+English for Non-Native Speakers:Intermediate Grammar/Writing II
+106
+English for Non-Native Speakers: Oral Skills
+107
+Language Use in Writing for ESL I
+108
+Studies in American Language and Culture
+109
+Language Use in Writing for ESL II
+110
+Integrated Academic Language Skills for Graduate Students
+111
+Advanced Issues in American and University Culture
+112
+Advanced Issues in English Language for Non-Native Speakers
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+491
+Seminar
+491H
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+696
+Special Topics
+796
+Special Topics
+--MUSC
+100
+Music Appreciation
+101
+Fundamentals of Music
+103
+Introduction to Music History
+108
+Roots of American Popular Music
+111
+Marching Band
+112
+University Band
+114
+University Summer Band
+115
+University Chorus
+116
+Cantemus
+117
+Statesmen of NDSU
+130
+Theory and Analysis I
+131
+Theory and Analysis II
+132
+Ear Training & Sight Singing I
+133
+Ear Training & Sight Singing II
+160
+Piano Class I
+161
+Piano Class II
+162
+Voice Class
+163
+Voice Class II
+165
+Applied Piano
+167
+Applied Voice
+168
+Applied Wind Instruments
+169
+Applied Percussion Instruments
+170
+Applied Upper Strings
+171
+Applied Lower Strings
+172
+Applied Guitar
+173
+Supplementary Applied Study
+174
+Pronunciation for Singers I
+175
+Pronunciation for Singers II
+180
+Performance Attendance
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+World Music
+215
+University Chamber Singers
+228
+Development of Musical Theatre
+230
+Theory and Analysis III
+231
+Theory and Analysis IV
+232
+Ear Training & Sight Singing III
+233
+Ear Training & Sight Singing IV
+250
+Basic Conducting
+260
+Piano Class III
+261
+Piano Class IV
+265
+Applied Piano
+267
+Applied Voice
+268
+Applied Wind Instruments
+269
+Applied Percussion Instruments
+270
+Applied Upper Strings
+271
+Applied Lower Strings
+272
+Applied Guitar
+273
+Supplementary Applied Study
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+301
+Musical Theatre Troupe
+302
+Wind Ensemble
+303
+Wind Symphony
+304
+University Symphony Orchestra
+306
+Concert Choir
+311
+Jazz Ensemble
+312
+Percussion Ensemble
+313
+Trombone Ensemble
+314
+Brass Chamber Ensemble
+315
+Woodwind Chamber Ensemble
+316
+String Chamber Ensemble
+317
+Madrigal Singers
+319
+Opera Workshop
+320
+Vocal Chamber Ensemble
+321
+Piano Chamber Music
+322
+Jazz Combo
+331
+Instrumental Arranging
+332
+Survey of Choral Literature
+340
+Music History I
+341
+Music History II
+344
+Wind Band Literature
+346
+Survey/Vocal Literature
+349
+Vocal Methods & Pedagogy I
+350
+Vocal Methods & Pedagogy II
+351
+Instrumental Conducting & Literature
+352
+Choral Conducting & Literature
+353
+Woodwind Methods I
+354
+Woodwind Methods II
+355
+Brass Methods
+357
+Marching Band Methods & Techniques
+358
+Jazz Methods
+359
+Percussion Methods
+364
+Jazz Improvisation
+365
+Applied Piano
+367
+Applied Voice
+368
+Applied Wind Instruments
+369
+Applied Percussion Instruments
+370
+Applied Upper Strings
+371
+Applied Lower Strings
+372
+Applied Guitar
+373
+Supplementary Applied Study
+379
+Study Tour Abroad
+380
+Recital
+384
+Composition I
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+411
+Form and Analysis
+423
+Piano Pedagogy I
+424
+Piano Pedagogy II
+430
+Counterpoint
+431
+Contemporary Harmonic Techniques
+441
+Symphonic Literature
+442
+Opera Literature
+443
+Keyboard Literature
+465
+Applied Piano
+467
+Applied Voice
+468
+Applied Wind Instruments
+469
+Applied Percussion Instruments
+470
+Applied Upper Strings
+471
+Applied Lower Strings
+472
+Applied Guitar
+473
+Supplementary Applied Study
+480
+Recital
+481
+Instrumental Music Methods
+482
+Choral Music Methods
+483
+Elementary Music Methods
+484
+Composition II
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+611
+Form and Analysis
+623
+Piano Pedagogy I
+624
+Piano Pedagogy II
+630
+Counterpoint
+631
+Contemporary Harmonic Techniques
+641
+Symphonic Literature
+642
+Opera Literature
+643
+Keyboard Literature
+701
+Psychology Of Music
+702
+Graduate Theory Survey
+703
+Foundations of Music Education
+704
+Graduate Music History Survey
+709
+Graduate Ensemble
+713
+Advanced Choral Music Methods
+714
+Advanced Elementary Music Methods
+715
+History of Choral Literature
+721
+Advanced Vocal Pedagogy
+722
+Applied Instrumental Pedagogy
+731
+Applied Study
+734
+Analytical Techniques
+740
+Medieval/Renaissance Music History
+741
+Baroque Music History
+742
+Classical Music History
+743
+Romantic Music History
+744
+20th Century Music History
+748
+Music Bibliography/Research Methods
+758
+Jazz Methods and Pedagogy in Music Education
+760
+Medieval/Renaissance Choral Literature
+761
+Baroque Choral Literature
+762
+Classical/Romantic Choral Literature
+763
+Contemporary Choral Literature
+764
+Applied Instrumental Literature
+765
+Band Literature:History and Development
+766
+Band Literature:Chamber Music,Other Genres
+767
+Vocal Literature I-Baroque/Classical
+768
+Vocal Literature II-Romantic
+769
+Vocal Literature III-20Th Century/Contemporary
+780
+Recital
+789
+D.M.A. Thesis
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Indiv Study/Tutorial
+794
+Practicum
+796
+Special Topics
+--PHIL
+101
+Introduction to Philosophy
+111
+Professional Responsibility and Ethics
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+210
+Ethics
+215
+Contemporary Moral Issues
+216
+Business Ethics
+257
+Traditional Logic
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+321
+Ancient Philosophy
+322
+Medieval Philosophy
+323
+Modern Philosophy
+324
+Contemporary Philosophy
+356
+Ancient Philosophy
+357
+Augustine
+359
+Thomas Aquinas
+369
+Philosophy of Religion
+370
+Social and Political Philosophy
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+425
+Environmental Ethics
+450
+Metaphysics
+451
+Epistemology
+476
+History of Philosophy: Modern Period
+486
+Philosophy & Literature
+487
+Aesthetics
+491
+Seminar
+491H
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+625
+Environmental Ethics
+--POLS
+110
+Introduction to Political Science
+115
+American Government
+120
+Terrorism
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+210
+Current Politics
+215
+Problems and Policies In American Government
+216
+Campaigns and Elections
+220
+International Politics
+225
+Comparative Politics
+230
+Judicial Process
+240
+Political Ideologies
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+325
+Applied Research Methods
+350
+Gender Issues and the Law
+351
+Women and Politics
+360
+Principles of Public Administration
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+420
+Political Behavior-Executive-Legislative Process
+421
+Political Behavior-Political Parties
+422
+State and Local Politics
+423
+Public Policy Analysis
+430
+Constitutional Law-Civil Liberties
+431
+Constitutional Law-Criminal Justice
+442
+Global Policy Issues
+444
+International Law
+445
+Ethnic Conflicts
+446
+Current Topics in International Law
+450
+Politics of the Developing Countries
+451
+Politics of the Industrialized Countries
+452
+Comparative Political Economy
+453
+Environmental Policy and Politics
+489
+Senior Seminar
+491
+Seminar
+491H
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+620
+Political Behavior-Executive-Legislative Process
+621
+Political Behavior-Political Parties
+622
+State and Local Politics
+630
+Constitutional Law-Civil Liberties
+631
+Constitutional Law-Criminal Justice
+642
+Global Policy Issues
+644
+International Law
+645
+Ethnic Conflicts
+650
+Politics of the Developing Countries
+651
+Politics of the Industrialized Countries
+652
+Comparative Political Economy
+653
+Environmental Policy and Politics
+696
+Special Topics
+720
+Theoretical Perspectives to the Study of Political Science
+797
+Master's Paper
+--PSYC
+111
+Introduction to Psychology
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+210
+Human Sexuality
+211
+Introduction To Behavior Modification
+212
+Psychological Aspects of Drug Use and Abuse
+214
+Social Interaction
+216
+Cultural Psychology
+221
+Psychology at Work
+250
+Developmental Psychology
+260
+Introduction to Neuroscience
+270
+Abnormal Psychology
+280
+Introduction to Health Psychology
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+322
+Thinking & Making Decisions
+340
+Psychology in Sport
+350
+Research Methods I
+351
+Research Methods II
+360
+Animal Behavior
+370
+Forensic Psychology
+379
+Study Tour Abroad
+380
+Clinical Psychology
+381
+Understanding Suicideand its Impact
+382
+Self-Injury:Recognition & Treatment
+385
+Psychology on Film
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+397
+Coop/Internship
+399
+Special Topics
+440
+Experimental Methods
+450
+Computational Methods in Experimental Psychology
+453
+Organizational Psychology
+460
+Sensation & Perception
+461
+Memory And Knowledge
+463
+Experimental Developmental Psychology
+464
+Attention & Thinking
+465
+Psychobiology
+468
+Personality
+470
+Experimental Social Psychology
+471
+The Psychology Of Aging
+472
+Advanced Psychopathology
+473
+Child Psychopathology and Therapy
+480
+History & Systems
+481
+Health Psychology
+486
+Neuropsychology
+489
+Honors Thesis
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+640
+Experimental Methods
+650
+Computational Methods in Experimental Psychology
+653
+Organizational Psychology
+660
+Sensation & Perception
+661
+Memory and Knowledge
+663
+Experimental Developmental Psychology
+664
+Attention & Thinking
+665
+Psychobiology
+668
+Personality
+670
+Experimental Social Psychology
+671
+The Psychology Of Aging
+672
+Advanced Psychopathology
+673
+Child Psychopathology and Therapy
+680
+History & Systems
+681
+Health Psychology
+686
+Neuropsychology
+690
+Graduate Seminar
+695
+Field Experience
+696
+Special Topics
+718
+Visual Neuroscience
+720
+Advanced Topics in Cognitive Neuroscience
+727
+Advanced Topics in Visual Perception
+731
+Fundamental Processes in Cognition
+732
+Applied Cognitive Process
+733
+Social Judgment
+735
+Neural Networks
+750
+Introduction to Clinical Issues and Practices
+755
+Empirically Supported Interventions I
+756
+Empirically Supported Interventions II
+758
+Diversity in Clinical Psychology
+760
+Research Methods in Visual and Cognitive Neuroscience
+761
+Applied Research Methods
+762
+Advanced Research Methods and Analysis
+764
+Advanced Topics in Attention
+770
+Testing and Assessment
+771
+Social/Health Psychology Research
+782
+Emotions
+787
+Advanced Social Psychology and Health
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Individual Study/Tutorial
+794
+Practicum/Internship
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+799
+Doctoral Dissertation
+--RELS
+100
+Introduction to Religion
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+210
+Ethics
+220
+Old Testament
+230
+New Testament
+243
+Religion and Self
+270
+American Religious History
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+315
+Contemporary Religion
+320
+History of Christianity
+379
+Study Tour Abroad
+394
+Individual Study
+399
+Special Topics
+401
+Sociology of Religion
+453
+Magic And Religion
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+601
+Sociology of Religion
+--SOC
+110
+Introduction to Sociology
+115
+Social Problems
+116
+Global Social Problems
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+214
+Social Interaction
+233
+Sociology of Organizations and Work
+235
+Cultural Diversity
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+340
+Social Research Methods
+341
+Social Research Methods Laboratory
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+401
+Sociology of Religion
+403
+Sociology of The Great Plains
+404
+Community Assessment
+405
+Community Development
+407
+Deviant Behavior
+410
+Social Inequality
+412
+Sociology of Gender
+416
+Sociology Through Literature
+417
+Sociology of the Family
+418
+Social Psychology
+422
+Development Of Social Theory
+424
+Feminist Theory and Discourse
+425
+Sociology of Culture
+426
+Sociology of Medicine
+431
+Environmental Sociology
+439
+Social Change
+440
+Sociology of Aging
+441
+Death and Dying
+443
+International Disasters
+445
+Special Populations in Disasters
+465
+Applied Demographics
+489
+Senior Capstone In Sociology
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+601
+Sociology of Religion
+603
+Sociology of The Great Plains
+604
+Community Assessment
+605
+Community Development
+607
+Deviant Behavior
+610
+Social Inequality
+612
+Sociology of Gender
+617
+Sociology Of The Family
+618
+Social Psychology
+622
+Development Of Social Theory
+624
+Feminist Theory and Discourse
+625
+Sociology of Culture
+626
+Sociology of Medicine
+631
+Environmental Sociology
+639
+Social Change
+640
+Sociology Of Aging
+641
+Death and Dying
+643
+International Disasters
+645
+Special Populations in Disasters
+665
+Applied Demographics
+690
+Graduate Seminar
+693
+Individual Study/Tutorial
+695
+Field Experience
+696
+Special Topics
+700
+Qualitative Methods
+701
+Quantitative Methods
+723
+Social Theory
+790
+Graduate Seminar
+791
+Temporary/Trial Topics
+793
+Individual Study/Tutorial
+794
+Practicum/Internship
+795
+Field Experience
+796
+Special Topics
+797
+Master's Paper
+798
+Master's Thesis
+--SPAN
+101
+First-Year Spanish I
+102
+First-Year Spanish II
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+201
+Second-Year Spanish I
+202
+Second-Year Spanish II
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+299
+Special Topics
+311
+Spanish Conversation and Composition I
+312
+Spanish Conversation and Composition II
+330
+Introduction to Spanish Civilization
+331
+Introduction to Spanish American Civilization
+332
+Introduction to Hispanic Cinema
+379
+Study Tour Abroad
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+399
+Special Topics
+401
+Advanced Spanish Grammar and Writing
+402
+Advanced Spanish Conversation
+430
+Approaches to Literature
+440
+Traditions in Spanish American Literature
+441
+Contemporary Spanish American Literature
+442
+Introduction to Chicano Literature
+443
+Spanish American Women Writers
+450
+Traditions in Spanish Literature
+451
+Contemporary Spanish Literature
+452
+Cervantes
+453
+Spanish Women Writers
+489
+Senior Thesis
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+642
+Introduction to Chicano Literature
+--THEA
+101
+Department Participation
+110
+Introduction to Theatre Arts
+115
+World Film
+161
+Acting I
+180
+Dramatic Literature and Style I
+181
+Dramatic Literature & Style II
+194
+Individual Study
+196
+Field Experience
+199
+Special Topics
+205
+Backstage Practicum
+206
+Performance & Management Practicum
+228
+Development of Musical Theatre
+261
+Acting II
+262
+Introduction to Dance
+263
+Dance Studio
+265
+Script Analysis
+266
+Voice and Movement for the Actor
+267
+Acting for the Camera
+270
+Stagecraft
+271
+Costume Craft
+272
+Drawing for the Theatre
+274
+Introduction To Stage Design
+275
+Theatrical Makeup Design
+276
+Lighting and Sound Design for the Theatre
+277
+Costume Design for the Theatre
+278
+Introduction to Design: Scenic Design
+279
+Scenic Painting
+280
+World Theatre
+286
+Theatrical Design Studio I; Collaboration and Concept
+287
+Theatrical Design Studio II; Materials and Techniques for Design
+291
+Seminar
+292
+Study Abroad
+294
+Individual Study
+296
+Field Experience
+299
+Special Topics
+301
+Musical Theatre Troupe
+350
+Studio Theatre 1-2
+361
+Acting III: Advanced Realism
+362
+Dance Styles for Theatre
+363
+Dance Studio II
+365
+Directing I
+368
+Business of Acting
+370
+Technical Theatre Production
+372
+Stage Management
+379
+Study Tour Abroad
+381
+Technical Theatre Seminar
+386
+Theatrical Design Studio III; Design for Alternative Venues
+387
+Theatrical Design Studio IV; Research in the Studio
+391
+Seminar
+392
+Study Abroad
+394
+Individual Study
+396
+Field Experience
+397
+Co-op Internship
+399
+Special Topics
+450
+Capstone Experience
+460
+Acting the Song
+461
+Acting Shakespeare
+462
+Acting Styles
+465
+Directing II
+466
+Advanced Voice for the Actor
+467
+Advanced Movement for the Actor
+480
+History and Literature of Theatre I
+481
+History and Literature of the Theatre II
+486
+History of Dress and Decor I; the Foundations of Western Style
+487
+History of Dress and Decor II; Western Style since 1800
+491
+Seminar
+492
+Study Abroad
+494
+Individual Study
+494H
+Individual Study
+496
+Field Experience
+499
+Special Topics
+665
+Directing II
+797
+Master's Paper
+--WGS
+110
+Introduction to Women's Studies
+112
+Introduction to Masculinities
+194
+Individual Study
+199
+Special Topics
+350
+Perspectives in Women's Studies
+394
+Individual Study
+450
+Issues in Women and Gender Studies
+489
+Internship/Capstone
+491
+Seminar
+494
+Individual Study
+496
+Field Experience
+499
+Special Topics
+790
+Graduate Seminar

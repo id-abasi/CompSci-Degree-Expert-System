@@ -1,520 +1,4 @@
-DROP TABLE IF EXISTS Courses;
-DROP TABLE IF EXISTS GenEdCourses;
-DROP TABLE IF EXISTS ElectiveCourses;
-
--- General Education Courses
-CREATE TABLE Courses(Id TEXT, Title TEXT, Credits int);
-
-INSERT INTO Courses VALUES('ADHM 310', 'History of Fashion', 3);
-INSERT INTO Courses VALUES('ADHM 315', 'History of Interiors I', 3);
-INSERT INTO Courses VALUES('ADHM 316', 'History of Interiors II', 3);
-INSERT INTO Courses VALUES('ADHM 410', 'Dress in World Cultures', 3);
-INSERT INTO Courses VALUES('ADHM 411', 'Food and World Cultures', 3);
-INSERT INTO Courses VALUES('ADHM 486', 'Dress & Human Behavior', 3);
-INSERT INTO Courses VALUES('ANTH 111', 'Introduction to Anthropology', 3);
-INSERT INTO Courses VALUES('ARCH 321', 'History of Architecture I', 3);
-INSERT INTO Courses VALUES('ARCH 322', 'History of Architecture II', 3);
-INSERT INTO Courses VALUES('ART 110', 'Introduction to the Visual Arts', 3);
-INSERT INTO Courses VALUES('ART 111', 'Introduction to the Art History', 3);
-INSERT INTO Courses VALUES('ART 130', 'Drawing I', 3);
-INSERT INTO Courses VALUES('ART 210', 'Art History I', 3);
-INSERT INTO Courses VALUES('ART 211', 'Art History II', 3);
-INSERT INTO Courses VALUES('BIOL 111', 'Concepts of Biology', 3);
-INSERT INTO Courses VALUES('BIOL 111L', 'Concepts of Biology Lab', 1);
-INSERT INTO Courses VALUES('BIOL 124', 'Environmental Science', 3);
-INSERT INTO Courses VALUES('BIOL 124L', 'Environmental Science Lab', 1);
-INSERT INTO Courses VALUES('BIOL 126', 'Human Biology', 3);
-INSERT INTO Courses VALUES('BIOL 126L', 'Human Biology Laboratory', 1);
-INSERT INTO Courses VALUES('BIOL 220', 'Human Anatomy & Physiology I', 3);
-INSERT INTO Courses VALUES('BIOL 220L', 'Human Anatomy & Physiology I Lab', 1);
-INSERT INTO Courses VALUES('BIOL 315', 'Genetics', 3);
-INSERT INTO Courses VALUES('BIOL 315L', 'Genetics Lab', 1);
-INSERT INTO Courses VALUES('BOT 315', 'Genetics', 3);
-INSERT INTO Courses VALUES('BOT 315L', 'Genetics Lab', 1);
-INSERT INTO Courses VALUES('CHEM 117', 'Chemical Concepts & Applications', 3);
-INSERT INTO Courses VALUES('CHEM 117L', 'Chemical Concepts & Applications Lab', 1);
-INSERT INTO Courses VALUES('CHEM 121', 'General Chemistry I', 3);
-INSERT INTO Courses VALUES('CHEM 121L', 'General Chemistry I Lab', 1);
-INSERT INTO Courses VALUES('CHEM 122', 'General Chemistry II', 3);
-INSERT INTO Courses VALUES('CHEM 122L', 'General Chemistry II Lab', 1);
-INSERT INTO Courses VALUES('CHEM 150', 'Principles of Chemistry I', 3);
-INSERT INTO Courses VALUES('CHEM 151', 'Principles of Chemistry II', 3);
-INSERT INTO Courses VALUES('CHEM 160', 'Principles of Chemistry I Lab', 1);
-INSERT INTO Courses VALUES('CHEM 161', 'Principles of Chemistry II Lab', 1);
-INSERT INTO Courses VALUES('CLAS 101', 'First-Year Latin I', 4);
-INSERT INTO Courses VALUES('CLAS 151', 'First-Year Greek I', 4);
-INSERT INTO Courses VALUES('COMM 110', 'Fundamentals of Public Speaking', 3);
-INSERT INTO Courses VALUES('COMM 112', 'Understanding Media/Social Change', 3);
-INSERT INTO Courses VALUES('COMM 114', 'Human Communication', 3);
-INSERT INTO Courses VALUES('COMM 212', 'Interpersonal Communication', 3);
-INSERT INTO Courses VALUES('COMM 216', 'Intercultural Communication', 3);
-INSERT INTO Courses VALUES('CSCI 114', 'Microcomputer Packages', 3);
-INSERT INTO Courses VALUES('CSCI 116', 'Business Use of Computers', 4);
-INSERT INTO Courses VALUES('ECON 105', 'Elements of Economics', 3);
-INSERT INTO Courses VALUES('ECON 201', 'Principles of Microeconomics', 3);
-INSERT INTO Courses VALUES('ECON 202', 'Principles of Macroeconomics', 3);
-INSERT INTO Courses VALUES('EMGT 101', 'Emergencies, Disasters, and Catastrophes', 3);
-INSERT INTO Courses VALUES('ENGL 110', 'College Composition I', 3);
-INSERT INTO Courses VALUES('ENGL 120', 'College Composition II', 3);
-INSERT INTO Courses VALUES('ENGL 220', 'Introduction to Literature', 3);
-INSERT INTO Courses VALUES('ENGL 225', 'Introduction to Film', 3);
-INSERT INTO Courses VALUES('ENGL 231', 'The Bible as Literature', 3);
-INSERT INTO Courses VALUES('ENGL 315', 'British Literature I', 3);
-INSERT INTO Courses VALUES('ENGL 316', 'British Literature II', 3);
-INSERT INTO Courses VALUES('ENGL 317', 'American Literature I', 3);
-INSERT INTO Courses VALUES('ENGL 318', 'American Literature II', 3);
-INSERT INTO Courses VALUES('ENGL 321', 'Writing in the Technical Professions', 3);
-INSERT INTO Courses VALUES('ENGL 324', 'Writing in the Sciences', 3);
-INSERT INTO Courses VALUES('ENGL 330', 'British/American Women Writers', 3);
-INSERT INTO Courses VALUES('ENGL 335', 'Multicultural Writers', 3);
-INSERT INTO Courses VALUES('ENGL 336', 'Literature and the Environment', 3);
-INSERT INTO Courses VALUES('ENGL 340', '19th Century American Fiction', 3);
-INSERT INTO Courses VALUES('ENGL 341', '20th Century American Fiction', 3);
-INSERT INTO Courses VALUES('ENGL 345', 'Themes in American Culture', 3);
-INSERT INTO Courses VALUES('ENGR 311', 'History of Technology in America', 3);
-INSERT INTO Courses VALUES('ENGR 312', 'Impact of Technology on Society', 3);
-INSERT INTO Courses VALUES('ENT 210', 'Insects, Humans, & the Environment', 3);
-INSERT INTO Courses VALUES('ENVD 101', 'Introduction to Environmental Design', 3);
-INSERT INTO Courses VALUES('FREN 101', 'First-Year French I', 4);
-INSERT INTO Courses VALUES('FREN 102', 'First-Year French II', 4);
-INSERT INTO Courses VALUES('FREN 201', 'Second-Year French I', 3);
-INSERT INTO Courses VALUES('FREN 345', 'Women in French Literature', 3);
-INSERT INTO Courses VALUES('GEOG 151', 'Human Geography', 3);
-INSERT INTO Courses VALUES('GEOG 161', 'World Regional Geography', 3);
-INSERT INTO Courses VALUES('GEOL 105', 'Physical Geology', 3);
-INSERT INTO Courses VALUES('GEOL 105L', 'Physical Geology Lab', 1);
-INSERT INTO Courses VALUES('GEOL 106', 'The Earth Through Time', 3);
-INSERT INTO Courses VALUES('GEOL 106L', 'The Earth Through Time Lab', 1);
-INSERT INTO Courses VALUES('GEOL 107L', 'Eastern North Dakota Field Course', 1);
-INSERT INTO Courses VALUES('GERM 101', 'First-Year German I', 4);
-INSERT INTO Courses VALUES('GERM 102', 'First-Year German II', 4);
-INSERT INTO Courses VALUES('GERM 201', 'Second-Year German I', 3);
-INSERT INTO Courses VALUES('GERM 220', 'German Culture and Society', 3);
-INSERT INTO Courses VALUES('H&CE 341', 'Leadership & Presentation Techniques', 3);
-INSERT INTO Courses VALUES('HDFS 135', 'Family Science', 3);
-INSERT INTO Courses VALUES('HDFS 182', 'Wellness and Aging', 3);
-INSERT INTO Courses VALUES('HDFS 186', 'Consumer & Society', 3);
-INSERT INTO Courses VALUES('HDFS 230', 'Life Span Development', 3);
-INSERT INTO Courses VALUES('HDFS 242', 'Couples, Marriages, and Families', 3);
-INSERT INTO Courses VALUES('HDFS 468', 'Families and Work', 3);
-INSERT INTO Courses VALUES('HDFS 475', 'Children & Families Across Cultures', 3);
-INSERT INTO Courses VALUES('HIST 101', 'Western Civilization I', 3);
-INSERT INTO Courses VALUES('HIST 102', 'Western Civilization II', 3);
-INSERT INTO Courses VALUES('HIST 103', 'U.S. to 1877', 3);
-INSERT INTO Courses VALUES('HIST 104', 'U.S. since 1877', 3);
-INSERT INTO Courses VALUES('HIST 135', 'Race in U.S History', 3);
-INSERT INTO Courses VALUES('HIST 261', 'American Indian History', 3);
-INSERT INTO Courses VALUES('HIST 271', 'Introduction to Latin American History', 3);
-INSERT INTO Courses VALUES('HIST 381', 'Australia & New Zealand', 3);
-INSERT INTO Courses VALUES('HIST 431', 'The North American Plains', 3);
-INSERT INTO Courses VALUES('HNES 100', 'Concepts of Fitness & Wellness', 2);
-INSERT INTO Courses VALUES('HNES 111', 'Wellness', 3);
-INSERT INTO Courses VALUES('HNES 200', 'Principles of Nutrition', 3);
-INSERT INTO Courses VALUES('HNES 217', 'Personal & Community Health', 3);
-INSERT INTO Courses VALUES('HNES 250', 'Nutrition Science', 3);
-INSERT INTO Courses VALUES('HON 340', 'Colloquium in the Humanities', 3);
-INSERT INTO Courses VALUES('HON 341', 'Colloquium in the Social Sciences', 3);
-INSERT INTO Courses VALUES('HON 342', 'Colloquium in the Sciences', 3);
-INSERT INTO Courses VALUES('HON 386', 'World Literature: Imaginary Homelands', 3);
-INSERT INTO Courses VALUES('INTL 110', 'Introduction to International Studies', 3);
-INSERT INTO Courses VALUES('LA 322', 'History of Landscape Architecture', 4);
-INSERT INTO Courses VALUES('MATH 165', 'Calculus I', 4);
-INSERT INTO Courses VALUES('MICR 202', 'Intro Microbiology', 2);
-INSERT INTO Courses VALUES('MICR 202L', 'Intro Microbiology Lab', 1);
-INSERT INTO Courses VALUES('MUSC 100', 'Music Appreciation', 3);
-INSERT INTO Courses VALUES('MUSC 103', 'Introduction to Music History', 3);
-INSERT INTO Courses VALUES('MUSC 108', 'Roots of American Popular Music', 3);
-INSERT INTO Courses VALUES('NRM 225', 'Natural Resources & Agro-ecosystems', 3);
-INSERT INTO Courses VALUES('PHIL 101', 'Introduction to Philosophy', 3);
-INSERT INTO Courses VALUES('PHIL 111', 'Professional Responsibility & Ethics', 3);
-INSERT INTO Courses VALUES('PHIL 215', 'Contemporary Moral Issues', 3);
-INSERT INTO Courses VALUES('PHIL 216', 'Business Ethics', 3);
-INSERT INTO Courses VALUES('PHYS 110', 'Introductory Astronomy', 3);
-INSERT INTO Courses VALUES('PHYS 110L', 'Introductory Astronomy Lab', 1);
-INSERT INTO Courses VALUES('PHYS 120', 'Fundamentals of Physics', 3);
-INSERT INTO Courses VALUES('PHYS 120L', 'Fundamentals of Physics Lab', 1);
-INSERT INTO Courses VALUES('PHYS 211', 'College Physics I', 3);
-INSERT INTO Courses VALUES('PHYS 211L', 'College Physics I Lab', 1);
-INSERT INTO Courses VALUES('PHYS 212', 'College Physics II', 3);
-INSERT INTO Courses VALUES('PHYS 212L', 'College Physics II Lab', 1);
-INSERT INTO Courses VALUES('PHYS 220', 'Physics for Designers', 3);
-INSERT INTO Courses VALUES('PHYS 251', 'University Physics I', 4);
-INSERT INTO Courses VALUES('PHYS 251L', 'University Physics I Lab', 1);
-INSERT INTO Courses VALUES('PHYS 252', 'University Physics II', 4);
-INSERT INTO Courses VALUES('PHYS 252L', 'University Physics II Lab', 1);
-INSERT INTO Courses VALUES('PLSC 110', 'World Food Crops/Lab', 3);
-INSERT INTO Courses VALUES('PLSC 111', 'Genetics and You', 3);
-INSERT INTO Courses VALUES('PLSC 210', 'Horticulture Science', 3);
-INSERT INTO Courses VALUES('PLSC 211', 'Horticulture Science Lab', 1);
-INSERT INTO Courses VALUES('PLSC 315', 'Genetics', 3);
-INSERT INTO Courses VALUES('PLSC 315L', 'Genetics Lab', 1);
-INSERT INTO Courses VALUES('POLS 110', 'Introduction to Political Science', 3);
-INSERT INTO Courses VALUES('POLS 115', 'American Government', 3);
-INSERT INTO Courses VALUES('POLS 120', 'Terrorism', 3);
-INSERT INTO Courses VALUES('POLS 220', 'International Politics', 3);
-INSERT INTO Courses VALUES('PSYC 111', 'Introduction to Psychology', 3);
-INSERT INTO Courses VALUES('PSYC 210', 'Human Sexuality', 3);
-INSERT INTO Courses VALUES('PSYC 211', 'Introduction to Behavior Modification', 3);
-INSERT INTO Courses VALUES('PSYC 212', 'Psychological Aspects of Drug Use and Abuse', 3);
-INSERT INTO Courses VALUES('PSYC 214', 'Social Interaction', 3);
-INSERT INTO Courses VALUES('PSYC 221', 'Psychology at Work', 3);
-INSERT INTO Courses VALUES('PSYC 250', 'Developmental Psychology', 3);
-INSERT INTO Courses VALUES('PSYC 270', 'Abnormal Psychology', 3);
-INSERT INTO Courses VALUES('RELS 100', 'Introduction to Religion', 3);
-INSERT INTO Courses VALUES('RNG 225', 'Natural Resources & Agro-ecosystems', 3);
-INSERT INTO Courses VALUES('SOC 110', 'Introduction to Sociology', 3);
-INSERT INTO Courses VALUES('SOC 214', 'Social Interaction', 3);
-INSERT INTO Courses VALUES('SOC 235', 'Cultural Diversity', 3);
-INSERT INTO Courses VALUES('SOC 412', 'Sociology of Gender', 3);
-INSERT INTO Courses VALUES('SOC 413', 'Sociology of Gender', 3);
-INSERT INTO Courses VALUES('SOIL 217', 'Intro to Meteorology & Climatology', 3);
-INSERT INTO Courses VALUES('SPAN 101', 'First-Year Spanish I', 4);
-INSERT INTO Courses VALUES('SPAN 102', 'First-Year Spanish II', 4);
-INSERT INTO Courses VALUES('SPAN 201', 'Second-Year Spanish I', 3);
-INSERT INTO Courses VALUES('THEA 110', 'Introduction to Theatre Arts', 3);
-INSERT INTO Courses VALUES('THEA 115', 'World Film', 3);
-INSERT INTO Courses VALUES('THEA 161', 'Acting I', 3);
-INSERT INTO Courses VALUES('THEA 280', 'World Theatre', 3);
-INSERT INTO Courses VALUES('UNIV 150', 'Foundations of Science', 3);
-INSERT INTO Courses VALUES('UNIV 151', 'Science and Society', 3);
-INSERT INTO Courses VALUES('UNIV 189', 'Skills for Academic Success', 1);
-INSERT INTO Courses VALUES('WGS 110', 'Introduction to Women''s Studies', 3);
-INSERT INTO Courses VALUES('WGS 112', 'Introduction to Masculinities', 3);
-INSERT INTO Courses VALUES('ZOO 126', 'Human Biology', 3);
-INSERT INTO Courses VALUES('ZOO 126L', 'Human Biology Laboratory', 1);
-INSERT INTO Courses VALUES('ZOO 315', 'Genetics', 3);
-INSERT INTO Courses VALUES('ZOO 315L', 'Genetics Lab', 1);
-
-CREATE TABLE GenEdCourses(Id TEXT, Area TEXT);
-
--- First Year Experience (F)
-INSERT INTO GenEdCourses VALUES('UNIV 189', 'F');
-
--- Communication (C)
-INSERT INTO GenEdCourses VALUES('COMM 110', 'C');
-INSERT INTO GenEdCourses VALUES('ENGL 110', 'C');
-INSERT INTO GenEdCourses VALUES('ENGL 120', 'C');
-
--- Quantitative Reasoning (R)
-INSERT INTO GenEdCourses VALUES('MATH 165', 'R');
-
--- Science & Technology (S)
----- Natural Science (Sn)
-INSERT INTO GenEdCourses VALUES('BIOL 111', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 111L', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 124', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 124L', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 126', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 126L', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 220', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 220L', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 315', 'S');
-INSERT INTO GenEdCourses VALUES('BIOL 315L', 'S');
-INSERT INTO GenEdCourses VALUES('BOT 315', 'S');
-INSERT INTO GenEdCourses VALUES('BOT 315L', 'S');
-INSERT INTO GenEdCourses VALUES('ENT 210', 'S');
-INSERT INTO GenEdCourses VALUES('HON 342', 'S');
-INSERT INTO GenEdCourses VALUES('MICR 202', 'S');
-INSERT INTO GenEdCourses VALUES('MICR 202L', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 110', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 111', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 210', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 211', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 315', 'S');
-INSERT INTO GenEdCourses VALUES('PLSC 315L', 'S');
-INSERT INTO GenEdCourses VALUES('RNG 225', 'S');
-INSERT INTO GenEdCourses VALUES('SOIL 217', 'S');
-INSERT INTO GenEdCourses VALUES('ZOO 126', 'S');
-INSERT INTO GenEdCourses VALUES('ZOO 126L', 'S');
-INSERT INTO GenEdCourses VALUES('ZOO 315', 'S');
-INSERT INTO GenEdCourses VALUES('ZOO 315L', 'S');
----- Physical Science (Sp)
-INSERT INTO GenEdCourses VALUES('CHEM 117', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 117L', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 121', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 121L', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 122', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 122L', 'S');
-INSERT INTO GenEdCourses VALUES('GEOL 105', 'S');
-INSERT INTO GenEdCourses VALUES('GEOL 105L', 'S');
-INSERT INTO GenEdCourses VALUES('GEOL 106', 'S');
-INSERT INTO GenEdCourses VALUES('GEOL 106L', 'S');
-INSERT INTO GenEdCourses VALUES('GEOL 107L', 'S');
-INSERT INTO GenEdCourses VALUES('HNES 250', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 110', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 110L', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 120', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 120L', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 211', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 211L', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 212', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 212L', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 220', 'S');
-INSERT INTO GenEdCourses VALUES('UNIV 150', 'S');
-INSERT INTO GenEdCourses VALUES('UNIV 151', 'S');
----- Known Physical Science Equivalencies
-INSERT INTO GenEdCourses VALUES('CHEM 150', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 151', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 160', 'S');
-INSERT INTO GenEdCourses VALUES('CHEM 161', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 251', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 251L', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 252', 'S');
-INSERT INTO GenEdCourses VALUES('PHYS 252L', 'S');
--- Technology (St)
-INSERT INTO GenEdCourses VALUES('CSCI 114', 'S');
-INSERT INTO GenEdCourses VALUES('CSCI 116', 'S');
-
--- Humanities & Fine Arts (A)
-INSERT INTO GenEdCourses VALUES('ADHM 310', 'A');
-INSERT INTO GenEdCourses VALUES('ADHM 315', 'A');
-INSERT INTO GenEdCourses VALUES('ADHM 316', 'A');
-INSERT INTO GenEdCourses VALUES('ADHM 410', 'A');
-INSERT INTO GenEdCourses VALUES('ADHM 411', 'A');
-INSERT INTO GenEdCourses VALUES('ARCH 321', 'A');
-INSERT INTO GenEdCourses VALUES('ARCH 322', 'A');
-INSERT INTO GenEdCourses VALUES('ART 110', 'A');
-INSERT INTO GenEdCourses VALUES('ART 111', 'A');
-INSERT INTO GenEdCourses VALUES('ART 210', 'A');
-INSERT INTO GenEdCourses VALUES('ART 211', 'A');
-INSERT INTO GenEdCourses VALUES('CLAS 101', 'A');
-INSERT INTO GenEdCourses VALUES('CLAS 151', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 220', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 225', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 231', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 315', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 316', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 317', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 318', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 330', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 335', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 336', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 340', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 341', 'A');
-INSERT INTO GenEdCourses VALUES('ENGL 345', 'A');
-INSERT INTO GenEdCourses VALUES('ENGR 311', 'A');
-INSERT INTO GenEdCourses VALUES('ENVD 101', 'A');
-INSERT INTO GenEdCourses VALUES('FREN 101', 'A');
-INSERT INTO GenEdCourses VALUES('FREN 102', 'A');
-INSERT INTO GenEdCourses VALUES('FREN 201', 'A');
-INSERT INTO GenEdCourses VALUES('FREN 345', 'A');
-INSERT INTO GenEdCourses VALUES('GERM 101', 'A');
-INSERT INTO GenEdCourses VALUES('GERM 102', 'A');
-INSERT INTO GenEdCourses VALUES('GERM 201', 'A');
-INSERT INTO GenEdCourses VALUES('GERM 220', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 101', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 102', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 103', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 104', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 135', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 261', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 271', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 381', 'A');
-INSERT INTO GenEdCourses VALUES('HIST 431', 'A');
-INSERT INTO GenEdCourses VALUES('HON 340', 'A');
-INSERT INTO GenEdCourses VALUES('HON 386', 'A');
-INSERT INTO GenEdCourses VALUES('LA 322', 'A');
-INSERT INTO GenEdCourses VALUES('MUSC 100', 'A');
-INSERT INTO GenEdCourses VALUES('MUSC 103', 'A');
-INSERT INTO GenEdCourses VALUES('MUSC 108', 'A');
-INSERT INTO GenEdCourses VALUES('PHIL 101', 'A');
-INSERT INTO GenEdCourses VALUES('PHIL 111', 'A');
-INSERT INTO GenEdCourses VALUES('PHIL 215', 'A');
-INSERT INTO GenEdCourses VALUES('PHIL 216', 'A');
-INSERT INTO GenEdCourses VALUES('RELS 100', 'A');
-INSERT INTO GenEdCourses VALUES('SPAN 101', 'A');
-INSERT INTO GenEdCourses VALUES('SPAN 102', 'A');
-INSERT INTO GenEdCourses VALUES('SPAN 201', 'A');
-INSERT INTO GenEdCourses VALUES('THEA 110', 'A');
-INSERT INTO GenEdCourses VALUES('THEA 115', 'A');
-INSERT INTO GenEdCourses VALUES('THEA 280', 'A');
-INSERT INTO GenEdCourses VALUES('WGS 110', 'A');
-INSERT INTO GenEdCourses VALUES('WGS 112', 'A');
----- Fine Arts Peformance
-INSERT INTO GenEdCourses VALUES('ART 130', 'A');
-INSERT INTO GenEdCourses VALUES('THEA 161', 'A');
-
--- Social & Behavorial Sciences (B)
-INSERT INTO GenEdCourses VALUES('ADHM 486', 'B');
-INSERT INTO GenEdCourses VALUES('ANTH 111', 'B');
-INSERT INTO GenEdCourses VALUES('COMM 112', 'B');
-INSERT INTO GenEdCourses VALUES('COMM 114', 'B');
-INSERT INTO GenEdCourses VALUES('COMM 212', 'B');
-INSERT INTO GenEdCourses VALUES('COMM 216', 'B');
-INSERT INTO GenEdCourses VALUES('ECON 105', 'B');
-INSERT INTO GenEdCourses VALUES('ECON 201', 'B');
-INSERT INTO GenEdCourses VALUES('ECON 202', 'B');
-INSERT INTO GenEdCourses VALUES('EMGT 101', 'B');
-INSERT INTO GenEdCourses VALUES('ENGR 312', 'B');
-INSERT INTO GenEdCourses VALUES('GEOG 151', 'B');
-INSERT INTO GenEdCourses VALUES('GEOG 161', 'B');
-INSERT INTO GenEdCourses VALUES('H&CE 341', 'B');
-INSERT INTO GenEdCourses VALUES('HDFS 135', 'B');
-INSERT INTO GenEdCourses VALUES('HDFS 186', 'B');
-INSERT INTO GenEdCourses VALUES('HDFS 230', 'B');
-INSERT INTO GenEdCourses VALUES('HDFS 468', 'B');
-INSERT INTO GenEdCourses VALUES('HDFS 475', 'B');
-INSERT INTO GenEdCourses VALUES('HON 341', 'B');
-INSERT INTO GenEdCourses VALUES('INTL 110', 'B');
-INSERT INTO GenEdCourses VALUES('POLS 110', 'B');
-INSERT INTO GenEdCourses VALUES('POLS 115', 'B');
-INSERT INTO GenEdCourses VALUES('POLS 120', 'B');
-INSERT INTO GenEdCourses VALUES('POLS 220', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 111', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 210', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 211', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 212', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 214', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 221', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 250', 'B');
-INSERT INTO GenEdCourses VALUES('PSYC 270', 'B');
-INSERT INTO GenEdCourses VALUES('SOC 110', 'B');
-INSERT INTO GenEdCourses VALUES('SOC 214', 'B');
-INSERT INTO GenEdCourses VALUES('SOC 235', 'B');
-INSERT INTO GenEdCourses VALUES('SOC 412', 'B');
-
--- Wellness (W)
-INSERT INTO GenEdCourses VALUES('HDFS 182', 'W');
-INSERT INTO GenEdCourses VALUES('HDFS 242', 'W');
-INSERT INTO GenEdCourses VALUES('HNES 100', 'W');
-INSERT INTO GenEdCourses VALUES('HNES 111', 'W');
-INSERT INTO GenEdCourses VALUES('HNES 200', 'W');
-INSERT INTO GenEdCourses VALUES('HNES 217', 'W');
-INSERT INTO GenEdCourses VALUES('HNES 250', 'W');
-
--- Cultural Diversity (D)
-INSERT INTO GenEdCourses VALUES('ADHM 410', 'D');
-INSERT INTO GenEdCourses VALUES('ADHM 411', 'D');
-INSERT INTO GenEdCourses VALUES('ANTH 111', 'D');
-INSERT INTO GenEdCourses VALUES('ART 110', 'D');
-INSERT INTO GenEdCourses VALUES('COMM 216', 'D');
-INSERT INTO GenEdCourses VALUES('ENGL 330', 'D');
-INSERT INTO GenEdCourses VALUES('ENGL 335', 'D');
-INSERT INTO GenEdCourses VALUES('ENGL 340', 'D');
-INSERT INTO GenEdCourses VALUES('ENGL 341', 'D');
-INSERT INTO GenEdCourses VALUES('ENGL 345', 'D');
-INSERT INTO GenEdCourses VALUES('FREN 201', 'D');
-INSERT INTO GenEdCourses VALUES('FREN 345', 'D');
-INSERT INTO GenEdCourses VALUES('GERM 201', 'D');
-INSERT INTO GenEdCourses VALUES('HDFS 475', 'D');
-INSERT INTO GenEdCourses VALUES('HIST 135', 'D');
-INSERT INTO GenEdCourses VALUES('HIST 261', 'D');
-INSERT INTO GenEdCourses VALUES('HIST 271', 'D');
-INSERT INTO GenEdCourses VALUES('HIST 431', 'D');
-INSERT INTO GenEdCourses VALUES('HON 386', 'D');
-INSERT INTO GenEdCourses VALUES('MUSC 108', 'D');
-INSERT INTO GenEdCourses VALUES('PHIL 215', 'D');
-INSERT INTO GenEdCourses VALUES('SOC 235', 'D');
-INSERT INTO GenEdCourses VALUES('SOC 412', 'D');
-INSERT INTO GenEdCourses VALUES('SPAN 201', 'D');
-INSERT INTO GenEdCourses VALUES('THEA 115', 'D');
-INSERT INTO GenEdCourses VALUES('THEA 280', 'D');
-INSERT INTO GenEdCourses VALUES('WGS 110', 'D');
-INSERT INTO GenEdCourses VALUES('WGS 112', 'D');
-
--- Global Perspectives (G)
-INSERT INTO GenEdCourses VALUES('ARCH 321', 'G');
-INSERT INTO GenEdCourses VALUES('ART 111', 'G');
-INSERT INTO GenEdCourses VALUES('BIOL 124', 'G');
-INSERT INTO GenEdCourses VALUES('BIOL 124L', 'G');
-INSERT INTO GenEdCourses VALUES('ECON 105', 'G');
-INSERT INTO GenEdCourses VALUES('ECON 201', 'G');
-INSERT INTO GenEdCourses VALUES('ECON 202', 'G');
-INSERT INTO GenEdCourses VALUES('ENGL 231', 'G');
-INSERT INTO GenEdCourses VALUES('ENGL 336', 'G');
-INSERT INTO GenEdCourses VALUES('ENGR 312', 'G');
-INSERT INTO GenEdCourses VALUES('FREN 101', 'G');
-INSERT INTO GenEdCourses VALUES('FREN 102', 'G');
-INSERT INTO GenEdCourses VALUES('GEOG 151', 'G');
-INSERT INTO GenEdCourses VALUES('GEOG 161', 'G');
-INSERT INTO GenEdCourses VALUES('GEOL 105', 'G');
-INSERT INTO GenEdCourses VALUES('GEOL 105L', 'G');
-INSERT INTO GenEdCourses VALUES('GEOL 106', 'G');
-INSERT INTO GenEdCourses VALUES('GEOL 106L', 'G');
-INSERT INTO GenEdCourses VALUES('GERM 101', 'G');
-INSERT INTO GenEdCourses VALUES('GERM 102', 'G');
-INSERT INTO GenEdCourses VALUES('GERM 220', 'G');
-INSERT INTO GenEdCourses VALUES('HDFS 468', 'G');
-INSERT INTO GenEdCourses VALUES('HIST 381', 'G');
-INSERT INTO GenEdCourses VALUES('INTL 110', 'G');
-INSERT INTO GenEdCourses VALUES('NRM 225', 'G');
-INSERT INTO GenEdCourses VALUES('PLSC 110', 'G');
-INSERT INTO GenEdCourses VALUES('POLS 220', 'G');
-INSERT INTO GenEdCourses VALUES('RNG 225', 'G');
-INSERT INTO GenEdCourses VALUES('SPAN 101', 'G');
-INSERT INTO GenEdCourses VALUES('SPAN 102', 'G');
-INSERT INTO GenEdCourses VALUES('UNIV 151', 'G');
-
--- Major Requirements
----- Core Courses
-INSERT INTO Courses VALUES('CSCI 160', 'Computer Science I', 4);
-INSERT INTO Courses VALUES('CSCI 161', 'Computer Science II', 4);
-INSERT INTO Courses VALUES('CSCI 213', 'Modern Software Development', 3);
-INSERT INTO Courses VALUES('CSCI 222', 'Discrete Mathematics', 3);
-INSERT INTO Courses VALUES('CSCI 313', 'Software Development for Games', 3);
-INSERT INTO Courses VALUES('CSCI 336', 'Theoretical Computer Science II', 3);
-INSERT INTO Courses VALUES('CSCI 366', 'Files for Database Systems', 3);
-INSERT INTO Courses VALUES('CSCI 372', 'Comparative Programming Languages', 3);
-INSERT INTO Courses VALUES('CSCI 374', 'Computer Organization & Architecture', 3);
-INSERT INTO Courses VALUES('CSCI 415', 'Networking and Parallel Computation', 3);
-INSERT INTO Courses VALUES('CSCI 445', 'Software Projects: Capstone', 3);
-INSERT INTO Courses VALUES('CSCI 467', 'Algorithm Analysis', 3);
-INSERT INTO Courses VALUES('CSCI 474', 'Operating Systems Concepts', 3);
-INSERT INTO Courses VALUES('CSCI 489', 'Social Implications of Computers', 3);
-
--- Computer Science Electives
-INSERT INTO Courses VALUES('CSCI 345', 'Topics in Personal Computers', 3);
-INSERT INTO Courses VALUES('CSCI 413', 'Principles of Software Engineering', 3);
-INSERT INTO Courses VALUES('CSCI 418', 'Simulation Models', 3);
-INSERT INTO Courses VALUES('CSCI 426', 'Introduction to Artificial Intelligence', 3);
-INSERT INTO Courses VALUES('CSCI 453', 'Linear Programming and Network Flows', 3);
-INSERT INTO Courses VALUES('CSCI 454', 'Operations Research', 3);
-INSERT INTO Courses VALUES('CSCI 458', 'Microcomputer Graphics', 3);
-INSERT INTO Courses VALUES('CSCI 459', 'Foundations of Computer Networks', 3);
-INSERT INTO Courses VALUES('CSCI 469', 'Network Security', 3);
-INSERT INTO Courses VALUES('CSCI 473', 'Foundations of the Digital Enterprise', 3);
-INSERT INTO Courses VALUES('CSCI 476', 'Computer Forensics', 3);
-INSERT INTO Courses VALUES('CSCI 477', 'Object-Oriented Systems', 3);
-INSERT INTO Courses VALUES('CSCI 479', 'Introduction to Data Mining', 3);
-INSERT INTO Courses VALUES('CSCI 488', 'Human-Computer Interaction', 3);
-
-CREATE TABLE ElectiveCourses(Id TEXT, Category TEXT);
-
--- Software Engineering (SE)
-INSERT INTO ElectiveCourses VALUES('CSCI 413', 'SE');
-INSERT INTO ElectiveCourses VALUES('CSCI 477', 'SE');
-INSERT INTO ElectiveCourses VALUES('CSCI 488', 'SE');
-
--- Large Systems (LS)
-INSERT INTO ElectiveCourses VALUES('CSCI 426', 'LS');
-INSERT INTO ElectiveCourses VALUES('CSCI 458', 'LS');
-INSERT INTO ElectiveCourses VALUES('CSCI 459', 'LS');
-
--- Systems Modeling (SM)
-INSERT INTO ElectiveCourses VALUES('CSCI 418', 'SM');
-INSERT INTO ElectiveCourses VALUES('CSCI 453', 'SM');
-INSERT INTO ElectiveCourses VALUES('CSCI 454', 'SM');
-
--- Emerging Areas (EA)
-INSERT INTO ElectiveCourses VALUES('CSCI 345', 'EA');
-INSERT INTO ElectiveCourses VALUES('CSCI 469', 'EA');
-INSERT INTO ElectiveCourses VALUES('CSCI 473', 'EA');
-INSERT INTO ElectiveCourses VALUES('CSCI 476', 'EA');
-INSERT INTO ElectiveCourses VALUES('CSCI 479', 'EA');
-
--- Related Required Courses
----- Mathematics and Statistics
-INSERT INTO Courses VALUES('MATH 166', 'Calculus II', 4);
-INSERT INTO Courses VALUES('STAT 367', 'Probability', 3);
-INSERT INTO Courses VALUES('STAT 368', 'Statistics', 3);
-
-
--- Additional Humanities and Social Sciences courses
--- (containing prefix ADHM, ANTH, ARCH, ART, CJ, CLAS,
---  COMM, ECON, ENGL, FREN, GEOG, GERM, HDFS, HIST, LA,
---  LANG, MUSC, PHIL, POLS, PSYC, RELS, SOC, SPAN, THEA,
---  or WGS)
-----ADHM
+--ADHM
 INSERT INTO Courses VALUES('ADHM 101', 'Beginning Apparel Construction', 3);
 INSERT INTO Courses VALUES('ADHM 140', 'Introduction to the Hospitality Industry', 3);
 INSERT INTO Courses VALUES('ADHM 141', 'Tourism and Travel Management', 3);
@@ -593,7 +77,7 @@ INSERT INTO Courses VALUES('ADHM 770', 'International Retail Expansion', 3);
 INSERT INTO Courses VALUES('ADHM 775', 'Research Methods in Merchandising', 3);
 INSERT INTO Courses VALUES('ADHM 780', 'Financial Merchandising Implications', 3);
 INSERT INTO Courses VALUES('ADHM 785', 'Strategic Merchandise Planning', 3);
-----ANTH
+--ANTH
 INSERT INTO Courses VALUES('ANTH 204', 'Archaeology and Prehistory', 3);
 INSERT INTO Courses VALUES('ANTH 205', 'Human Origins', 3);
 INSERT INTO Courses VALUES('ANTH 206', 'Introduction to Cultural Anthropology: Peoples of the World', 3);
@@ -630,7 +114,7 @@ INSERT INTO Courses VALUES('ANTH 670', 'Analysis & Interpretation in Archaeology
 INSERT INTO Courses VALUES('ANTH 671', 'Archaeological Research Methods', 3);
 INSERT INTO Courses VALUES('ANTH 680', 'Development of Anthropological Theory', 3);
 INSERT INTO Courses VALUES('ANTH 681', 'Qualitative Methods in Cultural Anthropology', 3);
-----ARCH
+--ARCH
 INSERT INTO Courses VALUES('ARCH 231', 'Architectural Drawing', 3);
 INSERT INTO Courses VALUES('ARCH 232', 'Design Technology', 3);
 INSERT INTO Courses VALUES('ARCH 271', 'Architectural Design I', 6);
@@ -664,7 +148,7 @@ INSERT INTO Courses VALUES('ARCH 771', 'Advanced Architectural Design', 6);
 INSERT INTO Courses VALUES('ARCH 772', 'Design Thesis', 8);
 INSERT INTO Courses VALUES('ARCH 781', 'Professional Practice', 3);
 INSERT INTO Courses VALUES('ARCH 789', 'Professional Topics in Architecture', 3);
-----ART
+--ART
 INSERT INTO Courses VALUES('ART 111', 'Introduction to Art History', 3);
 INSERT INTO Courses VALUES('ART 120', 'Painting I', 3);
 INSERT INTO Courses VALUES('ART 122', 'Two-Dimensional Design', 3);
@@ -703,7 +187,7 @@ INSERT INTO Courses VALUES('ART 470', 'Printmaking IV', 3);
 INSERT INTO Courses VALUES('ART 480', 'Photography IV', 3);
 INSERT INTO Courses VALUES('ART 485', 'Digital Media IV', 3);
 INSERT INTO Courses VALUES('ART 489', 'Baccalaureate Project', 3-6);
-----CJ
+--CJ
 INSERT INTO Courses VALUES('CJ 201', 'Introduction to Criminal Justice', 3);
 INSERT INTO Courses VALUES('CJ 210', 'Introduction to Policing', 3);
 INSERT INTO Courses VALUES('CJ 225', 'Punishment and the Death Penalty', 1);
@@ -745,7 +229,7 @@ INSERT INTO Courses VALUES('CJ 764', 'Punishment and Society', 3);
 INSERT INTO Courses VALUES('CJ 765', 'Classics in Policing', 3);
 INSERT INTO Courses VALUES('CJ 765', 'Crime Prevention', 3);
 INSERT INTO Courses VALUES('CJ 768', 'Gender and Justice', 3);
-----CLAS
+--CLAS
 INSERT INTO Courses VALUES('CLAS 102', 'First-Year Latin II', 4);
 INSERT INTO Courses VALUES('CLAS 152', 'First-Year Greek II', 4);
 INSERT INTO Courses VALUES('CLAS 180', 'Scientific Term: Greek & Latin', 2);
@@ -764,7 +248,7 @@ INSERT INTO Courses VALUES('CLAS 364', 'Advanced Latin Poetry', 3);
 INSERT INTO Courses VALUES('CLAS 370', 'Classical Mythology', 3);
 INSERT INTO Courses VALUES('CLAS 451', 'Advanced Greek Prose', 3);
 INSERT INTO Courses VALUES('CLAS 452', 'Greek Tragedy', 3);
-----COMM
+--COMM
 INSERT INTO Courses VALUES('COMM 109', 'Communicating with Confidence', 1);
 INSERT INTO Courses VALUES('COMM 111', 'Honors Public Speaking', 3);
 INSERT INTO Courses VALUES('COMM 112', 'Understanding Media and Social Change', 3);
@@ -871,7 +355,7 @@ INSERT INTO Courses VALUES('COMM 783', 'Advanced Organizational Communication I'
 INSERT INTO Courses VALUES('COMM 784', 'Advanced Organizational Communication II', 3);
 INSERT INTO Courses VALUES('COMM 785', 'Advanced Crisis Communication in Public Relations', 3);
 INSERT INTO Courses VALUES('COMM 786', 'Risk Communication', 3);
-----ECON
+--ECON
 INSERT INTO Courses VALUES('ECON 324', 'Money and Banking', 3);
 INSERT INTO Courses VALUES('ECON 341', 'Intermediate Microeconomics', 3);
 INSERT INTO Courses VALUES('ECON 343', 'Intermediate Macroeconomics', 3);
@@ -898,7 +382,7 @@ INSERT INTO Courses VALUES('ECON 680', 'Industrial Organization', 3);
 INSERT INTO Courses VALUES('ECON 681', 'Natural Resource Economics', 3);
 INSERT INTO Courses VALUES('ECON 682', 'Environmental Economics', 3);
 INSERT INTO Courses VALUES('ECON 710', 'Advanced Econometrics', 3);
-----ENGL
+--ENGL
 INSERT INTO Courses VALUES('ENGL 100', 'Writing Lab', 1);
 INSERT INTO Courses VALUES('ENGL 111', 'Honors Composition I', 3);
 INSERT INTO Courses VALUES('ENGL 112', 'ESL College Composition I', 3);
@@ -980,13 +464,13 @@ INSERT INTO Courses VALUES('ENGL 758', 'Topics in Rhetoric, Writing, and Culture
 INSERT INTO Courses VALUES('ENGL 759', 'History of Writing Instruction', 3);
 INSERT INTO Courses VALUES('ENGL 760', 'Graduate Scholarship', 3);
 INSERT INTO Courses VALUES('ENGL 762', 'Critical Theory', 3);
-INSERT INTO Courses VALUES('ENGL 764', 'Classroom Strategies For TA''S', 3);
+INSERT INTO Courses VALUES('ENGL 764', 'Classroom Strategies For TA'S', 3);
 INSERT INTO Courses VALUES('ENGL 765', 'Upper Division Writing: Pedagogy, Practice, and Technology', 3);
 INSERT INTO Courses VALUES('ENGL 766', 'Teaching Literature', 3);
 INSERT INTO Courses VALUES('ENGL 770', 'Studies in American Literature', 3);
 INSERT INTO Courses VALUES('ENGL 780', 'Studies in British Literature', 3);
 INSERT INTO Courses VALUES('ENGL 782', 'Studies in Irish Literature', 3);
-----FREN
+--FREN
 INSERT INTO Courses VALUES('FREN 202', 'Second-Year French II', 3);
 INSERT INTO Courses VALUES('FREN 311', 'French Conversation and Composition I', 3);
 INSERT INTO Courses VALUES('FREN 312', 'French Conversation and Composition II', 3);
@@ -1003,7 +487,7 @@ INSERT INTO Courses VALUES('FREN 412', 'French Literature & Culture since 1800',
 INSERT INTO Courses VALUES('FREN 420', 'Themes & Topics in French Literature & Culture', 3);
 INSERT INTO Courses VALUES('FREN 422', 'Genres in French Literature', 3);
 INSERT INTO Courses VALUES('FREN 489', 'Senior Thesis', 1);
-----GEOG
+--GEOG
 INSERT INTO Courses VALUES('GEOG 262', 'Geography of North America', 3);
 INSERT INTO Courses VALUES('GEOG 412', 'Geomorphology', 3);
 INSERT INTO Courses VALUES('GEOG 455', 'Introduction to Geographic Information Systems', 4);
@@ -1015,12 +499,12 @@ INSERT INTO Courses VALUES('GEOG 655', 'Introduction to Geographic Information S
 INSERT INTO Courses VALUES('GEOG 656', 'Advanced Geographic Information Systems', 3);
 INSERT INTO Courses VALUES('GEOG 670', 'Remote Sensing', 3);
 INSERT INTO Courses VALUES('GEOG 680', 'Geographic Information Systems Pattern Analysis and Modeling', 3);
-----GERM
+--GERM
 INSERT INTO Courses VALUES('GERM 202', 'Second-Year German II', 3);
 INSERT INTO Courses VALUES('GERM 220', 'German Culture & Society', 3);
 INSERT INTO Courses VALUES('GERM 311', 'German Conversation and Composition I', 3);
 INSERT INTO Courses VALUES('GERM 312', 'German Conversation and Composition II', 3);
-----HDFS
+--HDFS
 INSERT INTO Courses VALUES('HDFS 110', 'Introduction to Human Development and Family Science', 1);
 INSERT INTO Courses VALUES('HDFS 185', 'Financial Survival for College Students', 2);
 INSERT INTO Courses VALUES('HDFS 186', 'Consumer and Society', 3);
@@ -1095,7 +579,7 @@ INSERT INTO Courses VALUES('HDFS 767', 'Professional Practices in Family Financi
 INSERT INTO Courses VALUES('HDFS 768', 'Housing/Real Estate', 3);
 INSERT INTO Courses VALUES('HDFS 769', 'Financial Planning Case Studies', 3);
 INSERT INTO Courses VALUES('HDFS 770', 'Fundamentals of Financial Planning', 3);
-INSERT INTO Courses VALUES('HDFS 771', 'Investing for the Family''s Future', 3);
+INSERT INTO Courses VALUES('HDFS 771', 'Investing for the Family's Future', 3);
 INSERT INTO Courses VALUES('HDFS 772', 'Military Personal Financial Readiness', 3);
 INSERT INTO Courses VALUES('HDFS 773', 'Foundations of Couple and Family Therapy I', 3);
 INSERT INTO Courses VALUES('HDFS 774', 'Foundations of Couple and Family Therapy II', 3);
@@ -1108,7 +592,7 @@ INSERT INTO Courses VALUES('HDFS 782', 'Advanced Human Development: Birth Throug
 INSERT INTO Courses VALUES('HDFS 783', 'Dynamics of Parent-Child Relations', 3);
 INSERT INTO Courses VALUES('HDFS 784', 'Advanced Human Development: Adolescence Through Early Adulthood', 3);
 INSERT INTO Courses VALUES('HDFS 786', 'Advanced Human Development III: Middle through Late Adulthood', 3);
-----HIST
+--HIST
 INSERT INTO Courses VALUES('HIST 104', 'U.S. Since 1877', 3);
 INSERT INTO Courses VALUES('HIST 135', 'Race in U.S. History', 3);
 INSERT INTO Courses VALUES('HIST 220', 'North Dakota History', 3);
@@ -1201,7 +685,7 @@ INSERT INTO Courses VALUES('HIST 714', 'Research Seminar in World History', 3);
 INSERT INTO Courses VALUES('HIST 730', 'Readings in North American History', 3);
 INSERT INTO Courses VALUES('HIST 760', 'Readings in European History', 3);
 INSERT INTO Courses VALUES('HIST 780', 'Readings in World History', 3);
-----LA
+--LA
 INSERT INTO Courses VALUES('LA 171', 'Environmental Design I', 3);
 INSERT INTO Courses VALUES('LA 172', 'Environmental Design II', 3);
 INSERT INTO Courses VALUES('LA 231', 'Landscape Architecture Graphics', 3);
@@ -1220,7 +704,7 @@ INSERT INTO Courses VALUES('LA 563', 'Programming and Thesis Preparation', 3);
 INSERT INTO Courses VALUES('LA 571', 'Environmental Planning Studio', 6);
 INSERT INTO Courses VALUES('LA 572', 'Design Thesis', 8);
 INSERT INTO Courses VALUES('LA 581', 'Professional Practice', 3);
-----LANG
+--LANG
 INSERT INTO Courses VALUES('LANG 101', 'Basic ESL: Integrated Skills', 20);
 INSERT INTO Courses VALUES('LANG 102', 'English Structure for Non-Native Speakers', 5);
 INSERT INTO Courses VALUES('LANG 103', 'English for Non-Native Speakers:Intermediate Grammar & Writing I', 1-5);
@@ -1233,7 +717,7 @@ INSERT INTO Courses VALUES('LANG 109', 'Language Use in Writing for ESL II', 1-5
 INSERT INTO Courses VALUES('LANG 110', 'Integrated Academic Language Skills for Graduate Students', 10);
 INSERT INTO Courses VALUES('LANG 111', 'Advanced Issues in American and University Culture', 3-5);
 INSERT INTO Courses VALUES('LANG 112', 'Advanced Issues in English Language for Non-Native Speakers', 3-5);
-----MUSC
+--MUSC
 INSERT INTO Courses VALUES('MUSC 101', 'Fundamentals of Music', 3);
 INSERT INTO Courses VALUES('MUSC 111', 'Marching Band', 1);
 INSERT INTO Courses VALUES('MUSC 112', 'University Band', 1);
@@ -1381,7 +865,7 @@ INSERT INTO Courses VALUES('MUSC 768', 'Vocal Literature II-Romantic', 3);
 INSERT INTO Courses VALUES('MUSC 769', 'Vocal Literature III-20Th Century/Contemporary', 3);
 INSERT INTO Courses VALUES('MUSC 780', 'Recital', 2-4);
 INSERT INTO Courses VALUES('MUSC 789', 'D.M.A. Thesis', 1-4);
-----PHIL
+--PHIL
 INSERT INTO Courses VALUES('PHIL 111', 'Professional Responsibility and Ethics', 3);
 INSERT INTO Courses VALUES('PHIL 210', 'Ethics', 3);
 INSERT INTO Courses VALUES('PHIL 257', 'Traditional Logic', 3);
@@ -1401,7 +885,7 @@ INSERT INTO Courses VALUES('PHIL 476', 'History of Philosophy: Modern Period', 3
 INSERT INTO Courses VALUES('PHIL 486', 'Philosophy & Literature', 3);
 INSERT INTO Courses VALUES('PHIL 487', 'Aesthetics', 3);
 INSERT INTO Courses VALUES('PHIL 625', 'Environmental Ethics', 3);
-----POLS
+--POLS
 INSERT INTO Courses VALUES('POLS 210', 'Current Politics', 3);
 INSERT INTO Courses VALUES('POLS 215', 'Problems and Policies In American Government', 3);
 INSERT INTO Courses VALUES('POLS 216', 'Campaigns and Elections', 3);
@@ -1440,7 +924,7 @@ INSERT INTO Courses VALUES('POLS 651', 'Politics of the Industrialized Countries
 INSERT INTO Courses VALUES('POLS 652', 'Comparative Political Economy', 3);
 INSERT INTO Courses VALUES('POLS 653', 'Environmental Policy and Politics', 3);
 INSERT INTO Courses VALUES('POLS 720', 'Theoretical Perspectives to the Study of Political Science', 3);
-----PSYC
+--PSYC
 INSERT INTO Courses VALUES('PSYC 211', 'Introduction To Behavior Modification', 3);
 INSERT INTO Courses VALUES('PSYC 216', 'Cultural Psychology', 3);
 INSERT INTO Courses VALUES('PSYC 260', 'Introduction to Neuroscience', 3);
@@ -1507,7 +991,7 @@ INSERT INTO Courses VALUES('PSYC 770', 'Testing and Assessment', 3);
 INSERT INTO Courses VALUES('PSYC 771', 'Social/Health Psychology Research', 3);
 INSERT INTO Courses VALUES('PSYC 782', 'Emotions', 3);
 INSERT INTO Courses VALUES('PSYC 787', 'Advanced Social Psychology and Health', 3);
-----RELS
+--RELS
 INSERT INTO Courses VALUES('RELS 210', 'Ethics', 3);
 INSERT INTO Courses VALUES('RELS 220', 'Old Testament', 2);
 INSERT INTO Courses VALUES('RELS 230', 'New Testament', 3);
@@ -1518,7 +1002,7 @@ INSERT INTO Courses VALUES('RELS 320', 'History of Christianity', 3);
 INSERT INTO Courses VALUES('RELS 401', 'Sociology of Religion', 3);
 INSERT INTO Courses VALUES('RELS 453', 'Magic And Religion', 3);
 INSERT INTO Courses VALUES('RELS 601', 'Sociology of Religion', 3);
-----SOC
+--SOC
 INSERT INTO Courses VALUES('SOC 115', 'Social Problems', 3);
 INSERT INTO Courses VALUES('SOC 116', 'Global Social Problems', 3);
 INSERT INTO Courses VALUES('SOC 233', 'Sociology of Organizations and Work', 3);
@@ -1568,7 +1052,7 @@ INSERT INTO Courses VALUES('SOC 665', 'Applied Demographics', 3);
 INSERT INTO Courses VALUES('SOC 700', 'Qualitative Methods', 3);
 INSERT INTO Courses VALUES('SOC 701', 'Quantitative Methods', 3);
 INSERT INTO Courses VALUES('SOC 723', 'Social Theory', 3);
-----SPAN
+--SPAN
 INSERT INTO Courses VALUES('SPAN 202', 'Second-Year Spanish II', 3);
 INSERT INTO Courses VALUES('SPAN 311', 'Spanish Conversation and Composition I', 3);
 INSERT INTO Courses VALUES('SPAN 312', 'Spanish Conversation and Composition II', 3);
@@ -1588,7 +1072,7 @@ INSERT INTO Courses VALUES('SPAN 452', 'Cervantes', 3);
 INSERT INTO Courses VALUES('SPAN 453', 'Spanish Women Writers', 3);
 INSERT INTO Courses VALUES('SPAN 489', 'Senior Thesis', 1);
 INSERT INTO Courses VALUES('SPAN 642', 'Introduction to Chicano Literature', 3);
-----THEA
+--THEA
 INSERT INTO Courses VALUES('THEA 101', 'Department Participation', 0);
 INSERT INTO Courses VALUES('THEA 180', 'Dramatic Literature and Style I', 3);
 INSERT INTO Courses VALUES('THEA 181', 'Dramatic Literature & Style II', 3);
@@ -1636,7 +1120,8 @@ INSERT INTO Courses VALUES('THEA 481', 'History and Literature of the Theatre II
 INSERT INTO Courses VALUES('THEA 486', 'History of Dress and Decor I; the Foundations of Western Style', 3);
 INSERT INTO Courses VALUES('THEA 487', 'History of Dress and Decor II; Western Style since 1800', 3);
 INSERT INTO Courses VALUES('THEA 665', 'Directing II', 3);
-----WGS
-INSERT INTO Courses VALUES('WGS 350', 'Perspectives in Women''s Studies', 3);
+--WGS
+INSERT INTO Courses VALUES('WGS 110', 'Introduction to Women's Studies', 3);
+INSERT INTO Courses VALUES('WGS 350', 'Perspectives in Women's Studies', 3);
 INSERT INTO Courses VALUES('WGS 450', 'Issues in Women and Gender Studies', 3);
 INSERT INTO Courses VALUES('WGS 489', 'Internship/Capstone', 3);
