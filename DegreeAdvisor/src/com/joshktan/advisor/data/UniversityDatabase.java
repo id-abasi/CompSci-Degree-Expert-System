@@ -11,9 +11,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +33,7 @@ public class UniversityDatabase implements IUniversityDatabase {
     private Map<String, Collection<Course>> genEdAreaToCoursesMap;
     private Map<String, String> genEdCourseIdToAreaMap;
     private Collection<String> coreCoursesIds;
+    private Map<String, String> electiveCourseIdToCategoryMap;
 
     private UniversityDatabase() {
 
@@ -46,6 +48,9 @@ public class UniversityDatabase implements IUniversityDatabase {
 
             coreCoursesIds = new ArrayList<String>();
             initializeCoreCourses();
+
+            electiveCourseIdToCategoryMap = new HashMap<String, String>();
+            initializeElectiveCourses();
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -94,6 +99,17 @@ public class UniversityDatabase implements IUniversityDatabase {
         }
 
         return courses;
+    }
+
+    public boolean electiveCategoryReqSatsified(int studentId) {
+
+        Set<String> categoriesSatisfied = new HashSet<String>();
+        List<Course> studentCourses = getStudentRecord(studentId).getStudentCourses();
+        for (Course course : studentCourses) {
+            categoriesSatisfied.add(electiveCourseIdToCategoryMap.get(course.getCourseId()));
+        }
+
+        return categoriesSatisfied.size() >= 2;
     }
 
     public boolean coreCoursesSatsified(int studentId) {
@@ -264,6 +280,32 @@ public class UniversityDatabase implements IUniversityDatabase {
         coreCoursesIds.add("CSCI 489");
     }
 
+    private void initializeElectiveCourses() {
+
+        Statement retrieveElectivesStmt;
+        String query = "SELECT * FROM ElectiveCourses";
+
+        try {
+
+            retrieveElectivesStmt = dbConnection.createStatement();
+            ResultSet rset = retrieveElectivesStmt.executeQuery(query);
+
+            while (rset.next()) {
+
+                String courseId = rset.getString("Id");
+                String category = rset.getString("Category");
+
+                electiveCourseIdToCategoryMap.put(courseId, category);
+            }
+
+            retrieveElectivesStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+    }
+
     private void initializeGenEdCourses() {
 
         Collection<Course> firstYearExp = new ArrayList<Course>();
@@ -340,6 +382,11 @@ public class UniversityDatabase implements IUniversityDatabase {
     public boolean isCoreCourse(String courseId) {
 
         return coreCoursesIds.contains(courseId);
+    }
+
+    public boolean isElectiveCourse(String courseId) {
+
+        return electiveCourseIdToCategoryMap.keySet().contains(courseId);
     }
 
     public boolean isGenEd(String courseId, String genEdArea) {

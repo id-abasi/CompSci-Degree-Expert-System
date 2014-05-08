@@ -8,12 +8,12 @@ public class ElectiveRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Computer Science Elective Requirement.";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "At least 3 courses CS elective courses are required. No more than 2 courses may come from ny single category.";
     }
     
 }

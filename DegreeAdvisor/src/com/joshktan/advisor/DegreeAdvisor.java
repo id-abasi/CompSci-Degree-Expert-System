@@ -2,7 +2,9 @@ package com.joshktan.advisor;
 
 import com.joshktan.advisor.data.UniversityDatabase;
 import com.joshktan.advisor.jess.CoreCoursesSatsifiedFunction;
+import com.joshktan.advisor.jess.ElectiveCategoryReqFunction;
 import com.joshktan.advisor.jess.IsCoreCourseFunction;
+import com.joshktan.advisor.jess.IsElectiveCourseFunction;
 import com.joshktan.advisor.jess.IsGenEdCourseFunction;
 import com.joshktan.advisor.model.Advice;
 import com.joshktan.advisor.model.Congrats;
@@ -61,6 +63,8 @@ public class DegreeAdvisor {
         brain.addUserfunction(new IsGenEdCourseFunction());
         brain.addUserfunction(new CoreCoursesSatsifiedFunction());
         brain.addUserfunction(new IsCoreCourseFunction());
+        brain.addUserfunction(new ElectiveCategoryReqFunction());
+        brain.addUserfunction(new IsElectiveCourseFunction());
     }
     
     private void loadStudentData(int studentId) throws JessException {

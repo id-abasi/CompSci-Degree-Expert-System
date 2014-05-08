@@ -232,6 +232,7 @@
   =>
   (assert (elective-req-not-met)))
 
+;; Related required courses (MATH and STATS)
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
