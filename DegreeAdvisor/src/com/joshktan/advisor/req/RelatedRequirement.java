@@ -8,12 +8,12 @@ public class RelatedRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Related required courses.";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Required MATH/STATS courses and one year lab science sequence requirements.";
     }
 
     

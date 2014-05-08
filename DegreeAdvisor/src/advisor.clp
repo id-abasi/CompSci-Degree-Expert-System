@@ -232,6 +232,13 @@
   =>
   (assert (elective-req-not-met)))
 
+;; Related required courses (MATH and STATS)
+(defrule related-course-req
+  (not (exists (Course {courseId == "MATH 166"})))
+  (not (exists (Course {courseId == "STAT 367"})))
+  (not (exists (Course {courseId == "STAT 368"})))
+  =>
+  (add (new Advice "RelatedRequirement" "Related course requirements for mathemtatics and statistics not satisfied." "Calculus II (MATH 166), Probability (STATS 367), and Statistics (STATS 368) are required." "ISSUE")))
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
