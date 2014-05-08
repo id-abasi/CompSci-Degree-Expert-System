@@ -19,7 +19,7 @@ import jess.ValueVector;
  *
  * @author jdot
  */
-public class CoreCoursesFunction implements Userfunction {
+public class CoreCoursesSatsifiedFunction implements Userfunction {
     
        @Override
     public String getName() {

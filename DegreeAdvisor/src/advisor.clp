@@ -199,20 +199,8 @@
 ;; "C" or better required for all CSCI courses
 (defrule c-in-cs-course
   "Advise that will have to retake a CS course if it's a degree requirement and a D or worse received."
-  (exists (Course {courseId == "CSCI 160" ||
-	   courseId == "CSCI 161" ||
-	   courseId == "CSCI 213" ||
-	   courseId == "CSCI 222" ||
-	   courseId == "CSCI 313" ||
-	   courseId == "CSCI 336" ||
-	   courseId == "CSCI 372" ||
-	   courseId == "CSCI 374" ||
-	   courseId == "CSCI 415" ||
-	   courseId == "CSCI 445" ||
-	   courseId == "CSCI 467" ||
-	   courseId == "CSCI 474" ||
-	   courseId == "CSCI 489"}
-	   {grade == "D" || grade == "F"}))
+  (exists (Course (courseId ?cId&:(is-core ?cId))
+ 		  (grade "D"|"F")))
   =>
   (add (new Advice "MajorRequirement" "Computer Science Major requirements not satisfied" "A grade of 'C' or better is required for all CSCI courses." "ISSUE")))
 
@@ -222,6 +210,33 @@
   (not (exists (Record (studentId ?s&:(core-courses-satisfied ?s)))))
   =>
   (add (new Advice "MajorRequirement" "Major requirements not satisfied" "All core CSCI courses have not been taken." "ISSUE")))
+
+;; ;; Computer Science Electives
+(defrule cs-elective-req
+  "Advise that will have to retake a CS course if it's a degree requirement and a D or worse received."
+  ?totalCourses <- (accumulate (bind ?count 0)                                                ;; initializer
+			       (bind ?count (+ ?count 1))                              ;; action
+			       ?count                                                         ;; result
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "B")))) ;; CE
+  (test (< ?totalCredits 6))
+  ;; (exists (Course {courseId == "CSCI 160" ||
+  ;; 	   courseId == "CSCI 161" ||
+  ;; 	   courseId == "CSCI 213" ||
+  ;; 	   courseId == "CSCI 222" ||
+  ;; 	   courseId == "CSCI 313" ||
+  ;; 	   courseId == "CSCI 336" ||
+  ;; 	   courseId == "CSCI 372" ||
+  ;; 	   courseId == "CSCI 374" ||
+  ;; 	   courseId == "CSCI 415" ||
+  ;; 	   courseId == "CSCI 445" ||
+  ;; 	   courseId == "CSCI 467" ||
+  ;; 	   courseId == "CSCI 474" ||
+  ;; 	   courseId == "CSCI 489"}
+  ;; 	   {grade == "D" || grade == "F"}))
+  (exists (Course (courseId ?cId&:(is-core ?cId))
+		  (grade "D")))
+  =>
+  (add (new Advice "MajorRequirement" "Computer Science Major requirements not satisfied" "A grade of 'C' or better is required for all CSCI courses." "ISSUE")))
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement

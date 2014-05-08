@@ -29,7 +29,8 @@ public class UniversityDatabase implements IUniversityDatabase {
     private static UniversityDatabase db; // singleton
 
     private Connection dbConnection;
-    private Map<String, Collection<Course>> genEdCourseMap;
+    private Map<String, Collection<Course>> genEdAreaToCoursesMap;
+    private Map<String, String> genEdCourseIdToAreaMap;
     private Collection<String> coreCoursesIds;
 
     private UniversityDatabase() {
@@ -38,24 +39,13 @@ public class UniversityDatabase implements IUniversityDatabase {
             Class.forName(DRIVER_CLASS);
             dbConnection = DriverManager.getConnection(DB_FILE);
 
-            initializeGenEdCourseMap();
-            
+            // initialize courses data (to avoid excessive querying to database)
+            genEdAreaToCoursesMap = new HashMap<String, Collection<Course>>();
+            genEdCourseIdToAreaMap = new HashMap<String, String>();
+            initializeGenEdCourses();
+
             coreCoursesIds = new ArrayList<String>();
-            coreCoursesIds.add("CSCI 160");
-            coreCoursesIds.add("CSCI 161");
-            coreCoursesIds.add("CSCI 213");
-            coreCoursesIds.add("CSCI 222");
-            coreCoursesIds.add("CSCI 313");
-            coreCoursesIds.add("CSCI 336");
-            coreCoursesIds.add("CSCI 366");
-            coreCoursesIds.add("CSCI 372");
-            coreCoursesIds.add("CSCI 374");
-            coreCoursesIds.add("CSCI 415");
-            coreCoursesIds.add("CSCI 445");
-            coreCoursesIds.add("CSCI 467");
-            coreCoursesIds.add("CSCI 474");
-            coreCoursesIds.add("CSCI 489");
-                        
+            initializeCoreCourses();
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,16 +95,16 @@ public class UniversityDatabase implements IUniversityDatabase {
 
         return courses;
     }
-    
+
     public boolean coreCoursesSatsified(int studentId) {
-        
+
         List<String> coursesTaken = getStudentCourseIds(studentId);
         for (String id : coreCoursesIds) {
             if (!coursesTaken.contains(id)) {
                 return false;
             }
-        }        
-        return true; 
+        }
+        return true;
     }
 
     @Override
@@ -219,7 +209,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
         return record;
     }
-    
+
     public List<String> getStudentCourseIds(int studentId) {
 
         PreparedStatement retrieveRecordStmt;
@@ -250,7 +240,6 @@ public class UniversityDatabase implements IUniversityDatabase {
         return courseIds;
     }
 
-
     @Override
     public Collection<Course> getCourses(String dept) {
 
@@ -258,28 +247,43 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     }
 
-    private void initializeGenEdCourseMap() {
+    private void initializeCoreCourses() {
+        coreCoursesIds.add("CSCI 160");
+        coreCoursesIds.add("CSCI 161");
+        coreCoursesIds.add("CSCI 213");
+        coreCoursesIds.add("CSCI 222");
+        coreCoursesIds.add("CSCI 313");
+        coreCoursesIds.add("CSCI 336");
+        coreCoursesIds.add("CSCI 366");
+        coreCoursesIds.add("CSCI 372");
+        coreCoursesIds.add("CSCI 374");
+        coreCoursesIds.add("CSCI 415");
+        coreCoursesIds.add("CSCI 445");
+        coreCoursesIds.add("CSCI 467");
+        coreCoursesIds.add("CSCI 474");
+        coreCoursesIds.add("CSCI 489");
+    }
 
-        Map<String, Collection<Course>> genEdMap = new HashMap<String, Collection<Course>>();
+    private void initializeGenEdCourses() {
 
         Collection<Course> firstYearExp = new ArrayList<Course>();
-        genEdMap.put("F", firstYearExp);
+        genEdAreaToCoursesMap.put("F", firstYearExp);
         Collection<Course> comm = new ArrayList<Course>();
-        genEdMap.put("C", comm);
+        genEdAreaToCoursesMap.put("C", comm);
         Collection<Course> quant = new ArrayList<Course>();
-        genEdMap.put("R", quant);
+        genEdAreaToCoursesMap.put("R", quant);
         Collection<Course> science = new ArrayList<Course>();
-        genEdMap.put("S", science);
+        genEdAreaToCoursesMap.put("S", science);
         Collection<Course> human = new ArrayList<Course>();
-        genEdMap.put("A", human);
+        genEdAreaToCoursesMap.put("A", human);
         Collection<Course> social = new ArrayList<Course>();
-        genEdMap.put("B", social);
+        genEdAreaToCoursesMap.put("B", social);
         Collection<Course> wellness = new ArrayList<Course>();
-        genEdMap.put("W", wellness);
+        genEdAreaToCoursesMap.put("W", wellness);
         Collection<Course> diversity = new ArrayList<Course>();
-        genEdMap.put("D", diversity);
+        genEdAreaToCoursesMap.put("D", diversity);
         Collection<Course> global = new ArrayList<Course>();
-        genEdMap.put("G", global);
+        genEdAreaToCoursesMap.put("G", global);
 
         Statement retrieveGenEdStmt;
         String query = "SELECT * FROM GenEdCourses";
@@ -295,7 +299,9 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String area = rset.getString("Area");
                 Course retrievedCourse = getCourse(courseId);
 
-                genEdMap.get(area).add(retrievedCourse);
+                genEdAreaToCoursesMap.get(area).add(retrievedCourse);
+                genEdCourseIdToAreaMap.put(courseId, area);
+
             }
 
             retrieveGenEdStmt.close();
@@ -305,7 +311,6 @@ public class UniversityDatabase implements IUniversityDatabase {
             System.err.println(e);
         }
 
-        genEdCourseMap = genEdMap;
     }
 
     @Override
@@ -329,36 +334,44 @@ public class UniversityDatabase implements IUniversityDatabase {
     }
 
     public Map<String, Collection<Course>> getGenEdCourseMap() {
-        return genEdCourseMap;
+        return genEdAreaToCoursesMap;
+    }
+
+    public boolean isCoreCourse(String courseId) {
+
+        return coreCoursesIds.contains(courseId);
     }
 
     public boolean isGenEd(String courseId, String genEdArea) {
 
-        PreparedStatement retrieveRecordStmt;
-        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
+        return genEdCourseIdToAreaMap.containsKey(courseId)
+                && genEdCourseIdToAreaMap.get(courseId).equals(genEdArea);
 
-        boolean found = false;
-
-        try {
-
-            retrieveRecordStmt = dbConnection.prepareStatement(query);
-            retrieveRecordStmt.setString(1, courseId);
-            retrieveRecordStmt.setString(2, genEdArea);
-
-            ResultSet rset = retrieveRecordStmt.executeQuery();
-
-            if (rset.next()) {
-                found = true;
-            }
-
-            retrieveRecordStmt.close();
-            rset.close();
-
-        } catch (SQLException e) {
-            System.err.println(e);
-        }
-
-        return found;
+//        PreparedStatement retrieveRecordStmt;
+//        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
+//
+//        boolean found = false;
+//
+//        try {
+//
+//            retrieveRecordStmt = dbConnection.prepareStatement(query);
+//            retrieveRecordStmt.setString(1, courseId);
+//            retrieveRecordStmt.setString(2, genEdArea);
+//
+//            ResultSet rset = retrieveRecordStmt.executeQuery();
+//
+//            if (rset.next()) {
+//                found = true;
+//            }
+//
+//            retrieveRecordStmt.close();
+//            rset.close();
+//
+//        } catch (SQLException e) {
+//            System.err.println(e);
+//        }
+//
+//        return found;
     }
 
     public boolean isLabScienceSequence(String courseOneId, String courseOneLabId,

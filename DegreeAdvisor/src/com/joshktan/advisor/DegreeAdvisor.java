@@ -1,8 +1,9 @@
 package com.joshktan.advisor;
 
 import com.joshktan.advisor.data.UniversityDatabase;
-import com.joshktan.advisor.jess.CoreCoursesFunction;
-import com.joshktan.advisor.jess.GenEdFunction;
+import com.joshktan.advisor.jess.CoreCoursesSatsifiedFunction;
+import com.joshktan.advisor.jess.IsCoreCourseFunction;
+import com.joshktan.advisor.jess.IsGenEdCourseFunction;
 import com.joshktan.advisor.model.Advice;
 import com.joshktan.advisor.model.Congrats;
 import com.joshktan.advisor.model.Record;
@@ -57,8 +58,9 @@ public class DegreeAdvisor {
     }
     
     private void loadUserFunctions(Rete brain) {
-        brain.addUserfunction(new GenEdFunction());
-        brain.addUserfunction(new CoreCoursesFunction());
+        brain.addUserfunction(new IsGenEdCourseFunction());
+        brain.addUserfunction(new CoreCoursesSatsifiedFunction());
+        brain.addUserfunction(new IsCoreCourseFunction());
     }
     
     private void loadStudentData(int studentId) throws JessException {
