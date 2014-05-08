@@ -9,6 +9,7 @@
 
 ;; GLOBAL VARIABLES
 (defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
+(defglobal ?*lab-seq-credits* = 8)
 
 ;; GEN ED REQUIREMENTS
 
@@ -180,6 +181,7 @@
   (not (exists (Course {courseId == "PHYS 252"})))
   (not (exists (Course {courseId == "PHYS 252L"})))
   =>
+  (bind ?*lab-seq-credits* 10)
   (assert (no-phys-251-seq)))
 
 (defrule lab-sci-seq-req
@@ -200,6 +202,7 @@
   (exists (Course (courseId ?cId&:(is-core ?cId))
  		  (grade "D"|"F")))
   =>
+  (assert (bs-cs-degree-req-not-met))
   (add (new Advice "MajorRequirement" "Computer Science Major requirements not satisfied" "A grade of 'C' or better is required for all CSCI courses." "ISSUE")))
 
 ;; all core CSCI courses taken
@@ -207,6 +210,7 @@
   "Advise student if all core CSCI courses have not been taken."
   (not (exists (Record (studentId ?s&:(core-courses-satisfied ?s)))))
   =>
+  (assert (bs-cs-degree-req-not-met))
   (add (new Advice "MajorRequirement" "Major requirements not satisfied" "All core CSCI courses have not been taken." "ISSUE")))
 
 ;; Computer Science Electives
@@ -214,6 +218,7 @@
   "Computer Science Elective requirements"
   (exists (elective-req-not-met))
   =>
+  (assert (bs-cs-degree-req-not-met))
   (add (new Advice "ElectiveRequirement" "Computer Science Elective requirements not satisfied" "3 CS electives are required from at least 2 categories." "ISSUE")))
 
 (defrule cs-elective-req-credits
@@ -232,13 +237,40 @@
   =>
   (assert (elective-req-not-met)))
 
-;; Related required courses (MATH and STATS)
+(defrule bs-cs-degree-req
+  "Requirements for a B.S. in CS"
+  (exists (bs-cs-degree-req-not-met))
+  =>
+  (add (new Advice "MajorRequirement" "Computer Science B.S. degree requirements not satisfied" "Must take all required core courses and at least 3 computer science electives." "ISSUE")))
+
+;; RELATED REQUIRED COURSES
 (defrule related-course-req
+  (exists (related-course-req-not-sat))
+  =>
+  (add (new Advice "RelatedRequirement" "Related course requirements not satisfied." "See curriculum guide for details." "ISSUE")))
+
+;; Related required courses (MATH and STATS)
+(defrule related-course-req-math-stats
   (not (exists (Course {courseId == "MATH 166"})))
   (not (exists (Course {courseId == "STAT 367"})))
   (not (exists (Course {courseId == "STAT 368"})))
   =>
+  (assert (related-course-req-not-sat))
   (add (new Advice "RelatedRequirement" "Related course requirements for mathemtatics and statistics not satisfied." "Calculus II (MATH 166), Probability (STATS 367), and Statistics (STATS 368) are required." "ISSUE")))
+
+;; Additional Science course
+(defrule related-course-req-science
+  "Advise student if additional science course requiremnet not fulfilled."
+  ?totalCredits <- (accumulate (bind ?count 0)                                                ;; initializer
+			       (bind ?count (+ ?count ?credits))                              ;; action
+			       ?count                                                         ;; result
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "S")))) ;; CE
+  (test (< (- ?totalCredits ?*lab-seq-credits*) 3))
+  =>
+;;  ((System.out) println (?totalCredits toString))
+  (assert (related-course-req-not-sat))
+  (add (new Advice "RelatedRequirement" "Related course requirements for additianl science course not satisfied." "One additional science course that satisifies general education is required." "ISSUE")))
+
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
