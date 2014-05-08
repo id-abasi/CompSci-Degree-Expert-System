@@ -1,7 +1,6 @@
 package com.joshktan.advisor.data;
 
 import com.joshktan.advisor.model.Course;
-import com.joshktan.advisor.model.Course.Grade;
 import com.joshktan.advisor.model.Record;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -29,6 +28,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     private Connection dbConnection;
     private Map<String, Collection<Course>> genEdCourseMap;
+    private Collection<Course> coreCourses;
 
     private UniversityDatabase() {
 
@@ -175,7 +175,7 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String grade = rset.getString("Grade");
 
                 Course retrievedCourse = getCourse(courseId);
-                retrievedCourse.setGrade(Grade.valueOf(grade));
+                retrievedCourse.setGrade(grade);
 
                 record.addCourse(retrievedCourse);
             }

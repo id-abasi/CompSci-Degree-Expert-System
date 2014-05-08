@@ -13,13 +13,13 @@ public class Course {
     private String title;
     private int credits;
 
-    private Grade grade;
+    private String grade;
 
     public Course(String courseId, String title, int credits, String grade) {
         this.courseId = courseId;
         this.title = title;
         this.credits = credits;
-        this.grade = Grade.valueOf(grade);
+        this.grade = grade;
     }
 
     public String getCourseId() {
@@ -43,32 +43,12 @@ public class Course {
         return UniversityDatabase.getDatabase().getGenEdCourseMap().get(area).contains(this);
     }
 
-    public enum Grade {
 
-        A,
-        B,
-        C,
-        D,
-        F,
-        I,
-        AU,
-        WAU,
-        P,
-        S,
-        U,
-        NC,
-        NR,
-        WF,
-        WP,
-        W,
-        NA
-    }
-
-    public Grade getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(Grade grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
     

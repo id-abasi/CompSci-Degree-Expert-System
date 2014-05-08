@@ -8,12 +8,12 @@ public class MajorRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "B.S. Computer Science Requirements.";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Requirements needed to receive a B.S. Computer Science degree.";
     }
 
 

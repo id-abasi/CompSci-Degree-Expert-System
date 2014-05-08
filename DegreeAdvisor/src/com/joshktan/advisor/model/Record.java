@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.joshktan.advisor.model;
 
-import com.joshktan.advisor.model.Course.Grade;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,24 +23,18 @@ public class Record {
     public float getGpa() {
         float totalGradePoints = 0;
         for (Course course : studentCourses) {
-            if (course.getGrade() != Grade.NA) {
+            if (course.getGrade() != "NA") {
                 
                 float courseCredits = course.getCredits();
-                switch (course.getGrade()) {
-                    case A:
-                        totalGradePoints += 4 * courseCredits;
-                        break;
-                    case B:
-                        totalGradePoints += 3 * courseCredits;
-                        break;
-                    case C:
-                        totalGradePoints += 2 * courseCredits;
-                        break;
-                    case D:
-                        totalGradePoints += 1 * courseCredits;
-                        break;
+                if (course.getGrade().equals("A")){ 
+                    totalGradePoints += 4 * courseCredits;
+                } else if (course.getGrade().equals("B")) {
+                    totalGradePoints += 3 * courseCredits;
+                } else if (course.getGrade().equals("C")) {
+                    totalGradePoints += 2 * courseCredits;
+                } else if (course.getGrade().equals("D")) {
+                    totalGradePoints += 1 * courseCredits;
                 }
-
             }
         }
         return totalGradePoints / totalCredits;

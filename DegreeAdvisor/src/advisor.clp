@@ -196,29 +196,25 @@
 
 ;; core CS course requirements
 
-(deffunction is-core-cs (?c)
-  (return (?c == "CSCI 160" ||
-	   ?c == "CSCI 161" ||
-	   ?c == "CSCI 213" ||
-	   ?c == "CSCI 222" ||
-	   ?c == "CSCI 313" ||
-	   ?c == "CSCI 336" ||
-	   ?c == "CSCI 372" ||
-	   ?c == "CSCI 374" ||
-	   ?c == "CSCI 415" ||
-	   ?c == "CSCI 445" ||
-	   ?c == "CSCI 467" ||
-	   ?c == "CSCI 474" ||
-	   ?c == "CSCI 489"))
-
 ;; "C" or better required for all CSCI courses
 (defrule c-in-cs-course
   "Advise that will have to retake a CS course if it's a degree requirement and a D or worse received."
-  (Course (courseId ?c&:(is-core-cs ?c)) (grade ?g&:(g == "D" || g == "F")))
+  (exists (Course {courseId == "CSCI 160" ||
+	   courseId == "CSCI 161" ||
+	   courseId == "CSCI 213" ||
+	   courseId == "CSCI 222" ||
+	   courseId == "CSCI 313" ||
+	   courseId == "CSCI 336" ||
+	   courseId == "CSCI 372" ||
+	   courseId == "CSCI 374" ||
+	   courseId == "CSCI 415" ||
+	   courseId == "CSCI 445" ||
+	   courseId == "CSCI 467" ||
+	   courseId == "CSCI 474" ||
+	   courseId == "CSCI 489"}
+	   {grade == "D" || grade == "F"}))
   =>
-    (add (new Advice "LabScienceRequirement" "Lab Science Sequence requirements not satisfied" "A one year sequence of lab science courses (with corresponding labs) is required." "ISSUE")))
-	  
-  
+  (add (new Advice "MajorRequirement" "Computer Science Major requirements not satisfied" "A grade of 'C' or better is required for all CSCI courses." "ISSUE")))
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement

@@ -18,6 +18,7 @@ INSERT INTO Records VALUES(1, 'CSCI 473', 'NA');
 -- Record for Student ID 2
 INSERT INTO Records VALUES(2, 'CSCI 366', 'F');
 INSERT INTO Records VALUES(2, 'CSCI 467', 'F');
+INSERT INTO Records VALUES(2, 'CSCI 160', 'F');
 INSERT INTO Records VALUES(2, 'CSCI 459', 'NA');
 
 -- Record for Student ID 3
