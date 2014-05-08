@@ -49,8 +49,6 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "S")))) ;; CE
   (test (< ?totalCredits 10))
   =>
-  ; ((System.out) println "S req crdits:")
-  ; ((System.out) println (?totalCredits toString))
   (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Science & Technology requirements not satisfied" "At least 10 credits in the General Education Science and Technology area are required." "ISSUE")))
 
@@ -66,18 +64,6 @@
   =>
   (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Humanities & Fine Arts requirements not satisfied" "At least 6 credits in the General Education Humanities & Fine Arts area are required." "ISSUE")))
-
-; (defrule gen-ed-b-test
-;   "test"
-;   (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "B")))
-;   =>
-;   ((System.out) println ?t))
-
-; (defrule gen-ed-a-test
-;   "test"
-;   (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "A")))
-;   =>
-;   ((System.out) println ?t))
 
 ;; Social & Behavioral Sciences (B) Requirements
 ;; TODO - make sure all different
@@ -144,8 +130,6 @@
   =>
   (assert (deg-req-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed requirements not satisfied" "See curriculm guide for details." "ISSUE")))
-
-
 
 ;; One Year Lab Science Sequence Requirement
 (defrule lab-sci-biol-126
@@ -280,7 +264,6 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "S")))) ;; CE
   (test (< (- ?totalCredits ?*lab-seq-credits*) 3))
   =>
-;;  ((System.out) println (?totalCredits toString))
   (assert (related-course-req-not-sat))
   (add (new Advice "RelatedRequirement" "Related course requirements for additianl science course not satisfied." "One additional science course that satisifies general education is required." "ISSUE")))
 
@@ -323,63 +306,3 @@
       (add (new Congrats "You will graduate magna cum laude."))
      else
       (add (new Congrats "You will graduate cum laude."))))
-
-;; ---------------------------------------------------------------------- ;;
-
-;; Just so you know how to do it
-;; (defrule enough-credits-and-honors
-;;   "enough credits and honors also"
-;;   (and (honors) (enough-credits))
-;;   =>
-;;   ((System.out) println "Both enough credits and also honorable!"))
-
-;; (# semesters left * 20 ) < (needed - already have) => advise warning: fill out form thing for +20 credits / semester (or summer school or postpone grad)
-
-;; Graduating Honors (figure out how to chain rules: (if all courses have grades) && (all requirements fulfilled) => (add congrats)
-
-;; COULD BE USEFUL:
-;; The not CE can be used in arbitrary combination with the and and or CEs. You can define complex logical structures this way. For example, suppose you want a rule to fire once if for every fact (a ?x), there is a fact (b ?x). You could express that as
-;; Jess> (defrule forall-example
-;;   (not (and (a ?x) (not (b ?x))))
-;;   =>)
-;; i.e., "It is not true that for some ?x, there is an (a ?x) and no (b ?x)". This is actually how the the forall CE is implemented.
-
-;; note: (instanceof <external-address> <class-name>)
-
-;; COULD ALSO BE USEFUL
-;; The logical conditional element lets you specify logical dependencies among facts. All the facts asserted on the RHS of a rule become dependent on the matches to the logical patterns on that rule's LHS. If any of the matches later become invalid, the dependent facts are retracted automatically.
-;; (defrule rule-1
-;;   (logical (faucet-open))
-;;   =>
-;;   (assert (water-flowing)))
-;;   =>
-;;   (assert (all-cour)))
-
-;; Graduation with honor eligibility is determined in two steps:
-;; Step One: Earn a minimum NDSU (institutional) GPA of 3.50
-;; NDSU GPA's below 3.50 are not considered (and step two is not necessary)
-;; Step Two: Earn an overall (cumulative) GPA of 3.50 or greater, which includes:
-;; all credits and grades earned at NDSU
-;; the inclusion of all transfer work and all attempts of repeated coursework
-;;
-;; Candidates who achieve an overall GPA of 3.50 or higher according to the criteria listed above will graduate: 
-;; Cum Laude — greater than or equal to 3.50 and less than 3.70 
-;; Magna Cum Laude — greater than or equal to 3.70 and less than 3.90 
-;; Summa Cum Laude — greater than or equal to 3.90 and up to 4.00 
-;; The complete Graduation with Honor policy may be reviewed in the online Undergraduate Bulletin
-;; PLEASE BE AWARE grade-point averages are NOT rounded (for example, a GPA of 3.497 is not rounded to 3.5) 
-;; PLEASE BE AWARE graduation with honor levels are subject to change once final grades are determined and posted to the official academic record
-
-;; ;; matches any
-;; (defrule any
-;;   (Record (studentId ?sId))
-;;   =>
-;;   ((System.out) println "Testing 1,2,3" ))
-
-;; Old rule - University Graduation Requirements
-;; (defrule total-credit-req
-;;     "Advise to take more credits if total credit amount is less than the required amount."
-;;     ?r <- (Record {totalCredits < ?*total-credit-req*})
-;;     =>
-;;    (assert (enough-credits))
-;;     (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))

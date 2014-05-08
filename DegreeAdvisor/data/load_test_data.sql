@@ -77,7 +77,6 @@ INSERT INTO Records VALUES(5, 'CSCI 426', 'A');
 INSERT INTO Records VALUES(5, 'CSCI 445', 'A');
 INSERT INTO Records VALUES(5, 'ECON 201', 'A');
 INSERT INTO Records VALUES(5, 'MATH 429', 'C');
-
 INSERT INTO Records VALUES(5, 'UNIV 189', 'A');
 INSERT INTO Records VALUES(5, 'MATH 165', 'A');
 INSERT INTO Records VALUES(5, 'MATH 166', 'A');
@@ -93,18 +92,17 @@ INSERT INTO Records VALUES(5, 'MATH 266', 'C');
 INSERT INTO Records VALUES(5, 'PHIL 101', 'B');
 INSERT INTO Records VALUES(5, 'ENGL 110', 'A');
 INSERT INTO Records VALUES(5, 'ENGL 120', 'A');
-
--- 3 credit transfer course (A)
+-- substitute for 3 credit transfer course (grade = A)
 INSERT INTO Records VALUES(5, 'POLS 621', 'A');
--- 1 credit transfer course (S)
+-- substitute for 1 credit transfer course (grade = S)
 INSERT INTO Records VALUES(5, 'POLS 622', 'S');
--- 3 credit transfer course (A)
+-- substitute for 3 credit transfer course (grade = A)
 INSERT INTO Records VALUES(5, 'POLS 630', 'A');
--- 4 credit MATH transfer course (D)
+-- substitute for 4 credit MATH transfer course (grade = D)
 INSERT INTO Records VALUES(5, 'ADHM 470', 'D');
--- 3 credit PHIL transfer course (A)
+-- substitute for 3 credit PHIL transfer course (grade = A)
 INSERT INTO Records VALUES(5, 'PHIL 625', 'A');
--- 3 credit HIST transfer course (A)
+-- substitute for 3 credit HIST transfer course (grade = A)
 INSERT INTO Records VALUES(5, 'HIST 481', 'A');
--- 3 credit HIST transfer course (A)
+-- substitute for 3 credit HIST transfer course (grade = A)
 INSERT INTO Records VALUES(5, 'HIST 482', 'A');
