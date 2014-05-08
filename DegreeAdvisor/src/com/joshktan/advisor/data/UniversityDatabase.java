@@ -31,7 +31,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     private Connection dbConnection;
     private Map<String, Collection<Course>> genEdAreaToCoursesMap;
-    private Map<String, String> genEdCourseIdToAreaMap;
+    private Map<String, Collection<String>> genEdCourseIdToAreaMap;
     private Collection<String> coreCoursesIds;
     private Map<String, String> electiveCourseIdToCategoryMap;
 
@@ -43,7 +43,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
             // initialize courses data (to avoid excessive querying to database)
             genEdAreaToCoursesMap = new HashMap<String, Collection<Course>>();
-            genEdCourseIdToAreaMap = new HashMap<String, String>();
+            genEdCourseIdToAreaMap = new HashMap<String, Collection<String>>();
             initializeGenEdCourses();
 
             coreCoursesIds = new ArrayList<String>();
@@ -51,6 +51,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
             electiveCourseIdToCategoryMap = new HashMap<String, String>();
             initializeElectiveCourses();
+            System.out.println("initialized");
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,10 +62,9 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     public static UniversityDatabase getDatabase() {
         if (db == null) {
-            return new UniversityDatabase();
-        } else {
-            return db;
-        }
+            db = new UniversityDatabase();
+        } 
+        return db;
     }
 
     @Override
@@ -158,7 +158,7 @@ public class UniversityDatabase implements IUniversityDatabase {
             while (rset.next()) {
 
                 int credits = rset.getInt("Credits");
-                
+
                 totalCredits += credits;
             }
 
@@ -271,9 +271,10 @@ public class UniversityDatabase implements IUniversityDatabase {
                 String grade = rset.getString("Grade");
 
                 Course retrievedCourse = getCourse(courseId);
-                retrievedCourse.setGrade(grade);
-
-                record.addCourse(retrievedCourse);
+                if (retrievedCourse != null) {
+                    retrievedCourse.setGrade(grade);
+                    record.addCourse(retrievedCourse);
+                }
             }
 
             retrieveRecordStmt.close();
@@ -402,7 +403,10 @@ public class UniversityDatabase implements IUniversityDatabase {
                 Course retrievedCourse = getCourse(courseId);
 
                 genEdAreaToCoursesMap.get(area).add(retrievedCourse);
-                genEdCourseIdToAreaMap.put(courseId, area);
+                if (genEdCourseIdToAreaMap.get(courseId) == null) {
+                    genEdCourseIdToAreaMap.put(courseId, new ArrayList<String>());
+                }
+                genEdCourseIdToAreaMap.get(courseId).add(area);
 
             }
 
@@ -452,7 +456,7 @@ public class UniversityDatabase implements IUniversityDatabase {
     public boolean isGenEd(String courseId, String genEdArea) {
 
         return genEdCourseIdToAreaMap.containsKey(courseId)
-                && genEdCourseIdToAreaMap.get(courseId).equals(genEdArea);
+                && genEdCourseIdToAreaMap.get(courseId).contains(genEdArea);
 
 //        PreparedStatement retrieveCreditsStmt;
 //        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";

@@ -16,7 +16,7 @@
 ;; First Year Experience (F) Requirements
 (defrule gen-ed-f
   "Advise student if Gen Ed First Year Experience requirements not satisfied."
-  (not (Course {courseId == "UNIV 189"}))
+  (not (exists (Course {courseId == "UNIV 189"})))
   =>
   (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed First Year Experience requirements not satisfied" "Skills for Academic Success (UNIV 189) is required, but is not listed among courses." "ISSUE")))
@@ -49,7 +49,8 @@
 			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "S")))) ;; CE
   (test (< ?totalCredits 10))
   =>
-;;  ((System.out) println (?totalCredits toString))
+  ; ((System.out) println "S req crdits:")
+  ; ((System.out) println (?totalCredits toString))
   (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Science & Technology requirements not satisfied" "At least 10 credits in the General Education Science and Technology area are required." "ISSUE")))
 
@@ -65,6 +66,18 @@
   =>
   (assert (gen-ed-ld-not-satisfied))
   (add (new Advice "GenEdRequirement" "Gen Ed Humanities & Fine Arts requirements not satisfied" "At least 6 credits in the General Education Humanities & Fine Arts area are required." "ISSUE")))
+
+; (defrule gen-ed-b-test
+;   "test"
+;   (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "B")))
+;   =>
+;   ((System.out) println ?t))
+
+; (defrule gen-ed-a-test
+;   "test"
+;   (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "A")))
+;   =>
+;   ((System.out) println ?t))
 
 ;; Social & Behavioral Sciences (B) Requirements
 ;; TODO - make sure all different
