@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +30,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
     private Connection dbConnection;
     private Map<String, Collection<Course>> genEdCourseMap;
-    private Collection<Course> coreCourses;
+    private Collection<String> coreCoursesIds;
 
     private UniversityDatabase() {
 
@@ -37,6 +39,23 @@ public class UniversityDatabase implements IUniversityDatabase {
             dbConnection = DriverManager.getConnection(DB_FILE);
 
             initializeGenEdCourseMap();
+            
+            coreCoursesIds = new ArrayList<String>();
+            coreCoursesIds.add("CSCI 160");
+            coreCoursesIds.add("CSCI 161");
+            coreCoursesIds.add("CSCI 213");
+            coreCoursesIds.add("CSCI 222");
+            coreCoursesIds.add("CSCI 313");
+            coreCoursesIds.add("CSCI 336");
+            coreCoursesIds.add("CSCI 366");
+            coreCoursesIds.add("CSCI 372");
+            coreCoursesIds.add("CSCI 374");
+            coreCoursesIds.add("CSCI 415");
+            coreCoursesIds.add("CSCI 445");
+            coreCoursesIds.add("CSCI 467");
+            coreCoursesIds.add("CSCI 474");
+            coreCoursesIds.add("CSCI 489");
+                        
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -85,6 +104,17 @@ public class UniversityDatabase implements IUniversityDatabase {
         }
 
         return courses;
+    }
+    
+    public boolean coreCoursesSatsified(int studentId) {
+        
+        List<String> coursesTaken = getStudentCourseIds(studentId);
+        for (String id : coreCoursesIds) {
+            if (!coursesTaken.contains(id)) {
+                return false;
+            }
+        }        
+        return true; 
     }
 
     @Override
@@ -189,6 +219,37 @@ public class UniversityDatabase implements IUniversityDatabase {
 
         return record;
     }
+    
+    public List<String> getStudentCourseIds(int studentId) {
+
+        PreparedStatement retrieveRecordStmt;
+        String query = "SELECT CourseId FROM Records WHERE StudentId = ?";
+
+        ArrayList<String> courseIds = new ArrayList<String>();
+
+        try {
+
+            retrieveRecordStmt = dbConnection.prepareStatement(query);
+            retrieveRecordStmt.setInt(1, studentId);
+
+            ResultSet rset = retrieveRecordStmt.executeQuery();
+
+            while (rset.next()) {
+
+                String courseId = rset.getString("CourseId");
+                courseIds.add(courseId);
+            }
+
+            retrieveRecordStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return courseIds;
+    }
+
 
     @Override
     public Collection<Course> getCourses(String dept) {

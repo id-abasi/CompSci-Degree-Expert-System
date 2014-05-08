@@ -59,4 +59,10 @@ public class Record {
 
     }
 
+    public List<Course> getStudentCourses() {
+        return studentCourses;
+    }
+    
+    
+
 }

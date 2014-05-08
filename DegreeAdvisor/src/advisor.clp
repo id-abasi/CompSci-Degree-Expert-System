@@ -216,6 +216,13 @@
   =>
   (add (new Advice "MajorRequirement" "Computer Science Major requirements not satisfied" "A grade of 'C' or better is required for all CSCI courses." "ISSUE")))
 
+;; all core CSCI courses taken
+(defrule core-courses-taken
+  "Advise student if all core CSCI courses have not been taken."
+  (not (exists (Record (studentId ?s&:(core-courses-satisfied ?s)))))
+  =>
+  (add (new Advice "MajorRequirement" "Major requirements not satisfied" "All core CSCI courses have not been taken." "ISSUE")))
+
 ;; UNIVERSITY GRADUATION REQUIREMENTS
 ;; Total Degree Credits Requirement
 (defrule total-credits
