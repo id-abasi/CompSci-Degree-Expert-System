@@ -1,6 +1,7 @@
 package com.joshktan.advisor;
 
 import com.joshktan.advisor.data.UniversityDatabase;
+import com.joshktan.advisor.jess.AdditionalHumanSocSciFunction;
 import com.joshktan.advisor.jess.CoreCoursesSatsifiedFunction;
 import com.joshktan.advisor.jess.ElectiveCategoryReqFunction;
 import com.joshktan.advisor.jess.IsCoreCourseFunction;
@@ -65,6 +66,7 @@ public class DegreeAdvisor {
         brain.addUserfunction(new IsCoreCourseFunction());
         brain.addUserfunction(new ElectiveCategoryReqFunction());
         brain.addUserfunction(new IsElectiveCourseFunction());
+        brain.addUserfunction(new AdditionalHumanSocSciFunction());
     }
     
     private void loadStudentData(int studentId) throws JessException {

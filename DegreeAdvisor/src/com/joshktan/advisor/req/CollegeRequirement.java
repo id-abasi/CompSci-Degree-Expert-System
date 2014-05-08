@@ -8,12 +8,12 @@ public class CollegeRequirement extends Requirement {
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "College of Science & Mathematics Requirements";
     }
 
     @Override
     public String getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "The College of Science & Mathematics requires an additional 9 credits in Humanities or Social Sciences.";
     }
 
 }

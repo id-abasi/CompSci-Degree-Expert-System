@@ -260,7 +260,7 @@
 
 ;; Additional Science course
 (defrule related-course-req-science
-  "Advise student if additional science course requiremnet not fulfilled."
+  "Advise student if additional science course requirement not fulfilled."
   ?totalCredits <- (accumulate (bind ?count 0)                                                ;; initializer
 			       (bind ?count (+ ?count ?credits))                              ;; action
 			       ?count                                                         ;; result
@@ -270,6 +270,13 @@
 ;;  ((System.out) println (?totalCredits toString))
   (assert (related-course-req-not-sat))
   (add (new Advice "RelatedRequirement" "Related course requirements for additianl science course not satisfied." "One additional science course that satisifies general education is required." "ISSUE")))
+
+;; COLLEGE REQUIREMENTS
+(defrule additional-human-soc-sci
+  "Advise student if additional humanities and social sciences requirements not fulfilled."
+  (not (exists (Record (studentId ?s&:(additional-human-soc-sci-satisfied ?s)))))
+  =>
+  (add (new Advice "CollegeRequirement" "College requirements not satisfied" "An additional 9 credits in Humanities or Social Sciences are required." "ISSUE")))
 
 
 ;; UNIVERSITY GRADUATION REQUIREMENTS

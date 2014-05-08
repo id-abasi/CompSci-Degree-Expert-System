@@ -1640,3 +1640,15 @@ INSERT INTO Courses VALUES('THEA 665', 'Directing II', 3);
 INSERT INTO Courses VALUES('WGS 350', 'Perspectives in Women''s Studies', 3);
 INSERT INTO Courses VALUES('WGS 450', 'Issues in Women and Gender Studies', 3);
 INSERT INTO Courses VALUES('WGS 489', 'Internship/Capstone', 3);
+
+
+-- select Credits
+-- from Courses C
+-- where C.Id in (
+--       select CourseId 
+--       from Records 
+--       where StudentId == 4)
+--    AND 
+--       ((C.Id LIKE 'ADHM%' OR C.Id LIKE 'ANTH%' OR C.Id LIKE 'ARCH%' OR C.Id LIKE 'ART%' OR C.Id LIKE 'CJ%' OR C.Id LIKE 'CLAS%' OR C.Id LIKE 'COMM%' OR C.Id LIKE 'ECON%' OR C.Id LIKE 'ENGL%' OR C.Id LIKE 'FREN%' OR C.Id LIKE 'GEOG%' OR C.Id LIKE 'GERM%' OR C.Id LIKE 'HDFS%' OR C.Id LIKE 'HIST%' OR C.Id LIKE 'LA%' OR C.Id LIKE 'LANG%' OR C.Id LIKE 'MUSC%' OR C.Id LIKE 'PHIL%' OR C.Id LIKE 'POLS%' OR C.Id LIKE 'PSYC%' OR C.Id LIKE 'RELS%' OR C.Id LIKE 'SOC%' OR C.Id LIKE 'SPAN%' OR C.Id LIKE 'THEA%' OR C.Id LIKE 'WGS%')
+--       OR
+--       (C.Id in (select Id from GenEdCourses where Area == 'A' OR Area == 'B')))

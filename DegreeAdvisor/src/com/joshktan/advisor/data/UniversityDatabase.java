@@ -112,6 +112,66 @@ public class UniversityDatabase implements IUniversityDatabase {
         return categoriesSatisfied.size() >= 2;
     }
 
+    public boolean additionalHumanSocialSciSatisfied(int studentId) {
+
+        PreparedStatement retrieveCreditsStmt;
+        String query = "SELECT Credits from COURSES C WHERE C.Id IN "
+                + "(SELECT CourseId FROM Records WHERE StudentId == ?) "
+                + "AND ( "
+                + "(C.Id LIKE 'ADHM%' OR "
+                + "C.Id LIKE 'ANTH%' OR "
+                + "C.Id LIKE 'ARCH%' OR "
+                + "C.Id LIKE 'ART%' OR "
+                + "C.Id LIKE 'CJ%' OR "
+                + "C.Id LIKE 'CLAS%' OR "
+                + "C.Id LIKE 'COMM%' OR "
+                + "C.Id LIKE 'ECON%' OR "
+                + "C.Id LIKE 'ENGL%' OR "
+                + "C.Id LIKE 'FREN%' OR "
+                + "C.Id LIKE 'GEOG%' OR "
+                + "C.Id LIKE 'GERM%' OR "
+                + "C.Id LIKE 'HDFS%' OR "
+                + "C.Id LIKE 'HIST%' OR "
+                + "C.Id LIKE 'LA%' OR "
+                + "C.Id LIKE 'LANG%' OR "
+                + "C.Id LIKE 'MUSC%' OR "
+                + "C.Id LIKE 'PHIL%' OR "
+                + "C.Id LIKE 'POLS%' OR "
+                + "C.Id LIKE 'PSYC%' OR "
+                + "C.Id LIKE 'RELS%' OR "
+                + "C.Id LIKE 'SOC%' OR "
+                + "C.Id LIKE 'SPAN%' OR "
+                + "C.Id LIKE 'THEA%' OR "
+                + "C.Id LIKE 'WGS%') "
+                + "OR (C.Id IN "
+                + "(SELECT Id FROM GenEdCourses WHERE Area == 'A' OR Area == 'B')))";
+
+        int totalCredits = 0;
+
+        try {
+
+            retrieveCreditsStmt = dbConnection.prepareStatement(query);
+            retrieveCreditsStmt.setInt(1, studentId);
+
+            ResultSet rset = retrieveCreditsStmt.executeQuery();
+
+            while (rset.next()) {
+
+                int credits = rset.getInt("Credits");
+                
+                totalCredits += credits;
+            }
+
+            retrieveCreditsStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return totalCredits >= 21;
+    }
+
     public boolean coreCoursesSatsified(int studentId) {
 
         List<String> coursesTaken = getStudentCourseIds(studentId);
@@ -394,24 +454,24 @@ public class UniversityDatabase implements IUniversityDatabase {
         return genEdCourseIdToAreaMap.containsKey(courseId)
                 && genEdCourseIdToAreaMap.get(courseId).equals(genEdArea);
 
-//        PreparedStatement retrieveRecordStmt;
+//        PreparedStatement retrieveCreditsStmt;
 //        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
 //
 //        boolean found = false;
 //
 //        try {
 //
-//            retrieveRecordStmt = dbConnection.prepareStatement(query);
-//            retrieveRecordStmt.setString(1, courseId);
-//            retrieveRecordStmt.setString(2, genEdArea);
+//            retrieveCreditsStmt = dbConnection.prepareStatement(query);
+//            retrieveCreditsStmt.setString(1, courseId);
+//            retrieveCreditsStmt.setString(2, genEdArea);
 //
-//            ResultSet rset = retrieveRecordStmt.executeQuery();
+//            ResultSet rset = retrieveCreditsStmt.executeQuery();
 //
 //            if (rset.next()) {
 //                found = true;
 //            }
 //
-//            retrieveRecordStmt.close();
+//            retrieveCreditsStmt.close();
 //            rset.close();
 //
 //        } catch (SQLException e) {
