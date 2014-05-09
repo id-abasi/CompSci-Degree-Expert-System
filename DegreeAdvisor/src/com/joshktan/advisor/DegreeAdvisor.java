@@ -49,6 +49,7 @@ public class DegreeAdvisor {
 
     public void recreate() throws JessException {
         brain = new Rete();
+        brain.clear();
         brain.reset();
 
         // Load the pricing rules and functions
@@ -102,11 +103,13 @@ public class DegreeAdvisor {
 
         // Fire the rules that apply to this order
         brain.run();
+        
 
         // Return the list of offers created by the rules
         HashMap<String, Iterator> feedback = new HashMap<String, Iterator>();
         feedback.put("Advice", brain.getObjects(new Filter.ByClass(Advice.class)));
         feedback.put("Congrats", brain.getObjects(new Filter.ByClass(Congrats.class)));
+        
         return feedback;
     }
     

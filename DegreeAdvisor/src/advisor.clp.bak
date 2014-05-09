@@ -20,7 +20,7 @@
   "Check if Gen Ed First Year Experience category requirements are satisfied."
   (not (exists (Course {courseId == "UNIV 189"})))
   =>
-  (assert (gen-ed-not-satisfied))
+;;  (assert (gen-ed-not-satisfied))
   (add (new Advice "GenEdRequirement" "First Year Experience (F) category requirements not satisfied." "'Skills for Academic Success' (UNIV 189) is required." "ISSUE")))
 
 ;; Communication (C) Requirements
@@ -30,7 +30,7 @@
   (not (exists (Course {courseId == "ENGL 110"})))
   (not (exists (Course {courseId == "ENGL 120"})))
   =>
-  (assert (gen-ed-not-satisfied))
+;;  (assert (gen-ed-not-satisfied))
   (add (new Advice "GenEdRequirement" "Communication (C) category requirements not satisfied." "'College Composition I' (ENGL 110), 'College Composition II' (ENGL 120), and 'Fundamentals of Public Speaking' (COMM 110) are required." "ISSUE")))
 
 ;; Quantitative Reasoning (R) Requirements
@@ -38,7 +38,7 @@
   "Check if Quantitative Reasoning (R) category requirements are satisfied."
   (not (Course {courseId == "MATH 165"}))
   =>
-  (assert (gen-ed-not-satisfied))
+;;  (assert (gen-ed-not-satisfied))
   (add (new Advice "GenEdRequirement" "Quantitative Reasoning (R) category requirements not satisfied." "'Calculus I' (MATH 165) is required." "ISSUE")))
 
 ;; Science & Technology (S) Requirements
@@ -78,7 +78,7 @@
   =>
   (assert (gen-ed-not-satisfied))
   (bind ?rem (- 6 ?totalCredits))
-  (add (new Advice "GenEdRequirement" "Social & Behavioral Sciences (B) category requirements not satisfied." (str-cat "At least 6 General Education credits in the Social & Behavioral Sciences (B) area are required. [" ?rem " additional credits required.]") "ISSUE")))
+  (add (new Advice "GenEdRequirement" "Social & Behavioral Sciences (A) category requirements not satisfied." (str-cat "At least 6 General Education credits in the Social & Behavioral Sciences (B) area are required. [" ?rem " additional credits required.]") "ISSUE")))
 
 ;; Wellness (W) Requirements
 (defrule gen-ed-w
@@ -160,12 +160,20 @@
   "Check if student record contains Computer Science electives belonging to at least 2 different categories."
   (not (exists (Record (studentId ?sId&:(at-least-2-elect-cat ?sId)))))
   =>
+
   (assert (elective-req-not-met)))
 
 ;; Computer Science Elective Requirements
 (defrule cs-elective-req
   "Check if Computer Science Elective requirements are satisfied."
-  (exists (elective-req-not-met))
+;;  (elective-req-not-met)
+  ?totalCourses <- (accumulate (bind ?count 0)
+			       (bind ?count (+ ?count 1))
+			       ?count
+			       (Course (courseId ?cId&:(is-elective ?cId))))
+;;  (test (< ?totalCourses 3))
+  (not (exists (Record (studentId ?sId&:(at-least-2-elect-cat ?sId)))))
+
   =>
   (assert (bs-cs-degree-req-not-met))
   (add (new Advice "MajorRequirement" "Computer Science Elective requirements not satisfied." "3 CSCI elective courses from at least 2 categories are required." "ISSUE")))
@@ -173,7 +181,19 @@
 ;; B.S. Computer Science Degree Requirement
 (defrule bs-cs-degree-req
   "Check if B.S. Computer Science degree requirements are satisified."
-  (not (exists (bs-cs-degree-req-not-met)))
+  ?totalCourses <- (accumulate (bind ?count 0)
+			       (bind ?count (+ ?count 1))
+			       ?count
+			       (Course (courseId ?cId&:(is-elective ?cId))))
+
+  (not (or 
+  (exists (Course (courseId ?cId&:(eq "CSCI" (sub-string 1 4 ?cId)))
+ 		  (grade "D"|"F")))
+  (not (exists (Record (studentId ?s&:(core-courses-satisfied ?s)))))
+
+  (not (exists (Record (studentId ?sId&:(at-least-2-elect-cat ?sId)))))
+  ))
+  (test (>= ?totalCourses 3))
   =>
   (add (new Congrats "All B.S. Computer Science degree requirements are satisfied.")))
 
@@ -245,12 +265,37 @@
 ;; One Year Lab Science Sequence Requirement
 (defrule lab-sci-seq-req
   "Check if One Year Lab Science Sequence requirement is satisified."
-  (exists (no-biol-126-seq))
-  (exists (no-chem-121-seq))
-  (exists (no-chem-150-seq))
-  (exists (no-geol-105-seq))
-  (exists (no-phys-211-seq))
-  (exists (no-phys-251-seq))
+(exists  (or (and 
+  (not (exists (Course {courseId == "BIOL 126"})))
+  (not (exists (Course {courseId == "BIOL 126L"})))
+  (not (exists (Course {courseId == "BIOL 220"})))
+  (not (exists (Course {courseId == "BIOL 220L"})))
+) ( and 
+  (not (exists (Course {courseId == "CHEM 121"})))
+  (not (exists (Course {courseId == "CHEM 121L"})))
+  (not (exists (Course {courseId == "CHEM 122"})))
+  (not (exists (Course {courseId == "CHEM 122L"})))
+) ( and 
+  (not (exists (Course {courseId == "CHEM 150"})))
+  (not (exists (Course {courseId == "CHEM 160"})))
+  (not (exists (Course {courseId == "CHEM 151"})))
+  (not (exists (Course {courseId == "CHEM 161"})))
+) ( and 
+  (not (exists (Course {courseId == "GEOL 105"})))
+  (not (exists (Course {courseId == "GEOL 105L"})))
+  (not (exists (Course {courseId == "GEOL 106"})))
+  (not (exists (Course {courseId == "GEOL 106L"})))
+) ( and 
+  (not (exists (Course {courseId == "PHYS 211"})))
+  (not (exists (Course {courseId == "PHYS 211L"})))
+  (not (exists (Course {courseId == "PHYS 212"})))
+  (not (exists (Course {courseId == "PHYS 212L"})))
+) ( and 
+  (not (exists (Course {courseId == "PHYS 251"})))
+  (not (exists (Course {courseId == "PHYS 251L"})))
+  (not (exists (Course {courseId == "PHYS 252"})))
+  (not (exists (Course {courseId == "PHYS 252L"})))
+)))
   =>
   (assert (related-course-req-not-sat))
   (add (new Advice "RelatedRequirement" "One Year Lab Science Sequence requirement not satisfied." "A one year lab science sequence is required. See curriculum guide for qualifying courses." "ISSUE")))
@@ -280,6 +325,51 @@
 ;; Related Courses Requirement
 (defrule related-course-req
   "Check if Related Courses requirement is satisfied."
+
+  ?totalCredits <- (accumulate (bind ?count 0)
+			       (bind ?count (+ ?count ?credits))
+			       ?count
+			       (Course (credits ?credits) (courseId ?t&:(is-gen-ed ?t "S"))))
+
+; ( not (or (exists  (or (and 
+;   (not (exists (Course {courseId == "BIOL 126"})))
+;   (not (exists (Course {courseId == "BIOL 126L"})))
+;   (not (exists (Course {courseId == "BIOL 220"})))
+;   (not (exists (Course {courseId == "BIOL 220L"})))
+; ) ( and 
+;   (not (exists (Course {courseId == "CHEM 121"})))
+;   (not (exists (Course {courseId == "CHEM 121L"})))
+;   (not (exists (Course {courseId == "CHEM 122"})))
+;   (not (exists (Course {courseId == "CHEM 122L"})))
+; ) ( and 
+;   (not (exists (Course {courseId == "CHEM 150"})))
+;   (not (exists (Course {courseId == "CHEM 160"})))
+;   (not (exists (Course {courseId == "CHEM 151"})))
+;   (not (exists (Course {courseId == "CHEM 161"})))
+; ) ( and 
+;   (not (exists (Course {courseId == "GEOL 105"})))
+;   (not (exists (Course {courseId == "GEOL 105L"})))
+;   (not (exists (Course {courseId == "GEOL 106"})))
+;   (not (exists (Course {courseId == "GEOL 106L"})))
+; ) ( and 
+;   (not (exists (Course {courseId == "PHYS 211"})))
+;   (not (exists (Course {courseId == "PHYS 211L"})))
+;   (not (exists (Course {courseId == "PHYS 212"})))
+;   (not (exists (Course {courseId == "PHYS 212L"})))
+; ) ( and 
+;   (not (exists (Course {courseId == "PHYS 251"})))
+;   (not (exists (Course {courseId == "PHYS 251L"})))
+;   (not (exists (Course {courseId == "PHYS 252"})))
+;   (not (exists (Course {courseId == "PHYS 252L"})))
+; )))
+
+;   (or (not (exists (Course {courseId == "MATH 166"})))
+;   (not (exists (Course {courseId == "STAT 367"})))
+;   (not (exists (Course {courseId == "STAT 368"}))))
+; ))
+
+  (test (>= (- ?totalCredits ?*lab-seq-credits*) 3))
+
   (not (exists (related-course-req-not-sat)))
   =>
   (add (new Congrats "All Related Course requirements are satisfied.")))
@@ -326,7 +416,7 @@
 ;; Bachelor of Science Requirements
 (defrule bachelor-science-req
   "Congratulate student if Bachelor of Science requirements are satisfied."
-  (exists (bs-sat))
+  (bs-sat)
   =>
   (add (new Congrats "All Bachelor of Science requirements are satisfied.")))
 
@@ -342,7 +432,7 @@
   (not (exists (bs-cs-degree-req-not-met)))
   (not (exists (related-course-req-not-sat)))
   (not (exists (college-req-not-sat)))
-  (exists (bs-sat))
+  (bs-sat)
   =>
   (assert (honors))
   (if (>= ?record.gpa 3.90) then

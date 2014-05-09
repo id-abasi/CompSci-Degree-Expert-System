@@ -310,7 +310,7 @@ public class UniversityDatabase implements IUniversityDatabase {
     public Record getStudentRecord(int studentId) {
 
         PreparedStatement retrieveRecordStmt;
-        String query = "SELECT * FROM Records WHERE StudentId = ?";
+        String query = "SELECT * FROM Records WHERE StudentId = ? ORDER BY CourseId";
 
         Record record = new Record(studentId);
 

@@ -67,7 +67,6 @@ public class TestAdvisor {
         System.out.println("\nGPA: " + studentRecord.getGpa() + "\n");
 
         HashMap<String, Iterator> feedback = null;
-
         feedback = advisor.run(studentRecord);
 
         if (feedback != null) {
