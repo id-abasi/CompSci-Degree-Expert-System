@@ -51,7 +51,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
             electiveCourseIdToCategoryMap = new HashMap<String, String>();
             initializeElectiveCourses();
-            System.out.println("Database initialized.");
+
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);

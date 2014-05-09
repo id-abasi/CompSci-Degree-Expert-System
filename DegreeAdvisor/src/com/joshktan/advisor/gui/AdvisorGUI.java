@@ -449,7 +449,6 @@ public class AdvisorGUI extends javax.swing.JFrame {
 
             congrats = feedback.get("Congrats");
             if (!congrats.hasNext()) {
-                System.out.println("");
                 goodNewsTextArea.append("No good news. =(");
             }
 
