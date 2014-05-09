@@ -1,4 +1,4 @@
-package com.joshktan.com.advisor.test;
+package com.joshktan.advisor.test;
 
 import com.joshktan.advisor.DegreeAdvisor;
 import com.joshktan.advisor.data.UniversityDatabase;
