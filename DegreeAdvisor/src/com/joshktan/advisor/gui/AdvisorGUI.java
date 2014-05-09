@@ -6,6 +6,11 @@ import com.joshktan.advisor.model.Advice;
 import com.joshktan.advisor.model.Congrats;
 import com.joshktan.advisor.model.Course;
 import com.joshktan.advisor.model.Record;
+import com.joshktan.advisor.req.BachelorScienceRequirement;
+import com.joshktan.advisor.req.CollegeRequirement;
+import com.joshktan.advisor.req.GenEdRequirement;
+import com.joshktan.advisor.req.MajorRequirement;
+import com.joshktan.advisor.req.RelatedRequirement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -153,29 +158,28 @@ public class AdvisorGUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(coursePrefixComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(courseNumComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(courseTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(coursePrefixComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(courseNumComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(courseTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
                                 .addComponent(addButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(clearButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(analyzeButton)))
-                        .addGap(0, 86, Short.MAX_VALUE)))
+                        .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,18 +197,18 @@ public class AdvisorGUI extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(courseTitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(coursePrefixComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(courseNumComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(coursePrefixComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(courseNumComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(courseTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addButton)
+                        .addComponent(clearButton)
+                        .addComponent(analyzeButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton)
-                    .addComponent(clearButton)
-                    .addComponent(analyzeButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -350,16 +354,26 @@ public class AdvisorGUI extends javax.swing.JFrame {
 
     private void analyzeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyzeButtonActionPerformed
 
+        badNewsTextArea.setText("");
+        goodNewsTextArea.setText("");
+        gpaValueLabel.setText("");
+        
         // create record
         Record studentRecord = new Record(1);
         for (Course studentCourse : studentCourses) {
             studentRecord.addCourse(studentCourse);
         }
 
-        Iterator<Advice> advice;
+//        Iterator<Advice> advice;
+        List<Advice> genEdAdvice = new ArrayList<Advice>();
+        List<Advice> bachelorScienceAdvice = new ArrayList<Advice>();
+        List<Advice> collegeAdvice = new ArrayList<Advice>();
+        List<Advice> majorAdvice = new ArrayList<Advice>();
+        List<Advice> relatedAdvice = new ArrayList<Advice>();
+
         Iterator<Congrats> congrats;
 
-        gpaValueLabel.setText(Float.toString(studentRecord.getGpa()));
+        gpaValueLabel.setText(String.format("%.4f", studentRecord.getGpa()));
 
         HashMap<String, Iterator> feedback = null;
         try {
@@ -369,17 +383,68 @@ public class AdvisorGUI extends javax.swing.JFrame {
         }
 
         if (feedback != null) {
-            advice = feedback.get("Advice");
+            Iterator<Advice> advice = feedback.get("Advice");
             if (!advice.hasNext()) {
                 badNewsTextArea.append("No bad news! =D");
             }
 
             while (advice.hasNext()) {
-                badNewsTextArea.append(advice.next().toString() + "\n");
+                Advice reqAdvice = advice.next();
+                if (reqAdvice.getRequirement() instanceof BachelorScienceRequirement) {
+                    bachelorScienceAdvice.add(reqAdvice);
+                } else if (reqAdvice.getRequirement() instanceof CollegeRequirement) {
+                    collegeAdvice.add(reqAdvice);
+                } else if (reqAdvice.getRequirement() instanceof GenEdRequirement) {
+                    genEdAdvice.add(reqAdvice);
+                } else if (reqAdvice.getRequirement() instanceof MajorRequirement) {
+                    majorAdvice.add(reqAdvice);
+                } else if (reqAdvice.getRequirement() instanceof RelatedRequirement) {
+                    relatedAdvice.add(reqAdvice);
+                }
+
+            }
+
+            // populate bad news text area
+            if (!genEdAdvice.isEmpty()) {
+                badNewsTextArea.append("GENERAL EDUCATION REQUIREMENTS:\n\n");
+                for (Advice advisorAdvice : genEdAdvice) {
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                }
+                badNewsTextArea.append("\n");
             }
             
-            badNewsTextArea.setCaretPosition(0);
+            if (!majorAdvice.isEmpty()) {
+                badNewsTextArea.append("B.S. COMPUTER SCIENCE REQUIREMENTS:\n\n");
+                for (Advice advisorAdvice : majorAdvice) {
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                }
+                badNewsTextArea.append("\n");
+            }
             
+            if (!relatedAdvice.isEmpty()) {
+                badNewsTextArea.append("RELATED COURSES REQUIREMENTS:\n\n");
+                for (Advice advisorAdvice : relatedAdvice) {
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                }
+                badNewsTextArea.append("\n");
+            }
+            
+            if (!bachelorScienceAdvice.isEmpty()) {
+                badNewsTextArea.append("B.S. DEGREE REQUIREMENTS:\n\n");
+                for (Advice advisorAdvice : bachelorScienceAdvice) {
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                }
+                badNewsTextArea.append("\n");
+            }
+            
+            if (!collegeAdvice.isEmpty()) {
+                badNewsTextArea.append("COLLEGE OF SCIENCE & MATHEMATICS REQUIREMENTS:\n\n");
+                for (Advice advisorAdvice : collegeAdvice) {
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                }
+            }
+
+            badNewsTextArea.setCaretPosition(0);
 
             congrats = feedback.get("Congrats");
             if (!congrats.hasNext()) {
@@ -390,7 +455,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             while (congrats.hasNext()) {
                 goodNewsTextArea.append(congrats.next().toString() + "\n");
             }
-            
+
             goodNewsTextArea.setCaretPosition(0);
         }
 

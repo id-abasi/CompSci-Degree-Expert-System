@@ -1,7 +1,11 @@
 package com.joshktan.advisor.model;
 
 import com.joshktan.advisor.req.Requirement;
-import com.joshktan.advisor.req.TotalCreditsRequirement;
+import com.joshktan.advisor.req.BachelorScienceRequirement;
+import com.joshktan.advisor.req.CollegeRequirement;
+import com.joshktan.advisor.req.GenEdRequirement;
+import com.joshktan.advisor.req.MajorRequirement;
+import com.joshktan.advisor.req.RelatedRequirement;
 
 /**
  *
@@ -19,16 +23,19 @@ public class Advice {
     public Advice(String requirementClassName, String summary, String details, String typeStr) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         requirement = (Requirement) Class.forName(REQ_PACKAGE_STRING + requirementClassName).newInstance();
 
-        if (requirement instanceof TotalCreditsRequirement) {
-            requirement = (TotalCreditsRequirement) requirement;
+        if (requirement instanceof BachelorScienceRequirement) {
+            requirement = (BachelorScienceRequirement) requirement;
+        } else if (requirement instanceof CollegeRequirement) {
+            requirement = (CollegeRequirement) requirement;
+        } else if (requirement instanceof GenEdRequirement) {
+            requirement = (GenEdRequirement) requirement;
+        } else if (requirement instanceof MajorRequirement) {
+            requirement = (MajorRequirement) requirement;
+        } else if (requirement instanceof RelatedRequirement) {
+            requirement = (RelatedRequirement) requirement;
         }
 
         type = AdviceType.valueOf(typeStr);
-        if (type == AdviceType.ISSUE) {
-            requirement.setSatisfied(false);
-        } else {
-            requirement.setSatisfied(true);
-        }
 
         this.summary = summary;
         this.details = details;
@@ -40,14 +47,18 @@ public class Advice {
         WARNING,
         ISSUE
     }
+    
+    public Requirement getRequirement() {
+        return requirement;
+    }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         
-        builder.append("Requirement: " + requirement.getName() + "(" + type + ")\n");
-        builder.append("Summary:\n\t" + summary + "\n");
-        builder.append("Details:\n\t" + details);
+        builder.append("Requirement: ").append(requirement.getName()).append("\n");
+        builder.append("Summary:\n\t").append(summary).append("\n");
+        builder.append("Details:\n\t").append(details);
         
         return builder.toString();
         

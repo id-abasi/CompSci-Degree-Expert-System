@@ -8,7 +8,7 @@
   (declare (from-class Advice)))
 
 ;; GLOBAL VARIABLES
-(defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.TotalCreditsRequirement TOTAL_CREDITS_REQUIRED))
+(defglobal ?*total-credit-req* = (get-member com.joshktan.advisor.req.BachelorScienceRequirement TOTAL_CREDITS_REQUIRED))
 (defglobal ?*lab-seq-credits* = 8)
 
 ;; GEN ED REQUIREMENTS
@@ -121,7 +121,7 @@
   (not (exists (Course {courseId == "ENGL 321" || courseId == "ENGL 324"})))
   =>
   (assert (gen-ed-not-satisfied))
-  (add (new Advice "GenEdRequirement" "Gen Ed upper division requirements not satisfied" "Either Writing in the Technical Professions (ENGL 321) or Writing in the Sciences (ENGL 324) is required, but neither is listed among courses." "ISSUE")))
+  (add (new Advice "GenEdRequirement" "Gen Ed upper division requirements not satisfied" "Either Writing in the Technical Professions (ENGL 321) or Writing in the Sciences (ENGL 324) is required." "ISSUE")))
 
 ;; Gen Ed Requirements
 (defrule gen-ed
@@ -189,7 +189,7 @@
   (no-phys-211-seq)
   (no-phys-251-seq)
   =>
-  (add (new Advice "LabScienceRequirement" "Lab Science Sequence requirements not satisfied" "A one year sequence of lab science courses (with corresponding labs) is required." "ISSUE")))
+  (add (new Advice "RelatedRequirement" "Lab Science Sequence requirements not satisfied" "A one year sequence of lab science courses (with corresponding labs) is required." "ISSUE")))
 
 ;; B.S. COMPUTER SCIENCE REQUIREMENTS
 
@@ -216,7 +216,7 @@
   (exists (elective-req-not-met))
   =>
   (assert (bs-cs-degree-req-not-met))
-  (add (new Advice "ElectiveRequirement" "Computer Science Elective requirements not satisfied" "3 CS electives are required from at least 2 categories." "ISSUE")))
+  (add (new Advice "MajorRequirement" "Computer Science Elective requirements not satisfied" "3 CS electives are required from at least 2 categories." "ISSUE")))
 
 (defrule cs-elective-req-credits
   "Credit subrequirement for Computer Science Elective requirements"
@@ -265,7 +265,7 @@
   (test (< (- ?totalCredits ?*lab-seq-credits*) 3))
   =>
   (assert (related-course-req-not-sat))
-  (add (new Advice "RelatedRequirement" "Related course requirements for additianl science course not satisfied." "One additional science course that satisifies general education is required." "ISSUE")))
+  (add (new Advice "RelatedRequirement" "Related course requirements for additional science course not satisfied." "One additional science course that satisifies general education is required." "ISSUE")))
 
 ;; COLLEGE REQUIREMENTS
 (defrule additional-human-soc-sci
@@ -291,7 +291,7 @@
     (not-enough-credits)
     ?r <- (Record)
     =>
-    (add (new Advice "TotalCreditsRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
+    (add (new Advice "BachelorScienceRequirement" "Too little credits" (str-cat "Have " ?r.totalCredits " credits, but need " ?*total-credit-req* ".") "ISSUE")))
 
 ;; CRITERA FOR GRADUATING WITH HONOR
 (defrule graduate-with-honors
