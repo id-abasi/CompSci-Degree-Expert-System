@@ -155,7 +155,9 @@ public class AdvisorGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(coursePrefixComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,32 +172,29 @@ public class AdvisorGUI extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
+                                .addComponent(jLabel5)
+                                .addContainerGap(300, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(courseGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(addButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(clearButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(analyzeButton)))
-                        .addGap(0, 46, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(analyzeButton)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(7, 7, 7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(courseTitleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,12 +216,14 @@ public class AdvisorGUI extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        badNewsTextArea.setEditable(false);
         badNewsTextArea.setColumns(20);
         badNewsTextArea.setRows(5);
         jScrollPane2.setViewportView(badNewsTextArea);
 
         newsTabbedPane.addTab("Bad News", jScrollPane2);
 
+        goodNewsTextArea.setEditable(false);
         goodNewsTextArea.setColumns(20);
         goodNewsTextArea.setRows(5);
         jScrollPane3.setViewportView(goodNewsTextArea);
@@ -283,7 +284,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 595, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -408,7 +409,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             if (!genEdAdvice.isEmpty()) {
                 badNewsTextArea.append("GENERAL EDUCATION REQUIREMENTS:\n\n");
                 for (Advice advisorAdvice : genEdAdvice) {
-                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n\n");
                 }
                 badNewsTextArea.append("\n");
             }
@@ -416,7 +417,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             if (!majorAdvice.isEmpty()) {
                 badNewsTextArea.append("B.S. COMPUTER SCIENCE REQUIREMENTS:\n\n");
                 for (Advice advisorAdvice : majorAdvice) {
-                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n\n");
                 }
                 badNewsTextArea.append("\n");
             }
@@ -424,7 +425,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             if (!relatedAdvice.isEmpty()) {
                 badNewsTextArea.append("RELATED COURSES REQUIREMENTS:\n\n");
                 for (Advice advisorAdvice : relatedAdvice) {
-                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n\n");
                 }
                 badNewsTextArea.append("\n");
             }
@@ -432,7 +433,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             if (!bachelorScienceAdvice.isEmpty()) {
                 badNewsTextArea.append("B.S. DEGREE REQUIREMENTS:\n\n");
                 for (Advice advisorAdvice : bachelorScienceAdvice) {
-                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n\n");
                 }
                 badNewsTextArea.append("\n");
             }
@@ -440,7 +441,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             if (!collegeAdvice.isEmpty()) {
                 badNewsTextArea.append("COLLEGE OF SCIENCE & MATHEMATICS REQUIREMENTS:\n\n");
                 for (Advice advisorAdvice : collegeAdvice) {
-                    badNewsTextArea.append(advisorAdvice.toString() + "\n");
+                    badNewsTextArea.append(advisorAdvice.toString() + "\n\n");
                 }
             }
 
@@ -453,7 +454,7 @@ public class AdvisorGUI extends javax.swing.JFrame {
             }
 
             while (congrats.hasNext()) {
-                goodNewsTextArea.append(congrats.next().toString() + "\n");
+                goodNewsTextArea.append(congrats.next().toString() + "\n\n");
             }
 
             goodNewsTextArea.setCaretPosition(0);

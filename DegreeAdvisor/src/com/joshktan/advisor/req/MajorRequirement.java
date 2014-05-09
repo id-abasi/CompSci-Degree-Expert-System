@@ -8,7 +8,7 @@ public class MajorRequirement extends Requirement {
 
     @Override
     public String getName() {
-        return "B.S. Computer Science Requirements.";
+        return "B.S. Computer Science Requirements";
     }
 
     @Override

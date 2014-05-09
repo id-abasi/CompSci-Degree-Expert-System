@@ -8,7 +8,7 @@ public class RelatedRequirement extends Requirement {
 
     @Override
     public String getName() {
-        return "Related required courses.";
+        return "Related Courses Requirement";
     }
 
     @Override
