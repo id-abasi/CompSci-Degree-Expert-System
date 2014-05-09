@@ -81,6 +81,15 @@ public class DegreeAdvisor {
             brain.addAll(record.getStudentCoursesIter());
         }
     }
+    
+        private void loadStudentData(Record studentRecord) throws JessException {
+
+        if (studentRecord != null) {
+            // Add the order and its contents to working memory
+            brain.add(studentRecord);
+            brain.addAll(studentRecord.getStudentCoursesIter());
+        }
+    }
 
     public HashMap<String, Iterator> run(int studentId) throws JessException {
         // Remove any previous order data, leaving only catalog data
@@ -92,6 +101,27 @@ public class DegreeAdvisor {
 
         // Load data for this order
         loadStudentData(studentId);
+
+        // Fire the rules that apply to this order
+        brain.run();
+
+        // Return the list of offers created by the rules
+        HashMap<String, Iterator> feedback = new HashMap<String, Iterator>();
+        feedback.put("Advice", brain.getObjects(new Filter.ByClass(Advice.class)));
+        feedback.put("Congrats", brain.getObjects(new Filter.ByClass(Congrats.class)));
+        return feedback;
+    }
+    
+    public HashMap<String, Iterator> run(Record studentRecord) throws JessException {
+        // Remove any previous order data, leaving only catalog data
+        // recreate, since reset() does not delete definstances
+        // (see: http://osdir.com/ml/java-jess/2010-06/msg00012.html)
+        
+        // brain.resetToMark(marker); //BEFORE
+        recreate(); //AFTER
+
+        // Load data for this order
+        loadStudentData(studentRecord);
 
         // Fire the rules that apply to this order
         brain.run();

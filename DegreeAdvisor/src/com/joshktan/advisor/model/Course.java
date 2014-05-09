@@ -36,7 +36,15 @@ public class Course {
 
     @Override
     public String toString() {
-        return courseId + " (" + title + ", " + credits + " credits)";
+        StringBuilder courseStringBuilder = new StringBuilder();
+        courseStringBuilder.append(courseId).append(" (").append(title).append(", ").append(credits).append(" credits");
+        if (!grade.equals("NA")) {
+            courseStringBuilder.append(", ").append(grade).append(")");
+        } else {
+            courseStringBuilder.append(")");
+        }
+        
+        return courseStringBuilder.toString();
     }
 
     public boolean isGenEd(String area) {

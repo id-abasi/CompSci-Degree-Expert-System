@@ -66,6 +66,62 @@ public class UniversityDatabase implements IUniversityDatabase {
         } 
         return db;
     }
+    
+    public ArrayList<String> getCourseNumbers(String prefix) {
+        PreparedStatement retrieveCoursesStmt;
+        String query = "SELECT Id FROM Courses WHERE Id LIKE ? ORDER BY Id";
+
+        ArrayList<String> numbers = new ArrayList<String>();
+
+        try {
+
+            retrieveCoursesStmt = dbConnection.prepareStatement(query);
+            retrieveCoursesStmt.setString(1, prefix + "%");
+            ResultSet rset = retrieveCoursesStmt.executeQuery();
+
+            while (rset.next()) {
+
+                String courseId = rset.getString("Id");
+                String num = courseId.split("\\s+")[1];
+                numbers.add(num);
+            }
+
+            retrieveCoursesStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return numbers;
+    }
+    
+    public String getCourseTitle(String prefix, String num) {
+        PreparedStatement retrieveCoursesStmt;
+        String query = "SELECT Title FROM Courses WHERE Id == ?";
+
+        String title = "";
+
+        try {
+
+            retrieveCoursesStmt = dbConnection.prepareStatement(query);
+            retrieveCoursesStmt.setString(1, prefix + " " + num);
+            ResultSet rset = retrieveCoursesStmt.executeQuery();
+
+            while (rset.next()) {
+
+                title = rset.getString("Title");
+            }
+
+            retrieveCoursesStmt.close();
+            rset.close();
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+
+        return title;
+    }
 
     @Override
     public Collection<Course> getCourses() {
