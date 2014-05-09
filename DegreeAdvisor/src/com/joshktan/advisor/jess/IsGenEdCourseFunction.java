@@ -30,5 +30,5 @@ public class IsGenEdCourseFunction implements Userfunction {
             return Funcall.FALSE;
         }
     }
-    
+
 }

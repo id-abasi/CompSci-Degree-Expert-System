@@ -10,7 +10,7 @@ import jess.ValueVector;
 
 /**
  *
- * @author jdot
+ * @author Josh Tan
  */
 public class AdditionalHumanSocSciFunction implements Userfunction {
 

@@ -38,9 +38,6 @@ public class DegreeAdvisor {
 
         // Load the catalog data into working memory
         this.database = UniversityDatabase.getDatabase();
-        
-//        boolean result = UniversityDatabase.getDatabase().isGenEd("ENGL 324", "S");
-        //brain.addAll(database.getCourses());
 
         // Mark end of catalog data for later
         marker = brain.mark();
@@ -59,7 +56,7 @@ public class DegreeAdvisor {
         // Mark end of catalog data for later
         marker = brain.mark();
     }
-    
+
     private void loadUserFunctions(Rete brain) {
         brain.addUserfunction(new IsGenEdCourseFunction());
         brain.addUserfunction(new CoreCoursesSatsifiedFunction());
@@ -67,7 +64,7 @@ public class DegreeAdvisor {
         brain.addUserfunction(new IsElectiveCourseFunction());
         brain.addUserfunction(new AdditionalHumanSocSciFunction());
     }
-    
+
     private void loadStudentData(int studentId) throws JessException {
 
         // Retreive record from database
@@ -80,8 +77,8 @@ public class DegreeAdvisor {
             brain.addAll(record.getStudentCoursesIter());
         }
     }
-    
-        private void loadStudentData(Record studentRecord) throws JessException {
+
+    private void loadStudentData(Record studentRecord) throws JessException {
 
         if (studentRecord != null) {
             // Add the order and its contents to working memory
@@ -94,32 +91,29 @@ public class DegreeAdvisor {
         // Remove any previous order data, leaving only catalog data
         // recreate, since reset() does not delete definstances
         // (see: http://osdir.com/ml/java-jess/2010-06/msg00012.html)
-        
-        // brain.resetToMark(marker); //BEFORE
-        recreate(); //AFTER
+
+        recreate();
 
         // Load data for this order
         loadStudentData(studentId);
 
         // Fire the rules that apply to this order
         brain.run();
-        
 
         // Return the list of offers created by the rules
         HashMap<String, Iterator> feedback = new HashMap<String, Iterator>();
         feedback.put("Advice", brain.getObjects(new Filter.ByClass(Advice.class)));
         feedback.put("Congrats", brain.getObjects(new Filter.ByClass(Congrats.class)));
-        
+
         return feedback;
     }
-    
+
     public HashMap<String, Iterator> run(Record studentRecord) throws JessException {
         // Remove any previous order data, leaving only catalog data
         // recreate, since reset() does not delete definstances
         // (see: http://osdir.com/ml/java-jess/2010-06/msg00012.html)
-        
-        // brain.resetToMark(marker); //BEFORE
-        recreate(); //AFTER
+
+        recreate();
 
         // Load data for this order
         loadStudentData(studentRecord);

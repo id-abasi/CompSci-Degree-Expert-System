@@ -16,6 +16,4 @@ public class MajorRequirement extends Requirement {
         return "Requirements needed to receive a B.S. Computer Science degree.";
     }
 
-
-    
 }

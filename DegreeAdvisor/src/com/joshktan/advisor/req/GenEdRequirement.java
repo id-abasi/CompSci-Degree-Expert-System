@@ -15,5 +15,5 @@ public class GenEdRequirement extends Requirement {
     public String getDescription() {
         return "General education requirements that apply to all students in pursuit of a baccalaureate degree.";
     }
-    
+
 }

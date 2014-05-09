@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author jdot
+ * @author Josh Tan
  */
 public class Record {
 
@@ -24,9 +24,9 @@ public class Record {
         float totalGradePoints = 0;
         for (Course course : studentCourses) {
             if (course.getGrade() != "NA") {
-                
+
                 float courseCredits = course.getCredits();
-                if (course.getGrade().equals("A")){ 
+                if (course.getGrade().equals("A")) {
                     totalGradePoints += 4 * courseCredits;
                 } else if (course.getGrade().equals("B")) {
                     totalGradePoints += 3 * courseCredits;
@@ -62,7 +62,5 @@ public class Record {
     public List<Course> getStudentCourses() {
         return studentCourses;
     }
-    
-    
 
 }

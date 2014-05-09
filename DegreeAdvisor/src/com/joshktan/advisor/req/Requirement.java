@@ -7,8 +7,7 @@ package com.joshktan.advisor.req;
 public abstract class Requirement {
 
     public abstract String getName();
-    
+
     public abstract String getDescription();
-    
-    
+
 }

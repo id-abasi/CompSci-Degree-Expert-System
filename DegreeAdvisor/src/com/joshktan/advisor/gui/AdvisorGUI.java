@@ -365,7 +365,6 @@ public class AdvisorGUI extends javax.swing.JFrame {
             studentRecord.addCourse(studentCourse);
         }
 
-//        Iterator<Advice> advice;
         List<Advice> genEdAdvice = new ArrayList<Advice>();
         List<Advice> bachelorScienceAdvice = new ArrayList<Advice>();
         List<Advice> collegeAdvice = new ArrayList<Advice>();

@@ -16,5 +16,4 @@ public class RelatedRequirement extends Requirement {
         return "Required MATH/STATS courses and one year lab science sequence requirements.";
     }
 
-    
 }

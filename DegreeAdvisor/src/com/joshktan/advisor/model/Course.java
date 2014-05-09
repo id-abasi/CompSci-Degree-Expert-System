@@ -43,14 +43,13 @@ public class Course {
         } else {
             courseStringBuilder.append(")");
         }
-        
+
         return courseStringBuilder.toString();
     }
 
     public boolean isGenEd(String area) {
         return UniversityDatabase.getDatabase().getGenEdCourseMap().get(area).contains(this);
     }
-
 
     public String getGrade() {
         return grade;
@@ -59,6 +58,5 @@ public class Course {
     public void setGrade(String grade) {
         this.grade = grade;
     }
-    
-    
+
 }

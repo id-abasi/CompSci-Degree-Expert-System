@@ -47,7 +47,6 @@ public class TestAdvisor {
 
     private static void processStudentCourses(UniversityDatabase db, DegreeAdvisor advisor, int studentId) throws JessException {
         Iterator<Course> courseIter;
-//        Iterator<Advice> advice;
         Iterator<Congrats> congrats;
 
         List<Advice> genEdAdvice = new ArrayList<Advice>();
@@ -93,7 +92,6 @@ public class TestAdvisor {
             }
 
             // print bad news
-            
             if (!genEdAdvice.isEmpty()) {
                 System.out.println("GENERAL EDUCATION REQUIREMENTS:\n");
                 for (Advice advisorAdvice : genEdAdvice) {
@@ -132,15 +130,15 @@ public class TestAdvisor {
                     System.out.println(advisorAdvice.toString() + "\n");
                 }
             }
-            
+
             System.out.println("");
-            
+
             congrats = feedback.get("Congrats");
             System.out.println("======== GOOD NEWS ========\n");
             if (!congrats.hasNext()) {
                 System.out.println("No good news. =(");
             } else {
-                
+
                 while (congrats.hasNext()) {
                     System.out.println(congrats.next().toString() + "\n");
                 }

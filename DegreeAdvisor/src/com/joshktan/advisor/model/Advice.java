@@ -12,7 +12,7 @@ import com.joshktan.advisor.req.RelatedRequirement;
  * @author Josh Tan
  */
 public class Advice {
-    
+
     private static final String REQ_PACKAGE_STRING = "com.joshktan.advisor.req.";
 
     private Requirement requirement;
@@ -47,7 +47,7 @@ public class Advice {
         WARNING,
         ISSUE
     }
-    
+
     public Requirement getRequirement() {
         return requirement;
     }
@@ -55,14 +55,13 @@ public class Advice {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        
+
         builder.append("Requirement: ").append(requirement.getName()).append("\n");
         builder.append("Summary:\n\t").append(summary).append("\n");
         builder.append("Details:\n\t").append(details);
-        
+
         return builder.toString();
-        
+
     }
-    
-    
+
 }

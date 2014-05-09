@@ -52,7 +52,6 @@ public class UniversityDatabase implements IUniversityDatabase {
             electiveCourseIdToCategoryMap = new HashMap<String, String>();
             initializeElectiveCourses();
 
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UniversityDatabase.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -63,10 +62,10 @@ public class UniversityDatabase implements IUniversityDatabase {
     public static UniversityDatabase getDatabase() {
         if (db == null) {
             db = new UniversityDatabase();
-        } 
+        }
         return db;
     }
-    
+
     public ArrayList<String> getCourseNumbers(String prefix) {
         PreparedStatement retrieveCoursesStmt;
         String query = "SELECT Id FROM Courses WHERE Id LIKE ? ORDER BY Id";
@@ -95,7 +94,7 @@ public class UniversityDatabase implements IUniversityDatabase {
 
         return numbers;
     }
-    
+
     public String getCourseTitle(String prefix, String num) {
         PreparedStatement retrieveCoursesStmt;
         String query = "SELECT Title FROM Courses WHERE Id == ?";
@@ -376,7 +375,7 @@ public class UniversityDatabase implements IUniversityDatabase {
     @Override
     public Collection<Course> getCourses(String dept) {
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
 
     }
 
@@ -513,32 +512,6 @@ public class UniversityDatabase implements IUniversityDatabase {
 
         return genEdCourseIdToAreaMap.containsKey(courseId)
                 && genEdCourseIdToAreaMap.get(courseId).contains(genEdArea);
-
-//        PreparedStatement retrieveCreditsStmt;
-//        String query = "SELECT * FROM GenEdCourses WHERE Id = ? AND Area = ?";
-//
-//        boolean found = false;
-//
-//        try {
-//
-//            retrieveCreditsStmt = dbConnection.prepareStatement(query);
-//            retrieveCreditsStmt.setString(1, courseId);
-//            retrieveCreditsStmt.setString(2, genEdArea);
-//
-//            ResultSet rset = retrieveCreditsStmt.executeQuery();
-//
-//            if (rset.next()) {
-//                found = true;
-//            }
-//
-//            retrieveCreditsStmt.close();
-//            rset.close();
-//
-//        } catch (SQLException e) {
-//            System.err.println(e);
-//        }
-//
-//        return found;
     }
 
     public boolean isLabScienceSequence(String courseOneId, String courseOneLabId,
